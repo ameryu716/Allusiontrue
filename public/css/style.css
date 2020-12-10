@@ -1,0 +1,26 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+    color: #625454;
+    color: #565656;
+    display: block;
+    padding: 0 1% 0 3%;
+    font-family: 'Noto Serif JP', serif;
+    height: 100vh;
+    overflow: hidden;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+#wrap {
+    height: 100%;
+}
+#main-wrap {
+    display: flex;
+    height: 100%;
+}
