@@ -1,6 +1,9 @@
 let express = require('express');
 let router = express.Router();
+let pg = require('pg');
+const bcrypt = require('bcrypt');
 
+import {hashing} from './hashModule';
 
 
 router.get("/",(req,res)=>{
@@ -22,20 +25,40 @@ router.post("/posts",(req,res)=>{
 })
 
 router.post("/setup",(req,res)=>{
-
     const sendedmail = req.body["mail"];
     const sendedpass = req.body["pass"];
-
-
-    const data = {
-        title: "setup-content",
-        content: "a"
-    }
-    console.log(data);
 })
 
-module.exports = router;
+
 
 function userSetupTest(mail){
-
+    // XSSたいさく
+    hashing(mail);
 }
+
+router.get('/tester',(req,res)=>{
+    let pool = new pg.Pool({
+        database: '',
+        user: '',
+        password: '',
+        host: '',
+        port: 0,
+    });
+    pool.connect((err, client)=>{
+        if(err){
+            console.log(err);
+            return false;
+        }else{
+            cliant.query('select * from userinfo',(err,result)=>{
+                res.render('index', {
+                    title: 'Express',
+                    datas: result.rows[0].mail,
+                  });
+                console.log(result);
+            });
+        }
+    });
+})
+
+
+module.exports = router;
