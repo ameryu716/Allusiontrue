@@ -89,6 +89,7 @@ main {
     display: flex;
     flex-direction: column;
     text-align: center;
+    position: relative;
 }
 
 .form-title {
@@ -162,17 +163,32 @@ main {
     border-radius: 0 0 10px 10px;
     border-top: none;
 }
+#signup-form-pass1{
+    border-radius: 0;
+    border-bottom: none;
+}
+
 
 /* passeyes */
 .pasappear {
     position: absolute;
-    top: 38%;
-    right: 35%;
     color: rgba(0,0,0,0.5);
     font-size: 20px;
+    font-style: normal;
     cursor: pointer;
 }
-
+#login-pasappear {
+    top: 45%;
+    right: 12%;
+}
+#signup-pasappear1{
+    top: 39%;
+    right: 12%;
+}
+#signup-pasappear2{
+    top: 51%;
+    right: 12%;
+}
 .errordiv {
     height: 10px;   
 }
