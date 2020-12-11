@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+aside {
+    position: relative;
+    width: 440px;
+    height: 94vh;
+    margin: 50px 0 0 10px;
+    border: solid 1px gray;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+.asideheader {
+    transition: 0.8s;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 102%;
+    background-color: rgba(255,255,255,0.7);
+    z-index: 4;
+    display: flex;
+    justify-content: flex-end;
+    /* visibility: hidden; */
+}
+.filter-icon {
+    position: relative;
+    font-size: 25px;
+    color: #189047cf;
+    z-index: 3;
+    cursor: alias;
+    margin: 8px 3px;
+}
+.filter-option {
+    position: relative;
+    height: auto;
+    border: none;
+    margin-right: 20px;
+    background-color: rgba(255,255,255,0.6);
+    font-size: 20px;
+    width: max-content;
+    color: coral;
+    font-weight: bold;
+}
+.filter-option:focus {
+    outline: 2px solid rgba(255,112,54,0.5);
+}
+.filter-option:after{
+    position: relative;
+    content: "";
+    display: block;
+    border: coral 3px solid;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+}
+
+
+aside ul {
+    top: -10%;
+    position: relative;
+    z-index: 1;
+    padding: 0 10px 10px 10px;
+}
+.animecard {
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    border: solid 1px gray;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 10px;
+}
+/* .anime-img-board {
+    width: 40%;
+    display: block;
+} */
+.anime-cnt-board {
+    width: 60%;
+    display: block;
+}
+.anime-sumbnail {
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.title-board {
+    width: 228px;
+    height: 35px;
+    border-bottom: gray solid 2px;
+    padding-left: 7px;
+    position: relative;
+}
+
+.card-title {
+    height: 40px;
+    width: 130px;
+    font-size: 21px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card-title span.scrolltype{
+    display: inline-block;
+    animation: wordscroll 8s infinite linear;
+    animation-delay: 2s;
+}
+@keyframes wordscroll {
+    0%{transform: translateX(0);}
+    15%{transform: translateX(0);}
+    100%{transform: translateX(-110%);}
+}
+
+
+
+.title-board .date {
+    font-size: 15px;
+    position: absolute;
+    display: inline-block;
+    left: 170px;
+    top: 2px;
+}
+.date::after{
+    display: block;
+    content: "";
+    width: 80px;
+    border-bottom: solid rgba(36, 219, 36, 0.7) 3px;
+    position: absolute;
+    top: 18px;
+    left: -5px;
+    transform: rotateZ(-3deg);
+}
+.card-content {
+    font-size: 23px;
+    padding: 12px 0 0 50px;
+}

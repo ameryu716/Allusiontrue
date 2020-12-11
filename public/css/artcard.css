@@ -1,0 +1,149 @@
+main#artcardew {
+    position: relative;
+    height: 80vh;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    border: solid 1px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    margin: 50px 0 0;
+    padding: 30px 15px;
+    overflow: hidden;
+}
+.di-back {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    font-size: 35px;
+    background-color: rgba(0,0,255,0.1);
+}
+.lefter {
+    width: 36vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.righter {
+    width: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.object {
+    border: 1px solid rgba(0,0,0,0.2);
+    width: fit-content;
+    font-size: 21px;
+    position: relative;
+    margin: 10px 15px;
+}
+.lefter.object {
+    margin: 3px 15px;
+}
+.object:not(:first-child),.object.title{
+    padding: 0 10px;
+    height: 50px;
+}
+.divname{
+    font-family: Caveat;
+    font-size: 23px;
+    position: absolute;
+    top: -15px;
+    left: -10px;
+}
+.object.anime-img {
+    margin: 30px 15px 10px 15px;
+    min-height: auto;
+    max-height: 285px;
+    height: fit-content;
+}
+.object #imguploads {
+    display: none;
+}
+#uploadlabel {
+    display: none;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+.imageplus-icon {
+    opacity: 0;
+    transition: 0.2s;
+    position: absolute;
+    font-size: 35px;
+    top: 29%;
+    left: 56%;
+}
+#uploadlabel:hover {
+    opacity: 0.7;
+}
+#uploadlabel:hover .imageplus-icon {
+    opacity: 1;
+    color: steelblue;
+}
+#uploadlabel:hover .imageicon{
+    color: green;
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+#uploadlabel:not(:hover) .imageicon {
+    transition: 0.5s;
+}
+.imageicon {
+    display: none;
+    font-size: 60px;
+    padding: 20px 0;
+    margin: 20.5% 40%;
+    color: #0000008c;
+}
+
+
+.anime-img img{
+    width: 450px;
+    object-fit: cover;
+}
+.object.when {
+    display: flex;
+    margin-left: 25px;
+    min-width: 144px;
+}
+.object.when i{
+    margin: 18px 0;
+}
+.object.when span.divcontents {
+    padding: 15px 10px;
+}
+.object.created {
+    min-width: 199px;
+}
+.object.onaired {
+    min-width: 185px;
+}
+.object.object.title {
+    min-width: 262px;
+}
+.object.arttype,.object.artscale {
+    border-radius: 25px;
+    min-width: 100px;
+}
+.object.else {
+    width: 190px;
+    height: 88px;
+}
+.pageout {
+    font-size: 40px;
+}
+.object.contents {
+    height: 300px;
+    width: 300px;
+}
+span.divcontents {
+    display: block;
+    padding: 10px 5px;
+}
+
+

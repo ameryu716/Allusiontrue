@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/cardlist.css">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <Alluheader></Alluheader>
+        </header>
+        <aside id="cardlist">
+            <div class="asideheader">
+                <div class="filter-icon">
+                    <i class="fas fa-filter"></i>
+                </div>
+                <select required class="filter-option">
+                    <option>視聴日時順</option>
+                    <option selected>50音順</option>
+                </select>
+            </div>
+            <ul>
+                <minicard 
+                    v-for="item in usertable" v-bind:onecard="item" v-bind:key="item.id"
+                ></minicard>
+            </ul>
+            
+
+        </aside>
+        <script src="../js/vues/header.js"></script>
+        <script src="../js/vues/cardlistew.js"></script>
+        <script src="../js/effect/textscroll.js"></script>
+    </body>
+</html>
