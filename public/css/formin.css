@@ -190,7 +190,8 @@ main {
     right: 12%;
 }
 .errordiv {
-    height: 10px;   
+    height: auto;
+    min-height: 10px;
 }
 
 /* error */
