@@ -1,5 +1,5 @@
 import {arttable} from "../../data/transiency-artdata.js";
-import {usrsett} from "../../data/transiency-usersett.js"
+import {usrsett} from "../../data/transiency-usersett.js";
 
 import {headeralpfa} from "./header.js";
 import {ArtCard} from "./artcardew.js";
@@ -56,6 +56,10 @@ async function artdataload() {
 
 
 const RootC = Vue.component("Rune",{
+    props: {
+        usrdata: Object,
+        artdata: Object
+    },
     components: {
         "home": Homedent,
         "Alluheader": headeralpfa,
@@ -101,7 +105,7 @@ const RootC = Vue.component("Rune",{
         <artcardent v-bind:val="ones" @backhome="hometoggle" v-if="isart"></artcardent>
         <addartcardent v-bind:artinfo="ones" v-if="isartentry" @backhome="hometoggle"></addartcardent>
         <asideboard v-bind:don="ones"></asideboard>
-        <button style="color:red;display:none;" v-on:click="dataset" >セット</button>
+        <button style="color:red;display:none;" v-on:click="usrdataset" >セット</button>
     </div>
     </div>
     `,
