@@ -8,4 +8,8 @@ router.get("/",(req,res)=>{
     });
 });
 
+router.post("/artentry",(req,res)=>{
+    console.log(req.query);
+})
+
 module.exports = router;

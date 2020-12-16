@@ -10,14 +10,22 @@ main#artcardew {
     padding: 30px 15px;
     overflow: hidden;
 }
+form#artentry {
+    display: flex;
+    flex-direction: row;
+}
 .di-back {
     position: absolute;
-    width: 70px;
-    height: 30px;
     top: 0;
     left: 0;
     font-size: 35px;
-    background-color: rgba(0,0,255,0.1);
+}
+i.backicon {
+    color: mediumseagreen;
+    margin: 10px 18px;
+    padding: 3px 8px;
+    border: solid mediumseagreen 2px;
+    border-radius: 5px;
 }
 .lefter {
     width: 36vw;
@@ -56,8 +64,10 @@ main#artcardew {
 }
 .object.anime-img {
     margin: 30px 15px 10px 15px;
-    min-height: auto;
+    min-height: 285px;
+    min-width: 450px;
     max-height: 285px;
+
     height: fit-content;
 }
 .object #imguploads {
@@ -114,7 +124,7 @@ main#artcardew {
 .object.when i{
     margin: 18px 0;
 }
-.object.when span.divcontents {
+.object.when .divcontents {
     padding: 15px 10px;
 }
 .object.created {
@@ -129,6 +139,7 @@ main#artcardew {
 .object.arttype,.object.artscale {
     border-radius: 25px;
     min-width: 100px;
+    margin: 10px;
 }
 .object.else {
     width: 190px;
@@ -141,9 +152,76 @@ main#artcardew {
     height: 300px;
     width: 300px;
 }
-span.divcontents {
+.divcontents {
     display: block;
     padding: 10px 5px;
 }
 
+input.divcontents,textarea.divcontents {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 21px;
+    border: none;
+    width: 100px;
+    background-color: transparent;
+    color:rgba(0,100,0,0.7);
+}
+input.divcontents:focus,textarea.divcontents:focus {
+    outline: none;
+}
+.when input.divcontents {
+    width: 100px;
+}
+.created input.divcontents {
+    width: 200px;
+}
+.onaired input.divcontents {
+    width: 160px;
+}
+.title input.divcontents {
+    width: 255px;
+}
+.arttype input.divcontents {
+    width: 95px;
+}
+.artscale input.divcontents {
+    width: 130px;
+}
+.contents textarea.divcontents {
+    width: 300px;
+    height: 280px;
+    padding: 10px 0;
+}
+
+
+
+
+
+
+#d-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-color: lightgreen;
+    border-color: #fff;
+    border-radius: 30px;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+    border-style: solid;
+    font-weight: bold;
+    font-family: monospace;
+    box-shadow: 0 3px 0 rgba(0,255,0,0.2);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+#d-btn:active {
+    box-shadow: 0 0 0 rgba(0,255,0,0.2);
+    bottom: 27px;
+}
+
+#d-btn:focus {
+    outline: none;
+}
 

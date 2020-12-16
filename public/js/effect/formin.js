@@ -1,10 +1,16 @@
+import {headeralpfa} from '../vues/header.js';
+
 new Vue({
-    el: "#signupform",
+    el: "#wrap",
     data: function(){
         return {
             email: "",
-            pass: ""
+            pass: "",
+            passOnemore: "",
         }
+    },
+    components: {
+        "Alluheader": headeralpfa,
     },
     computed: {
         emailcheck: function(){
@@ -14,6 +20,9 @@ new Vue({
         passcheck: function(){
             return this.pass.length >= 10;
         },
+        passequal: function(){
+            return !(this.pass === this.passOnemore);
+        }
     },
 })
 
@@ -40,9 +49,12 @@ const loginFormMail = document.getElementById("login-form-mail");
 const loginFormPass = document.getElementById("login-form-pass");
 
 const signupForm = document.getElementById("signupform");
-const signupPasAppear = document.getElementById("signup-pasappear");
+const signupPasAppear1 = document.getElementById("signup-pasappear1");
+const signupPasAppear2 = document.getElementById("signup-pasappear2");
 const signupFormMail = document.getElementById("signup-form-mail");
-const signupFormPass = document.getElementById("signup-form-pass");
+const signupFormPass1 = document.getElementById("signup-form-pass1");
+const signupFormPass2 = document.getElementById("signup-form-pass2");
+
 
 const loginSelectBack = document.getElementById("login-selectback");
 const signupSelectBack = document.getElementById("signup-selectback");
@@ -166,9 +178,16 @@ loginPasAppear.addEventListener("mousedown",()=>{
 loginPasAppear.addEventListener("mouseup",()=>{
     loginFormPass.type = "password";
 })
-signupPasAppear.addEventListener("mousedown",()=>{
-    signupFormPass.type = "text";
+signupPasAppear1.addEventListener("mousedown",()=>{
+    signupFormPass1.type = "text";
 })
-signupPasAppear.addEventListener("mouseup",()=>{
-    signupFormPass.type = "password";
+signupPasAppear1.addEventListener("mouseup",()=>{
+    signupFormPass1.type = "password";
+})
+
+signupPasAppear2.addEventListener("mousedown",()=>{
+    signupFormPass2.type = "text";
+})
+signupPasAppear2.addEventListener("mouseup",()=>{
+    signupFormPass2.type = "password";
 })

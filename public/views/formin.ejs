@@ -21,7 +21,7 @@
                     →
                 </div>
                 <div id="loginform" class="formdiv">
-                    <form action="/login/posts" method="POST" name="login" id="form-element" class="form">
+                    <form action="/login/login" method="POST" name="login" id="form-element" class="form">
                         <div id="login-form-title" class="form-title">
                             <div>
                                 <i id="login-selectback" class="selectback">←</i>
@@ -30,7 +30,10 @@
                         <input type="text" name="mail" placeholder="mail" id="login-form-mail"  class="loginput form-mail">
                         <input type="password" name="pass" placeholder="pass" id="login-form-pass" class="loginput form-pass">
                         <i id="login-pasappear" class="pasappear">◎</i>
-                        <p class="error-message"></p>
+                        <div class="errordiv">
+                            <p v-if="emailcheck" class="error-message">メールアドレスは正しく入力してください</p>
+                            <p class="error-message" style="text-align: center;font-size: 16px;padding-top: 5px;margin: 0 auto;"><%=loginErrorm %></p>
+                        </div>
                         <p id="login-pasforgot" class="pasforgot"><a href="#" tabindex="-1">◎パスワードを忘れたときは...</a></p>
                         <input type="submit" value="Enter" id="login-form-submit" class="form-submit">
                     </form>
@@ -52,11 +55,13 @@
                         <input type="text" name="mail" placeholder="mail" id="signup-form-mail" class="signupinput loginput form-mail" v-model="email">
                         <input type="password" name="pass" placeholder="pass" id="signup-form-pass1" class="signupinput loginput form-pass" v-model="pass">
                         <i id="signup-pasappear1" class="pasappear">◎</i>
-                        <input type="password" name="notdata_pass" placeholder="pass(one-more)" id="signup-form-pass2" class="signupinput loginput form-pass" v-model="pass">
+                        <input type="password" name="notdata_pass" placeholder="pass(one-more)" id="signup-form-pass2" class="signupinput loginput form-pass" v-model="passOnemore">
                         <i id="signup-pasappear2" class="pasappear">◎</i>
                             <div class="errordiv">
                                 <p v-if="emailcheck" class="error-message">メールアドレスは正しく入力してください</p>
                                 <p v-if="passcheck" class="error-message">パスワードが貧弱です</p>
+                                <p v-if="passequal" class="error-message">パスワードは同じものを入力してください</p>
+                                <p class="error-message" style="padding-left: 12%;"><%=setupErrorm %></p>
                             </div>
                         <p id="signup-pasforgot" class="pasforgot"><a href="#" tabindex="-1">◎パスワードを忘れたときは...</a></p>
                         <input type="submit" value="Enter" id="signup-form-submit" class="form-submit">
@@ -75,7 +80,6 @@
                 </div>
             </main>
         </div>
-        <script src="../js/vues/headerSumon.js" type="module"></script>
         <script src="../js/effect/formin.js" type="module"></script>
         <script src="../js/effect/headerEf.js" type="module"></script>
     </body>

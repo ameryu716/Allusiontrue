@@ -4,7 +4,7 @@ const ArtCard = Vue.component("artcardent", {
     },
     template: `
     <main id="artcardew">
-        <div class="di-back"><i class="fas fa-arrow-circle-left backicon"></i></div>
+        <div class="di-back" v-on:click="$emit('backhome')"><i class="fas fa-arrow-left backicon"></i></div>
         <div class="lefter">
             <div class="object anime-img">
                 <label for="imguploads" id="uploadlabel">
@@ -27,6 +27,9 @@ const ArtCard = Vue.component("artcardent", {
         </div>
     </main>
     `,
+    method: {
+
+    }
 });
 
 export {ArtCard};

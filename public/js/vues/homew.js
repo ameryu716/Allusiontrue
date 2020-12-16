@@ -33,7 +33,7 @@ const Homedent = Vue.component("home",{
         </div>
         <div class="move">
             <ul>
-                <ol><i class="fas fa-pen awefon fa-fw"></i>記録する</ol>
+                <ol v-on:click="$emit('goart')"><i class="fas fa-pen awefon fa-fw"></i>記録する</ol>
                 <ol><i class="fas fa-plus awefon fa-fw"></i>カードを作成する</ol>
                 <ol><i class="fas fa-wrench awefon fa-fw"></i>調整する</ol>
             </ul>

@@ -8,4 +8,8 @@ router.get("/",(req,res)=>{
     });
 });
 
+router.post("/",(req,res)=>{
+    console.log("POSTしましたね？私は知っています");
+})
+
 module.exports = router;
