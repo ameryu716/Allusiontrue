@@ -1,9 +1,9 @@
+export function imgOptimization(){
+
 const profileimg = document.getElementById("profileimg");
 //test
 //profileimg.setAttribute('src','./src/images/coffee.jpg');
 //test
-
-window.onload = ()=>{
 
 // console.log(profileimg);
 // console.log(profileimg.currentSrc.length);

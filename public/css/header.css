@@ -63,7 +63,7 @@ header {
     background-color: rgb(255,115,115);
     border-radius: 33px;
 }
-.formin-group span:not(:nth-child(1)){
+.formin-group span:not(:nth-child(2)){
     display: none;
 }
 

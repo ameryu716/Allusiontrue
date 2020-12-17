@@ -1,6 +1,9 @@
+import {imgOptimization} from "../effect/imgUpload.js";
+
 const ArtCard = Vue.component("artcardent", {
     props:{
-        val: Array,
+        art: Array,
+        ons: Number
     },
     template: `
     <main id="artcardew">
@@ -12,23 +15,23 @@ const ArtCard = Vue.component("artcardent", {
                     <i class="fas fa-plus imageplus-icon"></i>
                     <input type="file" name="imguploads" id="imguploads" accept="image/*">
                 </label>
-                <img :src="val[0][val[1]].thumbnail" id="profileimg">
+                <img :src="art[ons].thumbnail" id="profileimg">
             </div>
-            <div class="object when"><span class="divname">When</span><i class="far fa-calendar-alt"></i><span class="divcontents">{{val[0][val[1]].sawdate}}</span></div>
-            <div class="object created"><span class="divname">Created</span><span class="divcontents">{{val[0][val[1]].creater}}</span></div>
+            <div class="object when"><span class="divname">When</span><i class="far fa-calendar-alt"></i><span class="divcontents">{{art[ons].sawdate}}</span></div>
+            <div class="object created"><span class="divname">Created</span><span class="divcontents">{{art[ons].creater}}</span></div>
             <div class="object else pageout"><i class="fas fa-sign-in-alt"></i></div>
-            <div class="object onaired"><span class="divname">Onaired</span><span class="divcontents">{{val[0][val[1]].onaired}}</span></div>
+            <div class="object onaired"><span class="divname">Onaired</span><span class="divcontents">{{art[ons].onaired}}</span></div>
         </div>
         <div class="righter">
-            <div class="object title"><span class="divname">Title</span><span class="divcontents">{{val[0][val[1]].title}}</span></div>
-            <div class="object arttype"><span class="divname">Type</span><span class="divcontents">{{val[0][val[1]].conttype}}</span></div>
-            <div class="object artscale"><span class="divname">Scale</span><span class="divcontents">{{val[0][val[1]].scale}}</span></div>
-            <div class="object contents"><span class="divcontents">{{val[0][val[1]].freetext}}</span></div>
+            <div class="object title"><span class="divname">Title</span><span class="divcontents">{{art[ons].title}}</span></div>
+            <div class="object arttype"><span class="divname">Type</span><span class="divcontents">{{art[ons].conttype}}</span></div>
+            <div class="object artscale"><span class="divname">Scale</span><span class="divcontents">{{art[ons].scale}}</span></div>
+            <div class="object contents"><span class="divcontents">{{art[ons].freetext}}</span></div>
         </div>
     </main>
     `,
-    method: {
-
+    mounted: function(){
+        imgOptimization();
     }
 });
 

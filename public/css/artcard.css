@@ -124,8 +124,13 @@ i.backicon {
 .object.when i{
     margin: 18px 0;
 }
+#artentry .object.when i {
+    position: absolute;
+    font-size: 25px;
+    margin-top: 13px;
+}
 .object.when .divcontents {
-    padding: 15px 10px;
+    padding: 15px 0;
 }
 .object.created {
     min-width: 199px;
@@ -141,6 +146,7 @@ i.backicon {
     min-width: 100px;
     margin: 10px;
 }
+
 .object.else {
     width: 190px;
     height: 88px;
@@ -169,22 +175,59 @@ input.divcontents:focus,textarea.divcontents:focus {
     outline: none;
 }
 .when input.divcontents {
-    width: 100px;
+    width: 160px;
+    font-size: 22px;
 }
+.when input[type="date"]::-webkit-calendar-picker-indicator,.onaired input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50px;
+    margin-inline-start: -1px;
+    padding: 0;
+}
+.when input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 182px;
+    background: transparent;
+}
+.when input[type="date"]::-webkit-datetime-edit {
+    padding-left: 35px;
+}
+.onaired input[type="date"]::-webkit-calendar-picker-indicator {
+    width: 206px;
+    background-position: right;
+    background-size: 40px;
+}
+
 .created input.divcontents {
     width: 200px;
 }
 .onaired input.divcontents {
-    width: 160px;
+    width: 175px;
 }
 .title input.divcontents {
     width: 255px;
 }
 .arttype input.divcontents {
     width: 95px;
+    text-align: center;
+}
+.arttype input[type="text"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+#artentry .artscale {
+    display: flex;
 }
 .artscale input.divcontents {
-    width: 130px;
+    width: 70px;
+    text-align: end;
+    font-size: 24px;
+    padding-bottom: 13px;
+}
+.object.artscale span.scaletype {
+    margin-top: 9px;
+    display: block;
+    width: 30px;
 }
 .contents textarea.divcontents {
     width: 300px;
