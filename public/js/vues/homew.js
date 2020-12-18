@@ -2,6 +2,7 @@ const Homedent = Vue.component("home",{
     props:{
         coa: Object
     },
+    //
     data: function(){
         return{
             calendDisplay: this.coa.calendDisplay
@@ -26,7 +27,7 @@ const Homedent = Vue.component("home",{
                     <i class="fas fa-arrows-alt-h"></i>
                     <i class="fas fa-chart-line"></i>
                 </div>
-                <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{coa.watchtime}}</span></div>
+                <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{coa.watchtime}}</span>h</div>
         </div>
         <div class="self">
             {{coa.profiletext}}

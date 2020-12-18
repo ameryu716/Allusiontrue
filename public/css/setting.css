@@ -108,8 +108,23 @@
 #icon {
     width: 200px;
 }
-#pimgd {
-    width: 360px;
+#beimgbox {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: solid 2px darkolivegreen;
+}
+#beimgbox img {
+    height: 100px;
+}
+#cvbox {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: solid 2px darkolivegreen;
 }
 input[name="usrname"]{
     height: 50px;
