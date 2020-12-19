@@ -2,7 +2,8 @@ import {onecardnent} from "./cardlistew.js";
 
 const AsideBoard = Vue.component("asideboard", {
     props:{
-        artarray: Array
+        artarray: Array,
+        ons: Number
     },
     data: function(){
         return{
@@ -21,13 +22,13 @@ const AsideBoard = Vue.component("asideboard", {
             </select>
         </div>
         <ul>
-            <minicard v-for="item in artarray" v-bind:onecard="item" v-bind:key="item.id"></minicard>
+            <minicard v-for="item in artarray" v-bind:onecard="item" v-bind:key="item.id"  @selectart="$emit('selectart',$event)"></minicard>
         </ul>
     </aside>
     `,
     component:{
          "minicard":onecardnent,
-    }
+    },
 })
 
 export {AsideBoard};

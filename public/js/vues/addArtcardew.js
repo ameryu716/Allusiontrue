@@ -8,7 +8,7 @@ const addArtCard = Vue.component("addartcardent", {
     },
     template: `
     <main id="artcardew">
-        <form action="/home/artentry" method="POST" id="artentry">
+        <form action="/home/artentry" method="POST" id="artentry" enctype="multipart/form-data">
             <div class="di-back" v-on:click="$emit('backhome')"><i class="fas fa-arrow-left backicon"></i></div>
             <div class="lefter">
                 <div class="object anime-img">
@@ -20,18 +20,21 @@ const addArtCard = Vue.component("addartcardent", {
                     <img :src="art[ons].thumbnail" id="profileimg" v-if="!isnewedit">
                     <img src="" id="profileimg" v-if="isnewedit">
                 </div>
+
                 <div class="object when">
                     <span class="divname">When</span><i class="far fa-calendar-alt"></i>
                     <input :value="art[ons].sawdate" class="divcontents" type="date" name="when" v-if="!isnewedit">
                     <input class="divcontents" type="date" name="when" v-if="isnewedit" >
-                    
                 </div>
+
                 <div class="object created">
                     <span class="divname">Created</span>
                     <input :value="art[ons].creater" class="divcontents" type="text" name="created" v-if="!isnewedit">
                     <input class="divcontents" type="text" name="created" v-if="isnewedit">
                 </div>
+
                 <div class="object else pageout"></div>
+
                 <div class="object onaired">
                     <span class="divname">Onaired</span>
                     <input :value="art[ons].onaired" class="divcontents" type="text" name="onaired" v-if="!isnewedit">
@@ -39,11 +42,13 @@ const addArtCard = Vue.component("addartcardent", {
                 </div>
             </div>
             <div class="righter">
+
                 <div class="object title">
                     <span class="divname">Title</span>
                     <input :value="art[ons].title" class="divcontents" type="text" name="title" v-if="!isnewedit">
                     <input class="divcontents" type="text" name="title" v-if="isnewedit">
                 </div>
+
                 <div class="object arttype">
                     <span class="divname">Type</span>
                     <input :value="art[ons].conttype" class="divcontents" type="text" name="arttype" v-if="!isnewedit">
@@ -55,16 +60,19 @@ const addArtCard = Vue.component("addartcardent", {
                         <option value="小説"></option>
                     </datalist>
                 </div>
+
                 <div class="object artscale">
                     <span class="divname">Scale</span>
                     <input :value="art[ons].scale" class="divcontents" type="number" name="artscale" v-if="!isnewedit">
                     <input class="divcontents" type="number" name="artscale" v-if="isnewedit"><span class="scaletype">分</span>
                 </div>
+
                 <div class="object contents">
                     <span class="divname">Text</span>
                     <textarea :value="art[ons].freetext" class="divcontents" name="ftxt" v-if="!isnewedit"></textarea>
                     <textarea class="divcontents" name="ftxt" v-if="isnewedit"></textarea>
                 </div>
+
             </div>
             <input type="submit" id="d-btn" value="登録">
         </form>
@@ -81,8 +89,3 @@ const addArtCard = Vue.component("addartcardent", {
 });
 
 export {addArtCard};
-
-// //return{
-//     keys:0,
-//     ef: usertable
-// }

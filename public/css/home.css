@@ -25,7 +25,7 @@ main#homew {
 }
 .name img {
     border-radius: 100%;
-    width: 150px;
+    width: 110px;
     position: absolute;
     left: -20px;
     z-index: 2;

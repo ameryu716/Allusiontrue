@@ -10,6 +10,5 @@ const headeralpfa = Vue.component("Alluheader",{
     </header>
     `
 });
-const crewd = "hai";
 
-export {headeralpfa,crewd}
+export {headeralpfa}

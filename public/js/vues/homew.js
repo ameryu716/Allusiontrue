@@ -8,11 +8,6 @@ const Homedent = Vue.component("home",{
             calendDisplay: this.coa.calendDisplay
         }
     },
-    method:{
-        close(){
-            this.$emit("open");
-        },
-    },
     template:`
     <main id="homew">
         <div class="name">

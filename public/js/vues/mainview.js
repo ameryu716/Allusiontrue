@@ -1,24 +1,9 @@
-import {arttable} from "../../data/transiency-artdata.js";
-import {usrsett} from "../../data/transiency-usersett.js";
-
 import {headeralpfa} from "./header.js";
 import {ArtCard} from "./artcardew.js";
 import {addArtCard} from "./addArtcardew.js";
 import {AsideBoard} from "./aside.js";
 import {Homedent} from "./homew.js";
 import {Settingent} from "./settingew.js";
-
-// const sett2 = {
-//     id:0,
-//     calendDisplay: false,
-//     onselect: 0,
-//     username:"あめりゅ",
-//     profileimg: "../images/coffee.jpg",
-//     icon: "fa-hat-wizard",
-//     watchtime: "150時間",
-//     profiletext: "この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確にんしたいのです。",
-// };
-
 
 async function usrdataload(){
     return new Promise((resolve,reject)=>{
@@ -29,7 +14,7 @@ async function usrdataload(){
             resolve(data.json());
         })
         .catch(e => {
-            console.error("フェッチエラー(userdata)：");
+            console.error("フェッチエラー(userdata)："+e);
             reject(new Error(e));
         });
     })
@@ -40,10 +25,11 @@ async function artdataload() {
         fetch("/home/artget",{
             method: "POST"
         })
-        .then(r =>{
-            resolve(r.json());
+        .then(artdata =>{
+            resolve(artdata.json());
         })
         .catch(e => {
+            console.error("フェッチエラー(artdata)："+e);
             reject(new Error(e));
         });
     })
@@ -63,13 +49,12 @@ const RootC = Vue.component("Rune",{
     data: function() {
         return{
             // sett: usrsett,
-            ones: [arttable,usrsett.onselect],
             onselect: 0,
             addmode: true,
             displaymode: "home",
             loginmode: "login",
             usrdata: {},
-            artdata: arttable,
+            artdata: [],
         }
     },
     methods:{
@@ -97,6 +82,10 @@ const RootC = Vue.component("Rune",{
         },
         settoggle(){
             this.displaymode = "setting";
+        },
+        listSelectArt(snum){
+            this.onselect = snum-1;
+            this.displaymode = "art";
         }
     },
     template:`
@@ -107,7 +96,7 @@ const RootC = Vue.component("Rune",{
         <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" v-if="isart"></artcardent>
         <addartcardent v-bind:art="artdata" v-bind:ons="onselect" v-if="isartentry" @backhome="hometoggle"></addartcardent>
         <setting v-bind:set="usrdata" v-if="issetting" @backhome="hometoggle"></setting>
-        <asideboard v-bind:artarray="artdata" v-if="!issetting"></asideboard>
+        <asideboard v-bind:artarray="artdata" v-bind:ons="onselect" v-if="!issetting" @selectart="listSelectArt($event)"></asideboard>
         <button style="color:red;display:none;" v-on:click="usrdataset">セット</button>
     </div>
     </div>
@@ -126,16 +115,15 @@ const RootC = Vue.component("Rune",{
             return (this.displaymode == "setting");
         }
     },
-    created: function(){
-        // artload: function(){
-        //     artdataload()
-        //     .then(r => this.artdata = r);
-        // },
-            usrdataload()
-            .then(r => {
-                console.log(r);
-                this.usrdata = r;
-            })
+    created(){
+        artdataload().then(r => {
+            console.log("art:"+r);
+            this.artdata = r;
+        }),
+        usrdataload().then(r => {
+            console.log("usr"+r);
+            this.usrdata = r;
+        })
     }
 })
 
@@ -145,8 +133,5 @@ const Runerend = new Vue({
         "Rune": RootC
     }
 })
-
-
-
 
 export {RootC,Runerend};

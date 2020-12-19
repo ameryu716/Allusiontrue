@@ -3,7 +3,7 @@ const onecardnent = Vue.component("minicard",{
         onecard: Object
     },
     template: `
-    <li class="animecard">
+    <li class="animecard" v-on:click="$emit('selectart',onecard.id)">
         <div class="anime-img-board">
             <img :src="onecard.thumbnail" class="anime-sumbnail">
         </div>
@@ -15,36 +15,11 @@ const onecardnent = Vue.component("minicard",{
                 <span class="date">{{onecard.sawdate}}</span>
             </div>
             <div class="card-content">
-                {{onecard.contlen}}
+                {{onecard.scale}}<span>分</span>
             </div>
         </div>
     </li> `
 })
 
+
 export {onecardnent};
-
-// const asideheader = document.getElementsByClassName("asideheader");
-// console.log(asideheader[0]);
-// setTimeout(()=>{
-//     asideheader[0].style.opacity = "0";
-// },3000)
-
-// asideheader[0].addEventListener("mouseenter", ()=>{
-//     asideheader[0].style.opacity = "1";
-// })
-// asideheader[0].addEventListener("mouseleave", ()=>{
-//     asideheader[0].style.opacity = "0";
-// })
-
-
-
-// v-bind:key="item.id"
-//                         v-bind:title="item.title"
-//                         v-bind:thumbnail="item.thumbnail"
-//                         v-bind:sawdate="item.sawdate"
-//                         v-bind:contlen="item.contlen"
-//                         v-bind:creater="item.creater"
-//                         v-bind:onaired="item.onaired"
-//                         v-bind:conttype="item.conttype"
-//                         v-bind:scale="item.scale"
-//                         v-bind:freetext="item.freetext"
