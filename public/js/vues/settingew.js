@@ -1,3 +1,5 @@
+import {imgLoad, imgSave} from "../effect/imgLocalIndex.js";
+
 const Settingent = Vue.component("setting",{
     props:{
         set: Object
@@ -13,7 +15,7 @@ const Settingent = Vue.component("setting",{
     },
     template:`
     <main id="optiondisplay">
-        <form action="/home/setting" method="POST" id="setform" enctype="multipart/form-data">
+        <form action="/home/setting" method="POST" id="setform">
             <div id="modoru" v-on:click="$emit('backhome')">
                 <i class="fas fa-arrow-left"></i>
             </div>
@@ -53,6 +55,7 @@ const Settingent = Vue.component("setting",{
                         <canvas id="canvas" height="100" width="100"></canvas>
                     </div>
                     <input type="file" id="img-file" accept="image/*" name="pimg" v-on:change="prevon">
+                    <input type="text" name="imgsrcstr" id="imgsrcstr" hidden>
                 </div>
             </div>
             <div id="ftxtd" class="settingobj">
@@ -73,19 +76,19 @@ const Settingent = Vue.component("setting",{
             this.iconnum = select.value;
         },
         prevon(){
+            console.log("prevew開始");
             const imgfile = document.getElementById("img-file").files[0];
             const canvas = document.getElementById('canvas');
             const beforebox = document.getElementById('beimgbox');
+            const sendIstr = document.getElementById("imgsrcstr");
             let dimg = new Image(100,100);
             dimg.width = 100;
             dimg.height = 100;
-            // dimg.file = imgfile;
 
             let reader = new FileReader();
             reader.readAsDataURL(imgfile);
             reader.onload = function() {
                 dimg.src = reader.result;
-                
             };
             setTimeout(() => {
                 canvas.width = 100;
@@ -94,8 +97,12 @@ const Settingent = Vue.component("setting",{
                 ctx.clearRect(0, 0, 100,100);
                 // 画像をコピーします (このメソッドで画像をカットすることができます)
                 ctx.drawImage(dimg, 0, 0,100,100);
+
+                imgSave(canvas,imgfile.name)
+                .then(r => sendIstr.value=r);
+
                 beforebox.style.display = "none";
-            }, 2000);
+            }, 500);
         },
     },
     computed: {
@@ -108,7 +115,20 @@ const Settingent = Vue.component("setting",{
             }
         },
 
-    }
+    },
+    // created(){
+    //     setTimeout(() => {
+    //         const img = document.getElementById("beimg");
+    //         console.log(img)
+    //         imgLoad("uten.jpg",img)
+    //         .then(r => console.log(r));  
+    //     }, 1000);
+    // }
 })
+
+
+
+
+
 
 export {Settingent};

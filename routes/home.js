@@ -1,21 +1,20 @@
 let express = require('express');
 let router = express.Router();
-const multer = require("multer");
+// const multer = require("multer");
 const path = require("path");
 const pool = require('./pool.js');
 const usrDataSet = require('./moduleUSRD.js');
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
 
-const storage =  multer.diskStorage({
-    destination: "./public/images/imgfiles",
-    filename: function(req, file, cb) {
-      cb(null, file.originalname)
-    }
-  })
+// const storage =  multer.diskStorage({
+//     destination: "./public/images/imgfiles",
+//     filename: function(req, file, cb) {
+//       cb(null, file.originalname)
+//     }
+//   })
 
-const uploader = multer({ storage });
-// const usrimguploader = multer({dest: './imgfiles',}).single('pimg');
+// const uploader = multer({ storage });
 
 router.get("/",(req,res)=>{
     console.log( "mailfound:" + req.session.mail !== undefined);
@@ -30,10 +29,10 @@ router.get("/",(req,res)=>{
     }
 });
 
-router.post("/artentry",uploader.single('imguploads'),(req,res)=>{
+router.post("/artentry",(req,res)=>{
     //作品登録
     if(req.session.mail !== undefined && req.session.login){
-        const thumbnail = path.join("./","images/imgfiles",req.file.originalname);
+        const thumbnail = req.body['artimgsrc']
         const title = req.body['title'];
         const type = req.body['arttype'];
         let scale = req.body['artscale'];
@@ -42,11 +41,11 @@ router.post("/artentry",uploader.single('imguploads'),(req,res)=>{
         }
         let sawdate = req.body['when'];
         if(sawdate == ""){
-            sawdate = "2020/01/01";
+            sawdate = "2000/01/01";
         }
         let onaired = req.body['onaired'];
         if(onaired == ""){
-            onaired = "2020/01/01";
+            onaired = "2000/01/01";
         }
         const created = req.body['created'];
         const ftxt = req.body['ftxt'];
@@ -80,25 +79,6 @@ router.post("/artget",(req,res)=>{
     console.log("ARTDATA"+req.session.art_data);
     res.json(req.session.art_data);
 })
-
-async function artTableCreate(tablename){
-    return new Promise((resolve,reject)=>{
-        const createstring = "create table "+tablename+" (id serial, title varchar(30), arttype varchar(10), scale integer, sawdate date, onaired date, created varchar(20), thumbnail varchar(100), ftxt varchar(50));"
-        pool.connect((e, client) =>{
-            client
-                .query(createstring)
-                .then(result => {
-                    console.log("CREATE：完了");
-                    resolve(tablename);
-                })
-                .catch((e2) => {
-                    console.log("CREATE：失敗");
-                    console.error(e2.stack);
-                    reject(e2);
-                })
-        })
-    })
-}
 
 async function artInsert(tablename,title,type,scale,sawdate,onaired,created,thumbnail,ftxt){
     return new Promise((resolve,reject)=>{
@@ -139,13 +119,11 @@ router.post("/usrget",(req,res)=>{
     res.json(req.session.usr_data);
 })
 
-router.post("/setting",uploader.single('pimg'),(req,res)=>{
-    console.log(req.file.path);
-    let pimg = path.join("./","images/imgfiles",req.file.originalname);
-    
+router.post("/setting",(req,res)=>{
+    console.log(req.body['pimg']);
+    let pimg = req.body['imgsrcstr'];
     const usrname = req.body['usrname'];
     const iconselect = req.body['iconselect'];
-    // let pimg = req.body['pimg'];
     const ftxt = req.body['ftxt'];
     let iconclass = "";
     switch(iconselect){
@@ -183,7 +161,6 @@ router.post("/setting",uploader.single('pimg'),(req,res)=>{
                 })
         }
     })
-    // console.log(usrname,iconclass,pimg,ftxt);
 })
 
 

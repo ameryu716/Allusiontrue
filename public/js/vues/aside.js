@@ -1,4 +1,5 @@
 import {onecardnent} from "./cardlistew.js";
+import {aheadEffect} from "../effect/asideheaderEf.js";
 
 const AsideBoard = Vue.component("asideboard", {
     props:{
@@ -29,6 +30,9 @@ const AsideBoard = Vue.component("asideboard", {
     component:{
          "minicard":onecardnent,
     },
+    created(){
+        aheadEffect();
+    }
 })
 
 export {AsideBoard};

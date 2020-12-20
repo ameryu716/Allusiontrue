@@ -67,9 +67,15 @@ i.backicon {
     min-height: 285px;
     min-width: 450px;
     max-height: 285px;
-
     height: fit-content;
 }
+.object.anime-img #imgprev {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    overflow: hidden;
+}
+
 .object #imguploads {
     display: none;
 }

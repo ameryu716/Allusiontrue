@@ -8,14 +8,16 @@ const addArtCard = Vue.component("addartcardent", {
     },
     template: `
     <main id="artcardew">
-        <form action="/home/artentry" method="POST" id="artentry" enctype="multipart/form-data">
+        <form action="/home/artentry" method="POST" id="artentry">
             <div class="di-back" v-on:click="$emit('backhome')"><i class="fas fa-arrow-left backicon"></i></div>
             <div class="lefter">
                 <div class="object anime-img">
+                    <div id="imgprev"></div>
                     <label for="imguploads" id="uploadlabel">
                         <i class="fas fa-images imageicon"></i>
                         <i class="fas fa-plus imageplus-icon"></i>
                         <input type="file" name="imguploads" id="imguploads" accept="image/*">
+                        <input type="text" name="artimgsrc" id="artimgsrc" hidden>
                     </label>
                     <img :src="art[ons].thumbnail" id="profileimg" v-if="!isnewedit">
                     <img src="" id="profileimg" v-if="isnewedit">

@@ -4,6 +4,7 @@ import {addArtCard} from "./addArtcardew.js";
 import {AsideBoard} from "./aside.js";
 import {Homedent} from "./homew.js";
 import {Settingent} from "./settingew.js";
+import {imgLoad} from "../effect/imgLocalIndex.js";
 
 async function usrdataload(){
     return new Promise((resolve,reject)=>{
@@ -52,7 +53,7 @@ const RootC = Vue.component("Rune",{
             onselect: 0,
             addmode: true,
             displaymode: "home",
-            loginmode: "login",
+            loginmode: "logout",
             usrdata: {},
             artdata: [],
         }
@@ -90,7 +91,7 @@ const RootC = Vue.component("Rune",{
     },
     template:`
     <div id="vue-rendering">
-    <Alluheader></Alluheader>
+    <Alluheader v-bind:login="loginmode"></Alluheader>
     <div id="main-wrap">
         <home v-bind:coa="usrdata" @graphtoggle="calenddisplaytoggle" @goart="arttoggle" @artedit="artentrytoggle" @goset="settoggle" v-if="ishome"></home>
         <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" v-if="isart"></artcardent>
@@ -119,10 +120,20 @@ const RootC = Vue.component("Rune",{
         artdataload().then(r => {
             console.log("art:"+r);
             this.artdata = r;
+            for(let i=0; i<r.length; i++){
+                imgLoad(this.artdata[i].thumbnail)
+                .then(r => {
+                    this.artdata[i].thumbnail = r;
+                })
+            }
         }),
         usrdataload().then(r => {
             console.log("usr"+r);
             this.usrdata = r;
+            imgLoad(this.usrdata.profileimg)
+            .then(r => {
+                this.usrdata.profileimg = r;
+            });
         })
     }
 })
