@@ -2,9 +2,11 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const pool = require("./routes/pool.js");
 // const RedisStore = require('connect-redis')(session);
 const cookieParser = require("cookie-parser");
-const MemcachedStore = require("connect-memcached")(session);
+// const MemcachedStore = require("connect-memcached")(session);
+const pgSession = require("connect-pg-simple")(session);
 
 // const session_opt = require("./routes/sessionopt.js")
 
@@ -22,10 +24,11 @@ const session_opt = {
     proxy: "true",
     resave: false,
     saveUninitialized: false,
-    store: new MemcachedStore({
-        hosts: ["127.0.0.1:11211"],
-        secret: "123, easy as ABC. ABC, easy as 123" // Optionally use transparent encryption for memcache session data
-      }),
+    store: new pgSession({
+        pool: pool,
+        tableName: "session"
+    }),
+    name: 'SID',
     cookie: {
         httpOnly: true,
         secure: false,
