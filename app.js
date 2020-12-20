@@ -20,21 +20,24 @@ const pgSession = require("connect-pg-simple")(session);
 
 const session_opt = {
     secret: process.env.key_sec,
-    key: "test",
-    proxy: "true",
+    // key: "test",
+    // proxy: "true",
     resave: false,
     saveUninitialized: false,
     store: new pgSession({
         pool: pool,
-        tableName: "session"
+        tableName: "session",
+        ssl: true
     }),
-    name: 'SID',
+    // name: 'SID',
     cookie: {
         httpOnly: true,
         secure: false,
         path: '/'
     },
 };
+
+
 
 const forminRouter = require("./routes/formin");
 const homeRouter = require("./routes/home");
