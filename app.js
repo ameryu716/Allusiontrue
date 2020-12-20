@@ -4,10 +4,8 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const session_opt = require("./routes/sessionopt.js")
 
-// let artcardRouter = require("./routes/artcard");
-// let cardlistRouter = require("./routes/cardlist");
-let forminRouter = require("./routes/formin");
-let homeRouter = require("./routes/home");
+const forminRouter = require("./routes/formin");
+const homeRouter = require("./routes/home");
 
 const app = express();
 
@@ -26,17 +24,16 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
-
-
-// app.use("/art",artcardRouter);
-// app.use("/cardlist",cardlistRouter);
 app.use("/login",forminRouter);
 app.use("/home",homeRouter);
 
-app.listen(3060,()=>{
-    console.log("allusion(true)-started....");
-});
+app.set ('port', (process.env.PORT || 8080))
+app.listen (app.get ('port'), (e) => {
+    console.info (`PORT: ${app.get ('port')}`)
+})
+
+// app.listen(3060,()=>{
+//     console.log("allusion(true)-started....");
+// });
 
 module.exports = app;
