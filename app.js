@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const pool = require("./routes/pool.js");
+const pg = require('pg');
 // const RedisStore = require('connect-redis')(session);
 // const cookieParser = require("cookie-parser");
 // const MemcachedStore = require("connect-memcached")(session);
@@ -21,21 +22,20 @@ const Sequelize = require("sequelize");
 
 const session_opt = {
     secret: process.env.key_sec,
-    // key: "test",
-    // proxy: "true",
-    ssl: true,
     resave: false,
     saveUninitialized: false,
     store: new pgSession({
-        pool: pool,
-        conString : process.env.DATABASE_URL,
+        // pool: pool,
+        conString : process.env.key_db,
         tableName: "session",
         // ssl: true
-        ssl: {rejectUnauthorized: false }
+        ssl: {
+            rejectUnauthorized: false,
+            sslmode: 'require'
+        }
     }),
-    // name: 'SID',
     cookie: {
-        httpOnly: true,
+        httpOnly: false,
         secure: false,
         path: '/'
     },
