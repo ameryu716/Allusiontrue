@@ -29,10 +29,11 @@ const session_opt = {
         // conString : process.env.key_db,
         tableName: "session",
         // ssl: true
-        ssl: {
-            rejectUnauthorized: false,
-            sslmode: 'require'
-        }
+        rejectUnauthorized: false
+        // ssl: {
+        //     rejectUnauthorized: false,
+        //     sslmode: 'require'
+        // }
     }),
     cookie: {
         httpOnly: false,
