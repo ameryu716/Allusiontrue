@@ -7,6 +7,7 @@ const pool = require("./routes/pool.js");
 // const cookieParser = require("cookie-parser");
 // const MemcachedStore = require("connect-memcached")(session);
 const pgSession = require("connect-pg-simple")(session);
+const Sequelize = require("sequelize");
 
 // const session_opt = require("./routes/sessionopt.js")
 
@@ -27,8 +28,7 @@ const session_opt = {
     saveUninitialized: false,
     store: new pgSession({
         pool: pool,
-        conString : process.env.key_db + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory",
-        host: "*",
+        conString : process.env.DATABASE_URL,
         tableName: "session",
         ssl: true
     }),
