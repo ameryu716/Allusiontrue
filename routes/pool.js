@@ -6,7 +6,7 @@ const pool = new pg.Pool({
     password: process.env.key_pass,
     host: process.env.key_host,
     port: process.env.key_port,
-    ssl: true
+    ssl: false
 });
 
 module.exports = pool;

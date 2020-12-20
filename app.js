@@ -25,7 +25,7 @@ const session_opt = {
     resave: false,
     saveUninitialized: false,
     store: new pgSession({
-        // pool: pool,
+        pool: pool,
         conString : process.env.key_db,
         tableName: "session",
         // ssl: true
