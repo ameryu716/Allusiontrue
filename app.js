@@ -2,13 +2,17 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+
 const session_opt = require("./routes/sessionopt.js")
+
+
+// app.use(connect.cookieParser());
+// app.use(connect.cookieSession({ secret: 'tobo!', cookie: { maxAge: 60 * 60 * 1000 }}));
 
 const forminRouter = require("./routes/formin");
 const homeRouter = require("./routes/home");
 
 const app = express();
-
 
 app.use(session(session_opt));
 
