@@ -27,7 +27,7 @@ const session_opt = {
     saveUninitialized: false,
     store: new pgSession({
         pool: pool,
-        conString : process.env.key_db,
+        conString : process.env.key_db + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory",
         host: "*",
         tableName: "session",
         ssl: true
