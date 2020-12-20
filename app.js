@@ -28,6 +28,7 @@ const session_opt = {
     store: new pgSession({
         pool: pool,
         conString : process.env.key_db,
+        host: "*",
         tableName: "session",
         ssl: true
     }),
