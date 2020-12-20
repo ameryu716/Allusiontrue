@@ -2,12 +2,28 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-
-const session_opt = require("./routes/sessionopt.js")
+const RedisStore = require('connect-redis')(session);
+// const session_opt = require("./routes/sessionopt.js")
 
 
 // app.use(connect.cookieParser());
 // app.use(connect.cookieSession({ secret: 'tobo!', cookie: { maxAge: 60 * 60 * 1000 }}));
+
+const session_opt = {
+    secret: process.env.key_sec,
+    resave: false,
+    saveUninitialized: false,
+    store: new RedisStore({  // Redisの設定
+        host: '127.0.0.1',
+        port: 6379,
+        prefix: 'sid:'
+      }),
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        path: '/'
+    },
+};
 
 const forminRouter = require("./routes/formin");
 const homeRouter = require("./routes/home");
