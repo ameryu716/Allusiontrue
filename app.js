@@ -29,8 +29,9 @@ const session_opt = {
         conString : process.env.key_db,
         tableName: "session",
         // rejectUnauthorized: false
+        
         ssl: {
-            sslmode: "require",
+            sslmode: true,
             rejectUnauthorized: false,
         }
     }),
