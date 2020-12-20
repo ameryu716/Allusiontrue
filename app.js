@@ -30,7 +30,8 @@ const session_opt = {
         pool: pool,
         conString : process.env.DATABASE_URL,
         tableName: "session",
-        ssl: true
+        // ssl: true
+        ssl: {rejectUnauthorized: false }
     }),
     // name: 'SID',
     cookie: {
