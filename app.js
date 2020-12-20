@@ -22,10 +22,12 @@ const session_opt = {
     secret: process.env.key_sec,
     // key: "test",
     // proxy: "true",
+    ssl: true,
     resave: false,
     saveUninitialized: false,
     store: new pgSession({
         pool: pool,
+        conString : process.env.key_db,
         tableName: "session",
         ssl: true
     }),
