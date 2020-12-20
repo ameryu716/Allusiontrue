@@ -26,7 +26,7 @@ const session_opt = {
     saveUninitialized: false,
     store: new pgSession({
         pool: pool,
-        // conString : process.env.key_db,
+        conString : process.env.key_db,
         tableName: "session",
         // rejectUnauthorized: false
         ssl: {
