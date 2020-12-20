@@ -28,12 +28,10 @@ const session_opt = {
         pool: pool,
         // conString : process.env.key_db,
         tableName: "session",
-        // ssl: true
-        rejectUnauthorized: false
-        // ssl: {
-        //     rejectUnauthorized: false,
-        //     sslmode: 'require'
-        // }
+        // rejectUnauthorized: false
+        ssl: {
+            rejectUnauthorized: false,
+        }
     }),
     cookie: {
         httpOnly: false,
