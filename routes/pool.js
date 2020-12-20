@@ -1,4 +1,4 @@
-const pg = require('pg').native;
+const pg = require('pg');
 
 const pool = new pg.Pool({
     database: process.env.key_db,
