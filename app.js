@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const pool = require("./routes/pool.js");
 // const RedisStore = require('connect-redis')(session);
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 // const MemcachedStore = require("connect-memcached")(session);
 const pgSession = require("connect-pg-simple")(session);
 
@@ -15,7 +15,7 @@ const pgSession = require("connect-pg-simple")(session);
 // app.use(connect.cookieSession({ secret: 'tobo!', cookie: { maxAge: 60 * 60 * 1000 }}));
 
  
-app.use(cookieParser());
+// app.use(cookieParser());
 
 
 const session_opt = {
