@@ -4,7 +4,6 @@ const session_opt = {
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        maxAge: 60 * 60 * 1000,
         secure: false
     },
 };
