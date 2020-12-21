@@ -21,11 +21,10 @@ const pgSession = require("connect-pg-simple")(session);
 
 
 const session_opt = {
-    
     // saveUninitialized: false,
     store: new pgSession({
         pool: pool,
-        connectionString : process.env.DATABASE_URL,
+        connectionString : process.env.key_db,
         tableName: "session",
         ssl: {
             rejectUnauthorized: false,
