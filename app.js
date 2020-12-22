@@ -7,7 +7,7 @@ const pool = require("./routes/pool.js");
 // const RedisStore = require('connect-redis')(session);
 // const cookieParser = require("cookie-parser");
 // const MemcachedStore = require("connect-memcached")(session);
-const pgSession = require("connect-pg-simple")(session);
+//// const pgSession = require("connect-pg-simple")(session);
 // const Sequelize = require("sequelize");
 
 // const session_opt = require("./routes/sessionopt.js")
@@ -16,28 +16,28 @@ const pgSession = require("connect-pg-simple")(session);
 // app.use(connect.cookieParser());
 // app.use(connect.cookieSession({ secret: 'tobo!', cookie: { maxAge: 60 * 60 * 1000 }}));
 
- 
 // app.use(cookieParser());
 
+// const session_opt = {
+//     // saveUninitialized: false,
+//     store: new pgSession({
+//         pool: pool,
+//         connectionString : process.env.key_db,
+//         tableName: "session",
+//         ssl: {
+//             rejectUnauthorized: false,
+//         }
+//     }),
+//     secret: process.env.key_sec,
+//     resave: false,
+//     cookie: {
+//         httpOnly: false,
+//         secure: false,
+//         path: '/session'
+//     },
+// };
 
-const session_opt = {
-    // saveUninitialized: false,
-    store: new pgSession({
-        pool: pool,
-        connectionString : process.env.key_db,
-        tableName: "session",
-        ssl: {
-            rejectUnauthorized: false,
-        }
-    }),
-    secret: process.env.key_sec,
-    resave: false,
-    cookie: {
-        httpOnly: false,
-        secure: false,
-        path: '/session'
-    },
-};
+
 
 
 
@@ -46,7 +46,7 @@ const homeRouter = require("./routes/home");
 
 const app = express();
 
-app.use(session(session_opt));
+// app.use(session(session_opt));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
