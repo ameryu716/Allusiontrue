@@ -25,6 +25,7 @@ router.get("/",(req,res)=>{
     // console.log( "mailfound:" + req.session.mail !== undefined);
     // console.log( "loginis:" + req.session.login);
     // if(req.session.mail !== undefined && req.session.login){
+        console.log("HOME!!");
         const client = new Client({
             connectionString: process.env.key_db,
             ssl: {
