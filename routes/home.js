@@ -27,7 +27,7 @@ router.get("/",(req,res)=>{
     // if(req.session.mail !== undefined && req.session.login){
         console.log("HOME!!");
         const client = new Client({
-            connectionString: process.env.key_db,
+            connectionString: process.env.DATABASE_URL,
             ssl: {
               rejectUnauthorized: false
             }
@@ -35,7 +35,7 @@ router.get("/",(req,res)=>{
           
           client.connect();
           
-          client.query('SELECT * FROM userinfo;', (err, res) => {
+          client.query('select * from userinfo', (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
