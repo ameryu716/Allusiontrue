@@ -25,10 +25,6 @@ router.get("/",(req,res)=>{
     // console.log( "mailfound:" + req.session.mail !== undefined);
     // console.log( "loginis:" + req.session.login);
     // if(req.session.mail !== undefined && req.session.login){
-        res.render("home",{
-            title: "HOME",
-            content: "GOYUKKURI",
-        });
         const client = new Client({
             connectionString: process.env.key_db,
             ssl: {
@@ -45,6 +41,11 @@ router.get("/",(req,res)=>{
             }
             client.end();
           });
+        res.render("home",{
+            title: "HOME",
+            content: "GOYUKKURI",
+        });
+        
     // }else{
     //     res.redirect('/login');
     // }
