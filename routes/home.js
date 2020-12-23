@@ -17,16 +17,16 @@ const s_quatation = "'";
 // const uploader = multer({ storage });
 
 router.get("/",(req,res)=>{
-    console.log( "mailfound:" + req.session.mail !== undefined);
-    console.log( "loginis:" + req.session.login);
-    if(req.session.mail !== undefined && req.session.login){
+    // console.log( "mailfound:" + req.session.mail !== undefined);
+    // console.log( "loginis:" + req.session.login);
+    // if(req.session.mail !== undefined && req.session.login){
         res.render("home",{
             title: "HOME",
             content: "GOYUKKURI",
         });
-    }else{
-        res.redirect('/login');
-    }
+    // }else{
+    //     res.redirect('/login');
+    // }
 });
 
 router.post("/artentry",(req,res)=>{
