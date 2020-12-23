@@ -8,7 +8,7 @@ import {imgLoad} from "../effect/imgLocalIndex.js";
 
 async function usrdataload(){
     return new Promise((resolve,reject)=>{
-        fetch("/home/usrget",{
+        fetch("/usrget",{
             method: 'POST',
         })
         .then(data => {
@@ -23,7 +23,7 @@ async function usrdataload(){
 
 async function artdataload() {
     return new Promise((resolve,reject) => {
-        fetch("/home/artget",{
+        fetch("/artget",{
             method: "POST"
         })
         .then(artdata =>{

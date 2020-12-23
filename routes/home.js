@@ -63,7 +63,7 @@ router.post("/artentry",(req,res)=>{
                 artInsert(tablename,title,type,scale,sawdate,onaired,created,thumbnail,ftxt)
                 .then(r =>{
                     artDataSet(tablename,req)
-                    .then(r3 => res.redirect("/home"));
+                    .then(r3 => res.redirect("/"));
                 })
             }
         })
@@ -153,7 +153,7 @@ router.post("/setting",(req,res)=>{
                     usrDataSet(req.session.mail,req)
                     .then(r => {
                         console.log("usrobj-Finished..");
-                        res.redirect("/home");
+                        res.redirect("/");
                     })
                 })
                 .catch((e3)=>{

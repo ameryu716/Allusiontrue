@@ -33,7 +33,7 @@ router.post("/setup",(req,res)=>{
         .then(r => {
             req.session.login = true;
             req.session.mail = sendedmail;
-            res.redirect('/home');
+            res.redirect('/');
         })
         .then(r =>{
             const tablename = "arttable"+ req.session.usr_data.id;
@@ -110,7 +110,7 @@ router.post('/login',(req,res)=>{
         .then(r => {
             req.session.login = true;
             req.session.mail = sendedmail;
-            res.redirect('/home');
+            res.redirect('/');
         })
     })
     .catch(e => console.log(e));

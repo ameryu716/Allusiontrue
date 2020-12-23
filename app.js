@@ -61,7 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use("/login",forminRouter);
-app.use("/home",homeRouter);
+app.use("/",homeRouter);
 
 app.set ('port', (process.env.PORT || 8080))
 app.listen (app.get ('port'), (e) => {
