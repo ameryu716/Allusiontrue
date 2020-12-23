@@ -37,7 +37,8 @@ router.get("/",(req,res)=>{
           
           client.query('select * from userinfo', (err, res) => {
             if (err) throw err;
-            for (let row of res.rows) {
+            console.log("tunagu");
+              for (let row of res.rows) {
               console.log(JSON.stringify(row));
             }
             client.end();
