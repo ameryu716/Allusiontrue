@@ -7,6 +7,11 @@ const usrDataSet = require('./moduleUSRD.js');
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
 
+const { Client } = require('pg');
+
+
+
+
 // const storage =  multer.diskStorage({
 //     destination: "./public/images/imgfiles",
 //     filename: function(req, file, cb) {
@@ -24,6 +29,22 @@ router.get("/",(req,res)=>{
             title: "HOME",
             content: "GOYUKKURI",
         });
+        const client = new Client({
+            connectionString: process.env.key_db,
+            ssl: {
+              rejectUnauthorized: false
+            }
+          });
+          
+          client.connect();
+          
+          client.query('SELECT * FROM userinfo;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+            client.end();
+          });
     // }else{
     //     res.redirect('/login');
     // }
