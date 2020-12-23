@@ -27,6 +27,7 @@ router.get("/",(req,res)=>{
     // if(req.session.mail !== undefined && req.session.login){
         console.log("HOME!!");
         const client = new Client({
+            pool: pool,
             connectionString: process.env.DATABASE_URL,
             ssl: {
               rejectUnauthorized: false
