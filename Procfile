@@ -1,2 +1,2 @@
 web: node app.js
-log: tail -f log/development.log
+log: heroku logs --tail -a allusion3
