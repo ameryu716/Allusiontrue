@@ -118,6 +118,7 @@ router.get("/",(req,res)=>{
 // }
 
 router.post("/testy",(req,res)=>{
+    console.log("test");
     client.query('select * from userinfo', (err, res2) => {
         if (err) throw err;
         console.log("tunagu");
