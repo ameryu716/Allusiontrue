@@ -10,7 +10,7 @@ const s_quatation = "'";
 const { Client } = require('pg');
 
 const client = new Client({
-    pool: pool,
+    // pool: pool,
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
