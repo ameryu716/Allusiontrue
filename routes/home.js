@@ -9,7 +9,15 @@ const s_quatation = "'";
 
 const { Client } = require('pg');
 
-
+const client = new Client({
+    pool: pool,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+  
+  client.connect();
 
 
 // const storage =  multer.diskStorage({
@@ -26,24 +34,6 @@ router.get("/",(req,res)=>{
     // console.log( "loginis:" + req.session.login);
     // if(req.session.mail !== undefined && req.session.login){
         console.log("HOME!!");
-        const client = new Client({
-            pool: pool,
-            connectionString: process.env.DATABASE_URL,
-            ssl: {
-              rejectUnauthorized: false
-            }
-          });
-          
-          client.connect();
-          
-          client.query('select * from userinfo', (err, res2) => {
-            if (err) throw err;
-            console.log("tunagu");
-              for (let row of res2.rows) {
-              console.log(JSON.stringify(row));
-            }
-            client.end();
-          });
         res.render("home",{
             title: "HOME",
             content: "GOYUKKURI",
@@ -127,7 +117,16 @@ router.get("/",(req,res)=>{
 //     })
 // }
 
-
+router.post("/testy",(req,res)=>{
+    client.query('select * from userinfo', (err, res2) => {
+        if (err) throw err;
+        console.log("tunagu");
+          for (let row of res2.rows) {
+          console.log(JSON.stringify(row));
+        }
+        client.end();
+    });
+})
 
 
 
