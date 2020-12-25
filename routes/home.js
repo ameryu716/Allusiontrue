@@ -6,7 +6,7 @@ const pool = require('./pool.js');
 const usrDataSet = require('./moduleUSRD.js');
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
-const { Client } = require('pg').defaults.ssl = true;
+const Client  = require('pg').defaults.ssl = true;
 
 const client = new Client({
     // pool: pool,
