@@ -23,7 +23,7 @@ const AsideBoard = Vue.component("asideboard", {
             </select>
         </div>
         <ul>
-            <minicard v-for="item in artarray" v-bind:onecard="item" v-bind:key="item.id"  @selectart="$emit('selectart',$event)"></minicard>
+            <minicard v-for="(item,index) in artarray" v-bind:onecard="item" v-bind:index="index" v-bind:key="item.id" @selectart="$emit('selectart',$event)"></minicard>
         </ul>
     </aside>
     `,

@@ -85,7 +85,7 @@ const RootC = Vue.component("Rune",{
             this.displaymode = "setting";
         },
         listSelectArt(snum){
-            this.onselect = snum-1;
+            this.onselect = snum;
             this.displaymode = "art";
         }
     },

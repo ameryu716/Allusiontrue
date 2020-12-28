@@ -15,7 +15,7 @@ const Settingent = Vue.component("setting",{
     },
     template:`
     <main id="optiondisplay">
-        <form action="/testy" method="POST" id="setform">
+        <form action="/setting" method="POST" id="setform">
             <div id="modoru" v-on:click="$emit('backhome')">
                 <i class="fas fa-arrow-left"></i>
             </div>

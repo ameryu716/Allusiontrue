@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const pool = require("./routes/pool.js");
+// const pool = require("./routes/pool.js");
 // const pg = require('pg');
 // const RedisStore = require('connect-redis')(session);
 // const cookieParser = require("cookie-parser");
@@ -18,24 +18,26 @@ const pool = require("./routes/pool.js");
 
 // app.use(cookieParser());
 
-// const session_opt = {
-//     // saveUninitialized: false,
-//     store: new pgSession({
-//         pool: pool,
-//         connectionString : process.env.key_db,
-//         tableName: "session",
-//         ssl: {
-//             rejectUnauthorized: false,
-//         }
-//     }),
-//     secret: process.env.key_sec,
-//     resave: false,
-//     cookie: {
-//         httpOnly: false,
-//         secure: false,
-//         path: '/session'
-//     },
-// };
+const session_opt = {
+    saveUninitialized: false,
+    // store: new pgSession({
+    //     pool: pool,
+    //     connectionString : process.env.key_db,
+    //     tableName: "session",
+    //     ssl: {
+    //         rejectUnauthorized: false,
+    //     }
+    // }),
+    // secret: process.env.key_sec,
+    secret: "pppproi",
+    resave: false,
+    cookie: {
+        // httpOnly: false,
+        // secure: false,
+        // path: '/session'
+        maxAge:60*60*1000
+    },
+};
 
 
 
@@ -46,7 +48,7 @@ const homeRouter = require("./routes/home");
 
 const app = express();
 
-// app.use(session(session_opt));
+app.use(session(session_opt));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
