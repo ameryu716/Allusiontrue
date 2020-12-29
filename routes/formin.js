@@ -91,9 +91,6 @@ async function setupRun(sendedmail,sendedpass,res){
 }
 
 
-
-
-
 router.post('/login',(req,res)=>{
     const sendedmail = req.body["mail"];
     const sendedpass = req.body["pass"];
@@ -149,7 +146,6 @@ async function loginRun(sendedmail,sendedpass,req,res){
         })
         .catch(errs => console.error(errs));
 
-        
     })
 }
 
@@ -172,6 +168,5 @@ async function usrInsertRun(sendedmail,sendedpass){
         })
     })
 }
-
 
 module.exports = router;

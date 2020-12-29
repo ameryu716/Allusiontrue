@@ -6,8 +6,8 @@ let router = express.Router();
 const usrDataSet = require('./moduleUSRD.js');
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
-// const pg = require('pg');
-// pg.defaults.ssl = true;
+const pg = require('pg');
+pg.defaults.ssl = true;
 const db = require("../models/index.js");
 const Op = db.Sequelize.Op;
 // const Sequelize = require('sequelize');
@@ -87,7 +87,7 @@ router.get("/arttest",(req,res)=>{
             });
         })
 });
-//=>>>>
+//=>>>>art処理
 
 router.post("/artentry",(req,res)=>{
     //作品登録
@@ -109,12 +109,6 @@ router.post("/artentry",(req,res)=>{
         }
         const created = req.body['created'];
         const ftxt = req.body['ftxt'];
-
-        // const tablename = "arttable"+ req.session.usr_data.id;
-        //select user特定 
-        // const artSearchString = "select title from "+tablename;
-        // console.log("THISIS QUERY:"+artSearchString);
-        
 
         artInsert(req.session.usr_data.id,title,type,scale,sawdate,onaired,created,thumbnail,ftxt)
         .then(r =>{
@@ -157,28 +151,8 @@ async function artInsert(user_id,title,type,scale,sawdate,onaired,created,thumbn
             console.error(e2.stack);
             reject(e2);
         })
-
-        // const insertstring = "insert into "+tablename+" (title,arttype,scale,sawdate,onaired,created,thumbnail,ftxt) values (" +s_quatation+ title +s_quatation+","+s_quatation+ type +s_quatation+","+scale+","+s_quatation+ sawdate +s_quatation+","+s_quatation+ onaired +s_quatation+","+s_quatation+ created +s_quatation+","+s_quatation+ thumbnail +s_quatation+","+s_quatation+ ftxt +s_quatation+")";
-        // console.log("ARTINSERT STRING:"+insertstring);
-        // pool.connect((e, client2) =>{
-        //     client2
-        //         .query(insertstring)
-        //         .then(r => {
-        //             console.log("作品登録：成功");
-        //             resolve(tablename);
-        //         })
-        //         .catch((e2) => {
-        //             console.log("作品登録：失敗");
-        //             console.error(e2.stack);
-        //             reject(e2);
-        //         })
-        // })
     })
 }
-
-
-
-
 
 
 
@@ -245,24 +219,6 @@ router.post("/setting",(req,res)=>{
         .catch((e3)=>{
             console.error(e3);
         })
-    // pool.connect((er, client) =>{
-    //     if(er){
-    //         throw new Error(er);
-    //     }else{
-    //         client
-    //             .query(querystring)
-    //             .then(result3 => {
-    //                 usrDataSet(req.session.mail,req)
-    //                 .then(r => {
-    //                     console.log("usrobj-Finished..");
-    //                     res.redirect("/");
-    //                 })
-    //             })
-    //             .catch((e3)=>{
-    //                 console.error(e3);
-    //             })
-    //     }
-    // })
 })
 
 
