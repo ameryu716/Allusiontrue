@@ -3,11 +3,7 @@
     "use_env_variable": "DATABASE_URL"
   },
   "production": {
-    "username": "postgres",
-    "password": "raityou28",
-    "database": "seq",
-    "host": "localhost",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL"
   },
   "test": {
     "username": "postgres",
