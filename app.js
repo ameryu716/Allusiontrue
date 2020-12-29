@@ -32,16 +32,9 @@ const session_opt = {
     secret: "pppproi",
     resave: false,
     cookie: {
-        // httpOnly: false,
-        // secure: false,
-        // path: '/session'
         maxAge:60*60*1000
     },
 };
-
-
-
-
 
 const forminRouter = require("./routes/formin");
 const homeRouter = require("./routes/home");

@@ -2,7 +2,6 @@ let express = require('express');
 let router = express.Router();
 const hashtool = require('./hashModule.js');
 const bcrypt = require('bcrypt');
-// const pool = require("./pool.js");
 const usrDataSet = require("./moduleUSRD.js");
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
@@ -26,7 +25,6 @@ router.get("/",(req,res)=>{
 router.post("/setup",(req,res)=>{
     //xssたいさく
     const sendedmail = req.body["mail"];
-    //console.log("THIS IS SENDED:"+sendedmail);
     const sendedpass = req.body["pass"];
     setupRun(sendedmail,sendedpass,res)
     .then(r =>{
@@ -37,37 +35,14 @@ router.post("/setup",(req,res)=>{
             res.redirect('/');
         })
         .then(r =>{
-            // const tablename = "arttable"+ req.session.usr_data.id;
             console.log("arttable is moved.....");
             //artTableCreate(tablename).then(r => console.log("ART TABLE"+r+" CREATE:成功！"));
         })
     })
 })
 
-// async function artTableCreate(tablename){
-//     return new Promise((resolve,reject)=>{
-//         const createstring = "create table "+tablename+" (id serial, title varchar(30), arttype varchar(10), scale integer, sawdate date, onaired date, created varchar(20), thumbnail varchar(100), ftxt varchar(50), user_id integer);"
-//         pool.connect((e, client) =>{
-//             client
-//                 .query(createstring)
-//                 .then(result => {
-//                     console.log("CREATE：完了");
-//                     resolve(tablename);
-//                 })
-//                 .catch((e2) => {
-//                     console.log("CREATE：失敗");
-//                     console.error(e2.stack);
-//                     reject(e2);
-//                 })
-//         })
-//     })
-// }
-
-
 async function setupRun(sendedmail,sendedpass,res){
     return new Promise((resolve,reject)=>{
-        const querystring = "select count(*) from userinfo where mail="+s_quatation+sendedmail+s_quatation + "";
-        console.log("THISIS QUERY:"+querystring);
 
         db.Userinfo.findOne({
             where: {
@@ -86,7 +61,6 @@ async function setupRun(sendedmail,sendedpass,res){
             }
         })
         .catch(e => console.error(e));
-
     })
 }
 
@@ -110,8 +84,6 @@ router.post('/login',(req,res)=>{
 
 async function loginRun(sendedmail,sendedpass,req,res){
     return new Promise((resolve,reject)=>{
-        const querystring = "select pass from userinfo where mail=" +s_quatation+ sendedmail +s_quatation;
-        console.log("LOGINRUN QUERY THIS:"+querystring);
 
         db.Userinfo.findOne({
             where: {
@@ -121,7 +93,6 @@ async function loginRun(sendedmail,sendedpass,req,res){
         .then(result => {
             console.log("queryresult:"+result);
             if(result !== null){
-                // console.log("真偽："+bcrypt.compareSync(sendedpass,result.rows[0].pass));
                 if(bcrypt.compareSync(sendedpass,result.pass)){
                     console.log("ログイン処理を開始します");
                     usrDataSet(sendedmail,req)
@@ -145,14 +116,11 @@ async function loginRun(sendedmail,sendedpass,req,res){
             }
         })
         .catch(errs => console.error(errs));
-
     })
 }
 
 async function usrInsertRun(sendedmail,sendedpass){
     return new Promise((resolve,reject)=>{
-        const hashedpass = hashtool.hashmodule.hashing(sendedpass);
-        const querystring2 = "insert into userinfo (mail,pass) values (" +s_quatation+ sendedmail +s_quatation+"," +s_quatation+ hashedpass +s_quatation+")";
         db.sequelize.sync()
         .then(()=> db.Userinfo.create({
             mail: sendedmail,

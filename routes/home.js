@@ -1,8 +1,5 @@
 let express = require('express');
 let router = express.Router();
-// const multer = require("multer");
-// const path = require("path");
-// const pool = require('./pool.js');
 const usrDataSet = require('./moduleUSRD.js');
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
@@ -10,32 +7,11 @@ const pg = require('pg');
 pg.defaults.ssl = true;
 const db = require("../models/index.js");
 const Op = db.Sequelize.Op;
-// const Sequelize = require('sequelize');
-// const sequelize = new Sequelize('');
 
-// const client = new Client({
-// // pool: pool,
-//     connectionString: process.env.key_db,
-//     ssl: {
-//         rejectUnauthorized: false
-//     }
-// });
-
-// client.connect();
-
-
-// const storage =  multer.diskStorage({
-//     destination: "./public/images/imgfiles",
-//     filename: function(req, file, cb) {
-//       cb(null, file.originalname)
-//     }
-//   })
-
-// const uploader = multer({ storage });
 
 router.get("/",(req,res)=>{
-    console.log( "mailfound:" + req.session.mail !== undefined);
-    console.log( "loginis:" + req.session.login);
+    //console.log( "mailfound:" + req.session.mail !== undefined);
+    //console.log( "loginis:" + req.session.login);
     if(req.session.mail !== undefined && req.session.login){
         
        console.log("HOME!!");
@@ -47,45 +23,6 @@ router.get("/",(req,res)=>{
     }else{
         res.redirect('/login');
     }
-});
-
-router.get("/usrtest",(req,res)=>{
-    console.log("usrtest22");
-        db.Userinfo.findAll({
-            where: {
-                mail:{ [Op.eq]:"ryuto@mail.com" }
-            }
-        })
-        .then(r =>{
-            console.log(r);
-            console.log("rleng:"+r.length);
-            console.log("r0:"+r[0]);
-            console.log("r0undefined?:"+(r[0]==undefined))
-            console.log("r0datav"+r[0].dataValues)
-            console.log("r0data_va_pass:"+r[0].dataValues.pass)
-            console.log("r0pass:"+r[0].pass);
-            //-------------------------
-            console.log("null?"+(r == null));
-            res.render('usrindex',{
-                title: "test",
-                content: r
-            });
-        })
-});
-
-router.get("/arttest",(req,res)=>{
-    console.log("artest22");
-
-        db.sequelize.sync()
-        .then(()=> db.Arttable.delete())
-        .then(r =>{
-            console.log("rleng:"+r.length);
-            console.log(r);
-            res.render('artindex',{
-                title: "test",
-                content: r
-            });
-        })
 });
 //=>>>>art処理
 
@@ -118,13 +55,12 @@ router.post("/artentry",(req,res)=>{
 
     }else{
         res.redirect('/login');
-    }
-    
+    }  
 })
 
 router.post("/artget",(req,res)=>{
     //作品情報取得
-    console.log("ARTDATA"+req.session.art_data);
+    //console.log("ARTDATA"+req.session.art_data);
     res.json(req.session.art_data);
 })
 
@@ -154,18 +90,10 @@ async function artInsert(user_id,title,type,scale,sawdate,onaired,created,thumbn
     })
 }
 
-
-
-
-
-
-
-
-
 router.post("/usrget",(req,res)=>{
     //ユーザー情報取得
-    console.log("THISISID:"+req.session.usr_data.id);
-    console.log(req.session.usr_data);
+    // console.log("THISISID:"+req.session.usr_data.id);
+    // console.log(req.session.usr_data);
     res.json(req.session.usr_data);
 })
 
@@ -194,9 +122,6 @@ router.post("/setting",(req,res)=>{
             break;
     }
 
-    const querystring = "update userinfo set username = "+s_quatation+usrname+s_quatation+",icon = "+s_quatation+ iconclass +s_quatation+",profileimg = "+s_quatation+ pimg +s_quatation+",profiletxt = "+s_quatation+ ftxt +s_quatation+" where mail=" +s_quatation+ req.session.mail +s_quatation;
-    console.log(querystring);
-
     db.sequelize.sync()
         .then(()=> db.Userinfo.update({
             username: usrname,
@@ -220,8 +145,5 @@ router.post("/setting",(req,res)=>{
             console.error(e3);
         })
 })
-
-
-
 
 module.exports = router;

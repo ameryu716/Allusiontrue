@@ -1,4 +1,6 @@
 node_modules/
 routes/localpool.js
 routes/localsessionopt.js
+routes/pool.js
+routes/sessionopt.js
 .env
