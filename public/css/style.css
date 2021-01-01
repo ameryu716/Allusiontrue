@@ -4,7 +4,7 @@ body {
     color: #625454;
     color: #565656;
     display: block;
-    padding: 0 1% 0 3%;
+    padding: 0;
     font-family: 'Noto Serif JP', serif;
     height: 100vh;
     overflow: hidden;
@@ -19,8 +19,110 @@ a {
 }
 #wrap {
     height: 100%;
+    width: 100vw;
+    padding: 0 1%;
 }
 #main-wrap {
     display: flex;
     height: 100%;
+}
+
+
+.crudbtn {
+    position: absolute;
+    bottom: 30px;
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+    border-style: solid;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.crudbtn:active {
+    bottom: 27px;
+}
+.crudbtn:focus {
+    outline:  none;
+}
+
+#c-btn {
+    right: 30px;
+    background-color: lightgreen;
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 3px 0 rgba(0,255,0,0.2);
+}
+#c-btn:hover {
+    background-color: forestgreen;
+}
+#c-btn:active {
+    box-shadow: 0 0 0 rgba(0,255,0,0.2);
+}
+
+#u-btn {
+    right: 20px;
+    background-color: cornflowerblue;
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 3px 0 rgba(0,0,255,0.2);
+}
+#u-btn:hover {
+    background-color: royalblue;
+}
+#u-btn:active {
+    box-shadow: 0 0 0 rgba(0,0,255,0.2);
+}
+
+#d-btn {
+    right: 130px;
+    background-color: palevioletred;
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 3px 0 rgba(255,0,0,0.2);
+}
+#d-btn:hover {
+    background-color: red;
+}
+#d-btn:active {
+    box-shadow: 0 0 0 rgba(255,0,0,0.2);
+}
+
+#ca-btn {
+    right: 145px;
+    background-color: darksalmon;
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 3px 0 rgba(255,0,0,0.2);
+}
+#ca-btn:hover {
+    background-color: red;
+}
+#ca-btn:active {
+    box-shadow: 0 0 0 rgba(255,0,0,0.2);
+}
+
+.darktheme {
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+}
+.darktheme i {
+    color: #fff;
+}
+.darktheme header {
+    background-color: transparent;
+}
+.darktheme #themeinput {
+    background-color: #fff;
+    color: #000;
+}
+.darktheme input,.darktheme textarea, .darktheme #artentry div:not(.di-back), .darktheme #artcardew div:not(.di-back){
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+}
+.darktheme main div:hover {
+    color: rgba(36, 219, 36, 0.7);
+    border-color: rgba(36, 219, 36, 0.7);
 }

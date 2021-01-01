@@ -39,7 +39,7 @@ const addArtCard = Vue.component("addartcardent", {
 
                 <div class="object onaired">
                     <span class="divname">Onaired</span>
-                    <input :value="art[ons].onaired" class="divcontents" type="text" name="onaired" v-if="!isnewedit">
+                    <input :value="art[ons].onaired" class="divcontents" type="date" name="onaired" v-if="!isnewedit">
                     <input class="divcontents" type="date" name="onaired" v-if="isnewedit">
                 </div>
             </div>
@@ -76,7 +76,10 @@ const addArtCard = Vue.component("addartcardent", {
                 </div>
 
             </div>
-            <input type="submit" id="d-btn" value="登録">
+            <input type="hidden" name="editid" id="editid" :value=art[ons].id v-if="!isnewedit">
+            <input type="hidden" name="editmode" id="editmode" :value=ons>
+            <input type="submit" class="crudbtn" id="ca-btn" value="やめる" v-if="!isnewedit">
+            <input type="submit" class="crudbtn" id="c-btn" value="登録">
         </form>
     </main>
     `,

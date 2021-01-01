@@ -15,10 +15,10 @@ const Settingent = Vue.component("setting",{
     },
     template:`
     <main id="optiondisplay">
+        <div id="modoru" v-on:click="$emit('backhome')">
+            <i class="fas fa-arrow-left"></i>
+        </div>
         <form action="/setting" method="POST" id="setform">
-            <div id="modoru" v-on:click="$emit('backhome')">
-                <i class="fas fa-arrow-left"></i>
-            </div>
             <div id="username" class="settingobj">
                 <div class="set-caption">
                     <span>ユーザーネーム</span>
@@ -68,6 +68,11 @@ const Settingent = Vue.component("setting",{
             </div>
             <input type="submit" value="変更する" id="setsubmit">
         </form>
+        <label for="theme-change" id="themeinput">
+            ダークテーマ
+            <input type="checkbox" id="theme-change" v-on:click="$emit('themechange')">
+        </label>
+        <div id="logouter" onclick="location.href='./login'">ログアウト</div>
     </main> 
     `,
     methods: {

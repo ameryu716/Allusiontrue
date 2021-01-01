@@ -3,8 +3,9 @@
 aside {
     position: relative;
     width: 440px;
-    height: 94vh;
+    height: 96vh;
     margin: 50px 0 0 10px;
+    margin: 10px 0 0 10px;
     border: solid 1px gray;
     border-radius: 10px;
     overflow-y: scroll;
@@ -12,6 +13,7 @@ aside {
 .asideheader {
     transition: 0.8s;
     position: sticky;
+    position: relative;
     top: 0;
     left: 0;
     height: 50px;
@@ -57,6 +59,7 @@ aside {
 
 aside ul {
     top: -10%;
+    top: 0;
     position: relative;
     z-index: 1;
     padding: 0 10px 10px 10px;
@@ -85,7 +88,7 @@ aside ul {
     border-radius: 10px;
 }
 .title-board {
-    width: 228px;
+    width: 246px;
     height: 35px;
     border-bottom: gray solid 2px;
     padding-left: 7px;

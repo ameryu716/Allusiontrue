@@ -1,7 +1,6 @@
 const header = document.getElementsByClassName("header");
 const headerspan = header[0].getElementsByTagName("span");
 const logbgroup = header[0].getElementsByClassName("formin-group");
-console.log(headerspan);
 const shrink = false;
 
 setTimeout(()=>{
@@ -11,8 +10,8 @@ setTimeout(()=>{
     headerspan[0].style.transition = "0.5s";
     logbgroup[0].style.padding = "4px";
     logbgroup[0].style.width = "135px";
-    for(let i=1; i<4;i++){
-        headerspan[i].classList.add("shrinklogbtn");
+    for(let i=0; i<3;i++){
+        headerspan[i].classList.toggle("shrinklogbtn");
     }
 },3000)
 
@@ -22,8 +21,8 @@ header[0].addEventListener("mouseenter", ()=>{
     headerspan[0].style.padding = "6px";
     logbgroup[0].style.padding = "13px";
     logbgroup[0].style.width = "170px";
-    for(let i=1; i<4;i++){
-        headerspan[i].classList.remove("shrinklogbtn");
+    for(let i=0; i<3;i++){
+        headerspan[i].classList.toggle("shrinklogbtn");
     }
 })
 header[0].addEventListener("mouseleave", ()=>{
@@ -32,8 +31,8 @@ header[0].addEventListener("mouseleave", ()=>{
     headerspan[0].style.padding = "0";
     logbgroup[0].style.padding = "4px";
     logbgroup[0].style.width = "135px";
-    for(let i=1; i<4;i++){
-        headerspan[i].classList.add("shrinklogbtn");
+    for(let i=0; i<3;i++){
+        headerspan[i].classList.toggle("shrinklogbtn");
     }
 })
 

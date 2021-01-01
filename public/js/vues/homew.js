@@ -2,7 +2,6 @@ const Homedent = Vue.component("home",{
     props:{
         coa: Object
     },
-    //
     data: function(){
         return{
             calendDisplay: this.coa.calendDisplay

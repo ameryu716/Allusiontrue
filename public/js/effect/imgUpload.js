@@ -17,19 +17,25 @@ const uploadlabel = document.getElementById("uploadlabel");
 const imguploads = document.getElementById("imguploads");
 const imageicon = document.getElementsByClassName("imageicon");
 const imageplusicon = document.getElementsByClassName("imageplus-icon");
-const dbtn = document.getElementById("d-btn");
+const cbtn = document.getElementById("c-btn");
+const ubtn = document.getElementById("u-btn");
 
 if(profileimg.naturalHeight === 0){
     console.log("srcが空");
-    console.log(profileimg);
     profileimg.style.display = "none";
     uploadlabel.style.display = "block";
     preview[0].style.height = "285px";
     preview[0].style.width = "450px";
     
     imguploads.addEventListener('change',()=>{
-        dbtn.style.opacity = "0.5";
-        dbtn.type="button";
+        if(cbtn == !undefined){
+            cbtn.style.opacity = "0.5";
+            cbtn.type="button";
+        }
+        if(ubtn == !undefined){
+            ubtn.style.opacity = "0.5";
+            ubtn.type="button";
+        }
         const prevzone = document.getElementById("imgprev");
         const sizelimit = 3000000;
         function previewFile(file) {
@@ -55,13 +61,30 @@ if(profileimg.naturalHeight === 0){
                     let ctx = canvas.getContext('2d');
                     // ctx.clearRect(0, 0, 450,285);
                     // 画像をコピーします (このメソッドで画像をカットすることができます)
-                    ctx.drawImage(img, 0, 0,img.width,img.height,0,0,450,285);
-
+                    if(img.naturalWidth >= img.naturalHeight){
+                        const tateyoko = img.naturalWidth/img.naturalHeight;
+                        // ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,450,450/tateyoko);
+                        if(285*tateyoko < 450){
+                            ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,450,450/tateyoko);
+                        }else{
+                            ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,285*tateyoko,285);
+                        }
+                    }else{
+                        const tateyoko = img.naturalHeight/img.naturalWidth;
+                        ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,285*tateyoko,285);
+                    }
+                    //ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,450,285);
                     imgSave(canvas,imguploads.files[0].name)
                     .then(r =>{
                          artimgsrc.value=r;
-                         dbtn.type="submit";
-                         dbtn.style.opacity = "1";
+                         if(cbtn == !undefined){
+                            cbtn.type="submit";
+                            cbtn.style.opacity = "1";
+                        }
+                        if(ubtn == !undefined){
+                            ubtn.type="submit";
+                            ubtn.style.opacity = "1";
+                        }
                     });
                 }, 500);
                     //=>>canvas化+保存
@@ -98,7 +121,6 @@ if(profileimg.naturalHeight === 0){
     
 } else if(profileimg.naturalHeight >= 1){
     console.log("srcが空じゃない");
-    console.log(profileimg)
     imguploads.style.display = "none";
     profileimg.style.width = "450px";
     profileimg.style.height = "285px";

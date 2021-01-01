@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const multipart = require('connect-multiparty');
 const session = require("express-session");
 // const pool = require("./routes/pool.js");
 // const pg = require('pg');
@@ -41,6 +42,7 @@ const homeRouter = require("./routes/home");
 
 const app = express();
 
+app.use(multipart());
 app.use(session(session_opt));
 
 app.use(bodyParser.urlencoded({ extended: false }));

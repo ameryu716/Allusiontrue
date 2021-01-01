@@ -3,8 +3,8 @@ let router = express.Router();
 const usrDataSet = require('./moduleUSRD.js');
 const artDataSet = require('./moduleARTD.js');
 const s_quatation = "'";
-const pg = require('pg');
-pg.defaults.ssl = true;
+// const pg = require('pg');
+// pg.defaults.ssl = true;
 const db = require("../models/index.js");
 const Op = db.Sequelize.Op;
 
@@ -26,6 +26,12 @@ router.get("/",(req,res)=>{
 });
 //=>>>>art処理
 
+router.post("/artget",(req,res)=>{
+    //作品情報取得
+    //console.log("ARTDATA"+req.session.art_data);
+    res.json(req.session.art_data);
+})
+
 router.post("/artentry",(req,res)=>{
     //作品登録
     if((req.session.mail !== undefined) && req.session.login){
@@ -46,22 +52,28 @@ router.post("/artentry",(req,res)=>{
         }
         const created = req.body['created'];
         const ftxt = req.body['ftxt'];
+        const editmode = req.body['editmode'];
+        const editid = req.body['editid'];
 
-        artInsert(req.session.usr_data.id,title,type,scale,sawdate,onaired,created,thumbnail,ftxt)
-        .then(r =>{
-            artDataSet(r,req)
-            .then(r3 => res.redirect("/"));
-        })
-
+        if(editmode == 9999){
+            //新規挿入モード
+            artInsert(req.session.usr_data.id,title,type,scale,sawdate,onaired,created,thumbnail,ftxt)
+            .then(r =>{
+                artDataSet(r,req)
+                .then(r3 => res.redirect("/"));
+            })
+        }else{
+            //作品編集モード
+            artUpdate(editid,title,type,scale,sawdate,onaired,created,thumbnail,ftxt,req.session.usr_data.id)
+            .then(r =>{
+                artDataSet(r,req)
+                .then(r3 => res.redirect("/"));
+            })
+            .catch(e => console.error(e));
+        }
     }else{
         res.redirect('/login');
     }  
-})
-
-router.post("/artget",(req,res)=>{
-    //作品情報取得
-    //console.log("ARTDATA"+req.session.art_data);
-    res.json(req.session.art_data);
 })
 
 async function artInsert(user_id,title,type,scale,sawdate,onaired,created,thumbnail,ftxt){
@@ -89,6 +101,56 @@ async function artInsert(user_id,title,type,scale,sawdate,onaired,created,thumbn
         })
     })
 }
+
+async function artUpdate(editid,title,type,scale,sawdate,onaired,created,thumbnail,ftxt,user_id){
+    return new Promise((resolve,reject) => {
+        db.sequelize.sync()
+        .then(()=> db.Arttable.update({
+            title: title,
+            arttype: type,
+            scale: scale,
+            sawdate: sawdate,
+            onaired: onaired,
+            created: created,
+            thumbnail: thumbnail,
+            ftxt: ftxt,
+            user_id: user_id,
+        },
+        {
+            where: {
+                id: {[Op.eq]:editid}
+            }
+        }
+        ))
+        .then(r => {
+            console.log("作品編集：成功");
+            resolve(user_id);
+        })
+        .catch((e2) => {
+            console.log("作品編集：失敗");
+            console.error(e2.stack);
+            reject(e2);
+        })
+    })
+}
+
+router.post("/artdelete",(req,res)=>{
+    db.sequelize.sync()
+    .then(()=> db.Arttable.destroy({
+        where: {
+            id:{ [Op.eq]:req.body.artid }
+        }
+    }))
+    .then(r => {
+        console.log("作品削除：成功");
+        artDataSet(req.session.usr_data.id,req)
+        .then(() => res.end());
+    })
+    .catch((e2) => {
+        console.log("作品削除：失敗");
+        console.error(e2.stack);
+    })
+})
 
 router.post("/usrget",(req,res)=>{
     //ユーザー情報取得

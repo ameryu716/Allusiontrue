@@ -10,10 +10,12 @@ const ArtCard = Vue.component("artcardent", {
         <div class="di-back" v-on:click="$emit('backhome')"><i class="fas fa-arrow-left backicon"></i></div>
         <div class="lefter">
             <div class="object anime-img">
+                <div id="imgprev"></div>
                 <label for="imguploads" id="uploadlabel">
                     <i class="fas fa-images imageicon"></i>
                     <i class="fas fa-plus imageplus-icon"></i>
                     <input type="file" name="imguploads" id="imguploads" accept="image/*">
+                    <input type="text" name="artimgsrc" id="artimgsrc" hidden>
                 </label>
                 <img :src="art[ons].thumbnail" id="profileimg">
             </div>
@@ -25,9 +27,11 @@ const ArtCard = Vue.component("artcardent", {
         <div class="righter">
             <div class="object title"><span class="divname">Title</span><span class="divcontents">{{art[ons].title}}</span></div>
             <div class="object arttype"><span class="divname">Type</span><span class="divcontents">{{art[ons].conttype}}</span></div>
-            <div class="object artscale"><span class="divname">Scale</span><span class="divcontents">{{art[ons].scale}}</span></div>
+            <div class="object artscale"><span class="divname">Scale</span><span class="divcontents">{{art[ons].scale}}<span class="scaletype1">分</span></span></div>
             <div class="object contents"><span class="divcontents">{{art[ons].freetext}}</span></div>
         </div>
+        <input type="submit" class="crudbtn" id="u-btn" v-on:click="$emit('artUpdate')" value="編集">
+        <input type="button" class="crudbtn" id="d-btn" v-on:click="$emit('artDelete')" value="削除">
     </main>
     `,
     mounted: function(){
@@ -36,8 +40,3 @@ const ArtCard = Vue.component("artcardent", {
 });
 
 export {ArtCard};
-
-// //return{
-//     keys:0,
-//     ef: usertable
-// }
