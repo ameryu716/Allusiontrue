@@ -121,14 +121,6 @@ const Settingent = Vue.component("setting",{
         },
 
     },
-    // created(){
-    //     setTimeout(() => {
-    //         const img = document.getElementById("beimg");
-    //         console.log(img)
-    //         imgLoad("uten.jpg",img)
-    //         .then(r => console.log(r));  
-    //     }, 1000);
-    // }
 })
 
 

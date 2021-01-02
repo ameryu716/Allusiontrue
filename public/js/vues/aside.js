@@ -10,15 +10,15 @@ const AsideBoard = Vue.component("asideboard", {
         return{
             onecard: this.artarray
         }
-    },
+    }, 
     template: `
     <aside id="cardlist">
         <div class="asideheader">
             <div class="filter-icon">
                 <i class="fas fa-filter"></i>
             </div>
-            <select required class="filter-option">
-                <option>視聴日時順</option>
+            <select required class="filter-option" v-on:change="$emit('filtselect')">
+                <option >視聴日時順</option>
                 <option selected>50音順</option>
             </select>
         </div>
@@ -31,7 +31,7 @@ const AsideBoard = Vue.component("asideboard", {
          "minicard":onecardnent,
     },
     created(){
-        aheadEffect();
+        // aheadEffect();
     }
 })
 

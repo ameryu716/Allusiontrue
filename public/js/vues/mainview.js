@@ -4,6 +4,7 @@ import {addArtCard} from "./addArtcardew.js";
 import {AsideBoard} from "./aside.js";
 import {Homedent} from "./homew.js";
 import {Settingent} from "./settingew.js";
+import {creatent} from "./createcardew.js";
 import {imgLoad} from "../effect/imgLocalIndex.js";
 
 async function usrdataload(){
@@ -64,7 +65,8 @@ const RootC = Vue.component("Rune",{
         "artcardent": ArtCard,
         "asideboard": AsideBoard,
         "addartcardent": addArtCard,
-        "setting": Settingent
+        "setting": Settingent,
+        "CCard": creatent,
     },
     data: function() {
         return{
@@ -74,6 +76,7 @@ const RootC = Vue.component("Rune",{
             displaymode: "home",
             loginmode: "logout",
             darktheme: false,
+            createmode: false,
             usrdata: {},
             artdata: [],
         }
@@ -110,8 +113,13 @@ const RootC = Vue.component("Rune",{
             this.darktheme = !this.darktheme;
         },
         listSelectArt(snum){
-            this.onselect = snum;
-            this.displaymode = "art";
+            if(!this.createmode){
+                this.onselect = snum;
+                this.displaymode = "art";
+            }else{
+                this.onselect = snum;
+                this.displaymode = "create";
+            }
         },
         artUpdate(){
             this.displaymode = "artentry";
@@ -135,18 +143,44 @@ const RootC = Vue.component("Rune",{
                     })
                 }
             })
+        },
+        sorting(){
+            const sortoption = document.getElementsByClassName('filter-option')[0].value;
+            console.log(sortoption);
+            if(sortoption == "視聴日時順"){
+                this.artdata.sort(function(a,b){
+                    if(a.sawdate < b.sawdate){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
+                })
+            }else if(sortoption == "50音順"){
+                this.artdata.sort(function(a,b){
+                    if(a.title < b.title){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
+                })
+            }
+        },
+        cardCreateRun(){
+            this.createmode = true;
+            document.getElementById("homew").style.opacity = 0.3;
+            document.getElementById("cardlist").style.border = "solid 3px green";
         }
     },
     template:`
     <div id="vue-rendering" v-bind:class="{darktheme:darktheme}">
     <Alluheader v-bind:login="loginmode"></Alluheader>
     <div id="main-wrap">
-        <home v-bind:coa="usrdata" @graphtoggle="calenddisplaytoggle" @goart="arttoggle" @artedit="artentrytoggle" @goset="settoggle" v-if="ishome"></home>
+        <home v-bind:coa="usrdata" @graphtoggle="calenddisplaytoggle" @goart="arttoggle" @artedit="artentrytoggle" @goset="settoggle" @cardcreate="cardCreateRun" v-if="ishome"></home>
         <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" @artDelete="artDelete" @artUpdate="artUpdate" v-if="isart"></artcardent>
         <addartcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" v-if="isartentry"></addartcardent>
         <setting v-bind:set="usrdata" v-if="issetting" @backhome="hometoggle" @themechange="darkthemetoggle"></setting>
-        <asideboard v-bind:artarray="artdata" v-bind:ons="onselect" v-if="!issetting" @selectart="listSelectArt($event)"></asideboard>
-        <button style="color:red;display:none;" v-on:click="usrdataset">セット</button>
+        <CCard v-bind:art="artdata" v-bind:ons="onselect" v-if="isCCard"></CCard>
+        <asideboard v-bind:artarray="artdata" v-bind:ons="onselect" v-if="!issetting" @selectart="listSelectArt($event)" @filtselect="sorting"></asideboard>
     </div>
     </div>
     `,
@@ -163,6 +197,9 @@ const RootC = Vue.component("Rune",{
         issetting(){
             return (this.displaymode == "setting");
         },
+        isCCard(){
+            return (this.displaymode == "create")
+        }
     },
     mounted: function(){
         setTimeout(() => {

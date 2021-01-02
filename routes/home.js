@@ -164,7 +164,12 @@ router.post("/setting",(req,res)=>{
         return res.redirect("/login");
     }
     console.log(req.body['pimg']);
-    let pimg = req.body['imgsrcstr'];
+    let pimg = "";
+    if(req.body['imgsrcstr'] == ""){
+        pimg = req.session.usr_data.profileimg;
+    }else{
+        pimg = req.body['imgsrcstr'];
+    }
     const usrname = req.body['usrname'];
     const iconselect = req.body['iconselect'];
     const ftxt = req.body['ftxt'];
