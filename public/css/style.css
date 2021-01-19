@@ -122,7 +122,37 @@ a {
     background-color: rgba(0,0,0,0.3);
     color: #fff;
 }
-.darktheme main div:hover {
+.darktheme main div.move ul ol:hover,.darktheme main .status div:nth-child(2):hover {
     color: rgba(36, 219, 36, 0.7);
     border-color: rgba(36, 219, 36, 0.7);
+    background-color: #edfff4;
+    opacity: 1;
+}
+.darktheme main div.move ul ol:hover i,.darktheme main .status div:nth-child(2):hover i{
+    color: rgba(36, 219, 36, 0.7);
+}
+
+.createmode #cardlist {
+    border: solid 3px green;
+}
+.createmode #homew {
+    transition: 0.3s;
+    filter: blur(2px);
+}
+
+#cancelbtn {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: 150px;
+    height: 60px;
+    font-size: 32px;
+    color: red;
+    font-weight: bold;
+    font-family: 'Noto Serif JP';
+    line-height: 1;
+    background-color: #fff;
+    border: solid 2px orangered;
+    border-radius: 10px;
+    z-index: 10;
 }

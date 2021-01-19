@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.createcardew.captmode  #card-download, .createcardew.captmode #download-cancel{
+    display: none;
+}
+
+.createcardew .object.anime-img {
+    margin: 0 15px 10px 15px;
+}
+
+main#artcardew.createcardew {
+    padding: 30px 15px 10px 15px;
+}
+
+.object.else.written {
+    height: 60px;
+    width: 120px;
+    margin-left: 40px;
+    border: none;
+}
+
+.object.else.written .divcontents {
+    font-size: 22px;
+    padding-left: 5px;
+    padding-top: 14px;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.object.else.written::after {
+    content: "";
+    display: block;
+    border-bottom: solid 1px #000;
+    transform: rotateZ(-6deg);
+    width: 120px;
+    position: absolute;
+    top: 48px;
+    left: 0;
+}
+

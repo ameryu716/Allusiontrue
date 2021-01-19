@@ -70,10 +70,10 @@ const RootC = Vue.component("Rune",{
     },
     data: function() {
         return{
-            // sett: usrsett,
             onselect: 0,
             addmode: true,
             displaymode: "home",
+            selfdisp: "text",
             loginmode: "logout",
             darktheme: false,
             createmode: false,
@@ -84,6 +84,21 @@ const RootC = Vue.component("Rune",{
     methods:{
         calenddisplaytoggle(){
             this.usrdata.calendDisplay = !(this.usrdata.calendDisplay);
+        },
+        selfDispRotate(){
+            switch(this.selfdisp){
+                case "text":
+                    this.selfdisp = "calend";
+                    break;
+                case "calend":
+                    this.selfdisp = "graph";
+                    break;
+                case "graph":
+                    this.selfdisp = "text";
+                    break;
+                default:
+                    throw new Error();
+            }
         },
         usrdataset(){
             usrdataload().then(fullfill => this.usrdata = fullfill);
@@ -104,13 +119,27 @@ const RootC = Vue.component("Rune",{
         settoggle(){
             this.displaymode = "setting";
         },
-        darkthemetoggle(){
-            if(!this.darktheme){
-                document.getElementById("wrap").style.backgroundColor ="rgba(0,0,0,0.7)";
-            }else{
-                document.getElementById("wrap").style.backgroundColor = "#fff";
+        darkthemetoggle(color){
+            if(color !== undefined){
+                switch(color){
+                    case "white":
+                        document.getElementById("wrap").style.backgroundColor ="#fff";
+                        this.darktheme = false;
+                        break;
+                    case "black":
+                        document.getElementById("wrap").style.backgroundColor ="rgba(0,0,0,0.7)";
+                        this.darktheme = true;
+                        break;
+                }
+            }else if(color == undefined){
+                if(!this.darktheme){
+                    document.getElementById("wrap").style.backgroundColor ="rgba(0,0,0,0.7)";
+                    this.darktheme = true;
+                }else{
+                    document.getElementById("wrap").style.backgroundColor = "#fff";
+                    this.darktheme = false;
+                }
             }
-            this.darktheme = !this.darktheme;
         },
         listSelectArt(snum){
             if(!this.createmode){
@@ -167,21 +196,52 @@ const RootC = Vue.component("Rune",{
         },
         cardCreateRun(){
             this.createmode = true;
-            document.getElementById("homew").style.opacity = 0.3;
-            document.getElementById("cardlist").style.border = "solid 3px green";
+        },
+        createcancel(){
+            if(this.createmode){
+                this.createmode = false;
+                this.displaymode = "home";
+                homeelement.onclick = undefined;
+            }
         }
     },
     template:`
-    <div id="vue-rendering" v-bind:class="{darktheme:darktheme}">
-    <Alluheader v-bind:login="loginmode"></Alluheader>
-    <div id="main-wrap">
-        <home v-bind:coa="usrdata" @graphtoggle="calenddisplaytoggle" @goart="arttoggle" @artedit="artentrytoggle" @goset="settoggle" @cardcreate="cardCreateRun" v-if="ishome"></home>
-        <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" @artDelete="artDelete" @artUpdate="artUpdate" v-if="isart"></artcardent>
-        <addartcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" v-if="isartentry"></addartcardent>
-        <setting v-bind:set="usrdata" v-if="issetting" @backhome="hometoggle" @themechange="darkthemetoggle"></setting>
-        <CCard v-bind:art="artdata" v-bind:ons="onselect" v-if="isCCard"></CCard>
-        <asideboard v-bind:artarray="artdata" v-bind:ons="onselect" v-if="!issetting" @selectart="listSelectArt($event)" @filtselect="sorting"></asideboard>
-    </div>
+    <div id="vue-rendering" v-bind:class="vuerendclass">
+        <Alluheader v-bind:login="loginmode"></Alluheader>
+        <div id="main-wrap">
+            <button id="cancelbtn" v-if="isCreateAndHome" @click="createcancel">やめる</button>
+            
+            <home v-bind:coa="usrdata"
+             v-bind:dself="selfdisp" 
+             @graphtoggle="selfDispRotate" 
+             @goart="arttoggle" 
+             @artedit="artentrytoggle" 
+             @goset="settoggle" 
+             @cardcreate="cardCreateRun"
+             v-if="ishome">
+            </home>
+
+            <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" @artDelete="artDelete" @artUpdate="artUpdate" v-if="isart"></artcardent>
+            <addartcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" v-if="isartentry"></addartcardent>
+            <setting v-bind:set="usrdata" v-if="issetting" @backhome="hometoggle" @themechange="darkthemetoggle"></setting>
+
+            <CCard v-bind:art="artdata"
+             v-bind:ons="onselect" 
+             v-bind:usrname="usrdata.username"
+             v-bind:darktheme="darktheme"
+             @themechange="darkthemetoggle($event)" 
+             @createcancel="createcancel" 
+             v-if="isCCard">
+            </CCard>
+
+            <asideboard
+             v-bind:artarray="artdata" 
+             v-bind:ons="onselect"
+             v-if="!issetting" 
+             @selectart="listSelectArt($event)" 
+             @filtselect="sorting">
+            </asideboard>
+        </div>
     </div>
     `,
     computed: {
@@ -199,7 +259,16 @@ const RootC = Vue.component("Rune",{
         },
         isCCard(){
             return (this.displaymode == "create")
-        }
+        },
+        isCreateAndHome(){
+            return this.createmode&&this.ishome;
+        },
+        vuerendclass(){
+            return {
+                darktheme: this.darktheme,
+                createmode: this.createmode
+            }
+        },
     },
     mounted: function(){
         setTimeout(() => {
@@ -238,5 +307,7 @@ const Runerend = new Vue({
         "Rune": RootC
     }
 })
+
+const homeelement = document.getElementById("homew");
 
 export {RootC,Runerend};

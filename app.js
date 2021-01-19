@@ -21,16 +21,7 @@ const session = require("express-session");
 
 const session_opt = {
     saveUninitialized: false,
-    // store: new pgSession({
-    //     pool: pool,
-    //     connectionString : process.env.key_db,
-    //     tableName: "session",
-    //     ssl: {
-    //         rejectUnauthorized: false,
-    //     }
-    // }),
-    // secret: process.env.key_sec,
-    secret: "pppproi",
+    secret: process.env.key_sessionapp,
     resave: false,
     cookie: {
         maxAge:60*60*1000

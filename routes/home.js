@@ -38,6 +38,7 @@ router.post("/artentry",(req,res)=>{
         const thumbnail = req.body['artimgsrc']
         const title = req.body['title'];
         const type = req.body['arttype'];
+        console.log("arttype:"+type)
         let scale = req.body['artscale'];
         if(scale==""){
             scale = 0;
@@ -78,10 +79,11 @@ router.post("/artentry",(req,res)=>{
 
 async function artInsert(user_id,title,type,scale,sawdate,onaired,created,thumbnail,ftxt){
     return new Promise((resolve,reject)=>{
+        console.log(type);
         db.sequelize.sync()
         .then(()=> db.Arttable.create({
             title: title,
-            arttype: type,
+            type: type,
             scale: scale,
             sawdate: sawdate,
             onaired: onaired,

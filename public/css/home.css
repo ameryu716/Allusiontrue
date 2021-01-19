@@ -17,7 +17,7 @@ main#homew {
     width: 300px;
 } */
 .name {
-    width: 60%;
+    width: 50%;
     height: 100px;
     display: block;
     position: relative;
@@ -60,6 +60,7 @@ main#homew {
 .status div:nth-child(2){
     height: 24px;
     padding: 11px 0;
+    cursor: pointer;
 }
 .status div:nth-child(2) i {
     font-size: 24px;
@@ -86,9 +87,10 @@ main#homew {
     font-family: "Sawarabi Mincho";
     border: solid 1px gray;
     border-radius: 20px;
-    width: 340px;
-    height: 190px;
+    width: 400px;
+    height: 220px;
     padding: 21px;
+    font-size: 17px;
 }
 .move{
     margin-top: 100px;
@@ -99,9 +101,9 @@ main#homew {
 .move ol{
     border: solid gray 1px;
     border-radius: 5px;
-    width: 170px;
-    height: 30px;
-    padding: 15px 10px 15px 10px;
+    width: 200px;
+    height: 35px;
+    padding: 18px 7px 12px 13px;
     margin-bottom: 10px;
     box-shadow: 0 2px 0 rgba(0,0,0,0.5);
     cursor: pointer;
@@ -119,6 +121,11 @@ main#homew {
 .move ol:first-child:active {
     margin-top: 18px;
 }
+.move ol i {
+    padding-right: 5px;
+}
+
+
 .option {
     position: absolute;
     bottom: 40px;

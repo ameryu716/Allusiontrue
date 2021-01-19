@@ -1,11 +1,12 @@
+import {selfer} from "./selfFieldew.js";
+
 const Homedent = Vue.component("home",{
-    props:{
-        coa: Object
+    components: {
+        "Selfer": selfer
     },
-    data: function(){
-        return{
-            calendDisplay: this.coa.calendDisplay
-        }
+    props:{
+        coa: Object,
+        dself: String,
     },
     template:`
     <main id="homew">
@@ -14,18 +15,15 @@ const Homedent = Vue.component("home",{
             <span>{{coa.username}}</span>
         </div>
         <div class="status">
-                <div><i class="fas awefon fa-fw" :class="coa.icon"></i><span>Magier</span></div>
-                <div v-on:click="$emit('graphtoggle')">
-                
-                    <i class="far fa-calendar-alt"></i>
-                    <i class="fas fa-arrows-alt-h"></i>
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{coa.watchtime}}</span>h</div>
+            <div><i class="fas awefon fa-fw" :class="coa.icon"></i><span>Magier</span></div>
+            <div v-on:click="$emit('graphtoggle')">
+                <i class="far fa-calendar-alt"></i>
+                <i class="fas fa-arrows-alt-h"></i>
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{coa.watchtime}}</span>h</div>
         </div>
-        <div class="self">
-            {{coa.profiletext}}
-        </div>
+        <Selfer v-bind:disp="dself" v-bind:selfobj="coa"></Selfer>
         <div class="move">
             <ul>
                 <ol v-on:click="$emit('artedit')"><i class="fas fa-pen awefon fa-fw"></i>記録する</ol>
@@ -37,7 +35,7 @@ const Homedent = Vue.component("home",{
             <i class="fas fa-cog"></i>
         </div>
     </main>
-    `,
+    `
 });
 
 

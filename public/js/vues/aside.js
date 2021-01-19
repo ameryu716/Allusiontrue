@@ -4,7 +4,7 @@ import {aheadEffect} from "../effect/asideheaderEf.js";
 const AsideBoard = Vue.component("asideboard", {
     props:{
         artarray: Array,
-        ons: Number
+        ons: Number,
     },
     data: function(){
         return{
