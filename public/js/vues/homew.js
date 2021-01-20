@@ -21,7 +21,7 @@ const Homedent = Vue.component("home",{
                 <i class="fas fa-arrows-alt-h"></i>
                 <i class="fas fa-chart-line"></i>
             </div>
-            <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{coa.watchtime}}</span>h</div>
+            <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{this.minites}}</span>h</div>
         </div>
         <Selfer v-bind:disp="dself" v-bind:selfobj="coa"></Selfer>
         <div class="move">
@@ -35,7 +35,12 @@ const Homedent = Vue.component("home",{
             <i class="fas fa-cog"></i>
         </div>
     </main>
-    `
+    `,
+    computed: {
+        minites(){
+            return this.coa.watchtime/60;
+        }
+    }
 });
 
 

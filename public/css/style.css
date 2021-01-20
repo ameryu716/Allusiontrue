@@ -54,9 +54,11 @@ a {
     border-color: #fff;
     color: #fff;
     box-shadow: 0 3px 0 rgba(0,255,0,0.2);
+    opacity: 0.5;
 }
 #c-btn:hover {
     background-color: forestgreen;
+    opacity: 1;
 }
 #c-btn:active {
     box-shadow: 0 0 0 rgba(0,255,0,0.2);
@@ -68,9 +70,11 @@ a {
     border-color: #fff;
     color: #fff;
     box-shadow: 0 3px 0 rgba(0,0,255,0.2);
+    opacity: 0.5;
 }
 #u-btn:hover {
     background-color: royalblue;
+    opacity: 1;
 }
 #u-btn:active {
     box-shadow: 0 0 0 rgba(0,0,255,0.2);
@@ -82,9 +86,11 @@ a {
     border-color: #fff;
     color: #fff;
     box-shadow: 0 3px 0 rgba(255,0,0,0.2);
+    opacity: 0.5;
 }
 #d-btn:hover {
     background-color: red;
+    opacity: 1;
 }
 #d-btn:active {
     box-shadow: 0 0 0 rgba(255,0,0,0.2);
@@ -155,4 +161,35 @@ a {
     border: solid 2px orangered;
     border-radius: 10px;
     z-index: 10;
+}
+
+@media screen and (max-width: 480px){ 
+    #wrap header {
+        width:45%;
+    }
+    #wrap main#homew {
+        display: none;
+    }
+    #wrap {
+        padding: 0;
+    }
+    #wrap aside {
+        border: solid 2px lawngreen;
+        width: 96vw;
+        margin: 2vw;
+    }
+    #wrap .asideheader {
+        width: 50%;
+        margin-left: 54%;
+    }
+    #wrap aside ul {
+        margin: 10px 0;
+    }
+    #wrap aside .title-board {
+        width: 97%;
+    }
+    #wrap aside .title-board .date {
+        left: unset;
+        right: 15px;
+    }
 }
