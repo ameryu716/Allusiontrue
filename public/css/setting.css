@@ -203,4 +203,5 @@ input#img-file {
     position: absolute;
     right: 30px;
     bottom: 200px;
+    cursor: pointer;
 }

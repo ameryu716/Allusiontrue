@@ -3,21 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const multipart = require('connect-multiparty');
 const session = require("express-session");
-// const pool = require("./routes/pool.js");
-// const pg = require('pg');
-// const RedisStore = require('connect-redis')(session);
-// const cookieParser = require("cookie-parser");
-// const MemcachedStore = require("connect-memcached")(session);
-//// const pgSession = require("connect-pg-simple")(session);
-// const Sequelize = require("sequelize");
-
-// const session_opt = require("./routes/sessionopt.js")
-
-
-// app.use(connect.cookieParser());
-// app.use(connect.cookieSession({ secret: 'tobo!', cookie: { maxAge: 60 * 60 * 1000 }}));
-
-// app.use(cookieParser());
 
 const session_opt = {
     saveUninitialized: false,
@@ -46,7 +31,6 @@ app.set('view engine', 'ejs');
 
 // app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.use("/login",forminRouter);
 app.use("/",homeRouter);
