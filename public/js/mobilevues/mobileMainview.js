@@ -3,7 +3,7 @@ import {ArtCard} from "./mobileArtcardew.js";
 import {addArtCard} from "./mobileAddArtcardew.js";
 import {AsideBoard} from "./mobileAside.js";
 import {Homedent} from "./mobileHomew.js";
-import {Settingent} from "./mobileSettingew.js";
+import {Settingent} from "./mobileSettinge.js";
 import {creatent} from "./mobileCreatecardew.js";
 import {imgLoad} from "../effect/imgLocalIndex.js";
 

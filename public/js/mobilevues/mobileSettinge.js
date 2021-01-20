@@ -1,6 +1,5 @@
 import {imgLoad, imgSave} from "../effect/imgLocalIndex.js";
 
-let ieee =0;
 const Settingent = Vue.component("setting",{
     props:{
         set: Object
