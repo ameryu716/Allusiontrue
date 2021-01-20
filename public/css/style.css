@@ -202,4 +202,19 @@ a {
     #wrap .status div span {
         font-size: 4vw;
     }
+    #wrap #operator {
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        height: 50px;
+        width: 50px;
+        border: none;
+        border-radius: 100%;
+        background-color: #1f964e;
+    }
+    #wrap #operator i{
+        font-size: 24px;
+        padding: 12px 0;
+        color: #fff;
+    }
 }
