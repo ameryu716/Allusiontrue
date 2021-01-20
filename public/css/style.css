@@ -167,6 +167,10 @@ a {
     #wrap header {
         width:45%;
     }
+    #wrap header #logo {
+        margin-left: 0;
+        width: auto;
+    }
     #wrap main#homew {
         display: none;
     }
@@ -191,5 +195,8 @@ a {
     #wrap aside .title-board .date {
         left: unset;
         right: 15px;
+    }
+    #wrap .status div span {
+        font-size: 4vw;
     }
 }

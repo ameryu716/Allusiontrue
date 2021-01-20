@@ -355,3 +355,33 @@ main {
 .enterbox,.enterbox span,#form-submit {
     cursor: pointer;
 }
+
+
+
+@media screen and (max-width: 480px){ 
+    main {
+        height: auto;
+        position: relative;
+        width: 94vw;
+        margin: 2vw;
+        left: unset;
+        top: unset;
+    }
+    header {
+        position: relative;
+    }
+    .enterboxdiv {
+        margin-top: 38%;
+        margin-left: 42%;
+    }
+    #help {
+        position: relative;
+        bottom: unset;
+        right: unset;
+        margin: 10px auto;
+    }
+    .formdiv {
+        position: relative;
+        width: 100%;
+    }
+}
