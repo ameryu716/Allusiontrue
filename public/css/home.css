@@ -155,57 +155,16 @@ main#homew {
     #wrap {
         width: 100vw;
     }
+    #main-wrap.onspace {
+        padding: 1.5vh 2vw;
+    }
+    #main-wrap.nonspace {
+        padding: 0;
+    }
     header {
         height: 70px;
     }
     .shrinklogbtn {
         font-size: 4.5vw;
-    }
-    main {
-        display: none;
-    }
-    aside{
-        width: 95vw;
-        margin: 2vw;
-        border: solid 2px lawngreen;
-    }
-    .asideheader {
-        background-color: transparent;
-    }
-    .filter-icon {
-        font-size: 5vw;
-    }
-    .filter-option {
-        font-size: 4vw;
-    }
-
-
-
-
-
-
-
-    .animecard{
-        height: 240px;
-    }
-    .title-board {
-        height: 55px;
-        width: 98%;
-    }
-    .card-title {
-        font-size: 4vw;
-        height: auto;
-        width: 77%;
-    }
-    .title-board .date {
-        left: 72%;
-        font-size: 3vw;
-    }
-    .date::after {
-        width: 130px;
-        top: 37px;
-    }
-    .card-content {
-        font-size: 4vw;
     }
 }

@@ -186,11 +186,14 @@ a {
     #wrap aside {
         border: solid 2px lawngreen;
         width: 96vw;
-        margin: 2vw;
+        height: 97vh;
+        margin: 0;
+        box-sizing: border-box;
     }
     #wrap .asideheader {
         width: 50%;
         margin-left: 54%;
+        background-color: transparent;
     }
     #wrap aside ul {
         margin: 10px 0;
@@ -291,6 +294,7 @@ a {
 
     .mastertools {
         position: fixed;
+        left: 0;
         bottom: 0;
         width: 100vw;
         background-color: rgba(0,0,0,0.2);
