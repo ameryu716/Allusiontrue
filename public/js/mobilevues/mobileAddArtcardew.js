@@ -1,4 +1,4 @@
-import {imgOptimization} from "../effect/imgUpload.js";
+import {imgOptimization} from "../effect/mobileImgUpload.js";
 
 
 const addArtCard = Vue.component("addartcardent", {
@@ -7,10 +7,16 @@ const addArtCard = Vue.component("addartcardent", {
         ons: Number
     },
     template: `
-    <main id="artcardew">
+    <main id="addartcardew" class="artcardew">
         <form action="/artentry" method="POST" id="artentry">
-            <div class="di-back" v-on:click="$emit('backhome')"><i class="fas fa-arrow-left backicon"></i></div>
-            <div class="lefter">
+        <!--  <div class="di-back" v-on:><i class="fas fa-arrow-left backicon"></i></div> -->
+            
+            <div class="object title">
+                <span class="divname">Title</span>
+                <input :value="art[ons].title" class="divcontents" type="text" name="title" v-if="!isnewedit">
+                <input class="divcontents" type="text" name="title" v-if="isnewedit">
+            </div>
+
                 <div class="object anime-img">
                     <div id="imgprev"></div>
                     <label for="imguploads" id="uploadlabel">
@@ -29,26 +35,16 @@ const addArtCard = Vue.component("addartcardent", {
                     <input class="divcontents" type="date" name="when" v-if="isnewedit" >
                 </div>
 
-                <div class="object created">
-                    <span class="divname">Created</span>
-                    <input :value="art[ons].creater" class="divcontents" type="text" name="created" v-if="!isnewedit">
-                    <input class="divcontents" type="text" name="created" v-if="isnewedit">
-                </div>
-
-                <div class="object else pageout"></div>
-
                 <div class="object onaired">
-                    <span class="divname">Onaired</span>
+                    <span class="divname">Onaired</span><i class="far fa-calendar-alt"></i>
                     <input :value="art[ons].onaired" class="divcontents" type="date" name="onaired" v-if="!isnewedit">
                     <input class="divcontents" type="date" name="onaired" v-if="isnewedit">
                 </div>
-            </div>
-            <div class="righter">
 
-                <div class="object title">
-                    <span class="divname">Title</span>
-                    <input :value="art[ons].title" class="divcontents" type="text" name="title" v-if="!isnewedit">
-                    <input class="divcontents" type="text" name="title" v-if="isnewedit">
+                <div class="object created">
+                    <span class="divname">Created</span>
+                    <input :value="art[ons].creater" class="divcontents" type="text" name="created" v-if="!isnewedit">
+                    <input class="divcontents" type="text" name="created" v-if="isnewedit" placeholder="作ったところ">
                 </div>
 
                 <div class="object arttype">
@@ -75,10 +71,10 @@ const addArtCard = Vue.component("addartcardent", {
                     <textarea class="divcontents" name="ftxt" v-if="isnewedit"></textarea>
                 </div>
 
-            </div>
             <input type="hidden" name="editid" id="editid" :value=art[ons].id v-if="!isnewedit">
             <input type="hidden" name="editmode" id="editmode" :value=ons>
             <input type="submit" class="crudbtn" id="ca-btn" value="やめる" v-if="!isnewedit">
+            <button @click="$emit('backhome')" class="backbtn">戻る</button>
             <input type="submit" class="crudbtn" id="c-btn" value="登録">
         </form>
     </main>

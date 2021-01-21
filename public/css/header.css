@@ -4,7 +4,7 @@ header {
     top: 0;
     left: 0;
     width: 200px;
-    height: 80px;
+    height: 40px;
     z-index: 5;
     transition: 0.3s;
 }
@@ -15,10 +15,10 @@ header {
     margin-left: 10%;
 }
 #logo span {
-    font-size: 40px;
+    font-size: 30px;
     color: beige;
     display: block;
-    padding: 12px;
+    padding: 0;
     text-align: center;
     font-family: cursive;
     transition: 1s;

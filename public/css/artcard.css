@@ -1,4 +1,4 @@
-main#artcardew {
+main.artcardew {
     position: relative;
     height: 80vh;
     width: fit-content;
@@ -272,4 +272,77 @@ input.divcontents:focus,textarea.divcontents:focus {
     box-shadow: -1px 3px 0 rgba(0,0,0,0.8);
     cursor: pointer;
     background-color: #fff;
+}
+
+@media screen and (max-width: 480px){
+    .object {
+        margin: 10px;
+        font-size: 5vw;
+    }
+    .object:not(:nth-child(2)){
+        height: 40px;
+        line-height: 1;
+    }
+    main#artcardew {
+        height: 94vh;
+        width: 96.8vw;
+        margin: 0;
+        padding: 5px 5px 5vh;
+        flex-wrap: wrap;
+    }
+    .object.when,.object.onaired {
+        min-width: 0;
+    }
+    #wrap .object.title {
+        min-width: 210px;
+        margin-bottom: 0;
+        height: 45px;
+        line-height: 1.3;
+    }
+    #wrap .object.anime-img {
+        min-height: 190px;
+        min-width: 90vw;
+        padding: 0;
+        margin: 10px;
+    }
+    .imageicon {
+        font-size: 12vw;
+        padding: 20px 0;
+        margin: 16% 40%;
+    }
+    .object.when {
+        margin-left: 20px;
+    }
+    #artcardew .object.when i,.object.onaired i {
+        margin-top: 10px;
+    }
+    .object.when .divcontents,.object.onaired .divcontents{
+        padding: 8px 0;
+        margin: 0 10px 0 15px;
+    }
+    .object.onaired {
+        display: flex;
+    }
+    .artcardew .arttype input.divcontents{
+        width: auto;
+        max-width: 40vw;
+    }
+    .object.contents {
+        height: 150px;
+    }
+    .object.created {
+        min-width: 48vw;
+    }
+    .backbtn {
+        background-color: #f55151a8;
+        width: 80px;
+        height: 35px;
+        color: #fff;
+        position: absolute;
+        border-radius: 20px;
+        border: none;
+        font-size: 4vw;
+        bottom: 3%;
+        left: 5%;
+    }
 }
