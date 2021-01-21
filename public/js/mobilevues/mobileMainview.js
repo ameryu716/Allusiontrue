@@ -5,6 +5,7 @@ import {AsideBoard} from "./mobileAside.js";
 import {Homedent} from "./mobileHomew.js";
 import {Settingent} from "./mobileSettingew.js";
 import {creatent} from "./mobileCreatecardew.js";
+import {Mastertool} from "./mobileMastertool.js";
 import {imgLoad} from "../effect/imgLocalIndex.js";
 
 async function usrdataload(){
@@ -67,6 +68,7 @@ const RootC = Vue.component("Rune",{
         "addartcardent": addArtCard,
         "setting": Settingent,
         "CCard": creatent,
+        "Mastertool": Mastertool
     },
     data: function() {
         return{
@@ -75,6 +77,7 @@ const RootC = Vue.component("Rune",{
             displaymode: "list",
             selfdisp: "text",
             loginmode: "logout",
+            tools: false,
             darktheme: false,
             createmode: false,
             usrdata: {},
@@ -118,6 +121,9 @@ const RootC = Vue.component("Rune",{
         },
         settoggle(){
             this.displaymode = "setting";
+        },
+        listtoggle(){
+            this.displaymode = "list";
         },
         darkthemetoggle(color){
             if(color !== undefined){
@@ -203,11 +209,14 @@ const RootC = Vue.component("Rune",{
                 this.displaymode = "home";
                 homeelement.onclick = undefined;
             }
+        },
+        toolstoggle(){
+            this.tools = !this.tools;
         }
     },
     template:`
     <div id="vue-rendering" v-bind:class="vuerendclass">
-        <Alluheader v-bind:login="loginmode"></Alluheader>
+        <Alluheader v-bind:login="loginmode" v-if="!isheader"></Alluheader>
         <div id="main-wrap">
             <button id="cancelbtn" v-if="isCreateAndHome" @click="createcancel">やめる</button>
             
@@ -221,9 +230,28 @@ const RootC = Vue.component("Rune",{
              v-if="ishome">
             </home>
 
-            <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" @artDelete="artDelete" @artUpdate="artUpdate" v-if="isart"></artcardent>
-            <addartcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="hometoggle" v-if="isartentry"></addartcardent>
-            <setting v-bind:set="usrdata" v-if="issetting" @backhome="hometoggle" @themechange="darkthemetoggle"></setting>
+            <artcardent
+             v-bind:art="artdata" 
+             v-bind:ons="onselect" 
+             @backhome="listtoggle" 
+             @artDelete="artDelete" 
+             @artUpdate="artUpdate" 
+             v-if="isart">
+            </artcardent>
+            
+            <addartcardent
+             v-bind:art="artdata" 
+             v-bind:ons="onselect" 
+             @backhome="listtoggle" 
+             v-if="isartentry">
+            </addartcardent>
+
+            <setting
+             v-bind:set="usrdata" 
+             v-if="issetting" 
+             @backhome="hometoggle" 
+             @themechange="darkthemetoggle">
+            </setting>
 
             <CCard v-bind:art="artdata"
              v-bind:ons="onselect" 
@@ -242,7 +270,18 @@ const RootC = Vue.component("Rune",{
              @filtselect="sorting">
             </asideboard>
 
-            <button id="operator"><i class="fas fa-plus"></i></button>
+            <div class="mobiletools" v-if="islist">
+                <button id="operator" @click="toolstoggle"><i class="fas fa-plus"></i></button>
+                <transition name="fade">
+                    <div id="opetools" v-if="tools">
+                        <button class="mtool-card" @click="cardCreateRun">カード</button>
+                        <button class="mtool-create" @click="artentrytoggle">作成</button>
+                    </div>
+                </transition>
+            </div>
+
+            <Mastertool v-bind:imgsrc="usrdata.profileimg"></Mastertool>
+
         </div>
     </div>
     `,
@@ -274,6 +313,9 @@ const RootC = Vue.component("Rune",{
                 createmode: this.createmode
             }
         },
+        isheader(){
+            return (this.displaymode == "art")||(this.displaymode == "artentry");
+        }
     },
     mounted: function(){
         setTimeout(() => {

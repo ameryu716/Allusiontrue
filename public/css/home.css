@@ -148,3 +148,64 @@ main#homew {
     font-size: 1.5em;
     color: rgb(0,0,0,0.7);
 }
+
+
+@media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+    #wrap {
+        width: 100vw;
+    }
+    header {
+        height: 70px;
+    }
+    .shrinklogbtn {
+        font-size: 4.5vw;
+    }
+    main {
+        display: none;
+    }
+    aside{
+        width: 95vw;
+        margin: 2vw;
+        border: solid 2px lawngreen;
+    }
+    .asideheader {
+        background-color: transparent;
+    }
+    .filter-icon {
+        font-size: 5vw;
+    }
+    .filter-option {
+        font-size: 4vw;
+    }
+
+
+
+
+
+
+
+    .animecard{
+        height: 240px;
+    }
+    .title-board {
+        height: 55px;
+        width: 98%;
+    }
+    .card-title {
+        font-size: 4vw;
+        height: auto;
+        width: 77%;
+    }
+    .title-board .date {
+        left: 72%;
+        font-size: 3vw;
+    }
+    .date::after {
+        width: 130px;
+        top: 37px;
+    }
+    .card-content {
+        font-size: 4vw;
+    }
+}
