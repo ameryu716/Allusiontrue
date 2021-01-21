@@ -5,6 +5,7 @@ import {AsideBoard} from "./mobileAside.js";
 import {Homedent} from "./mobileHomew.js";
 import {Settingent} from "./mobileSettingew.js";
 import {creatent} from "./mobileCreatecardew.js";
+import {Mastertool} from "./mobileMastertool.js";
 import {imgLoad} from "../effect/imgLocalIndex.js";
 
 async function usrdataload(){
@@ -67,6 +68,7 @@ const RootC = Vue.component("Rune",{
         "addartcardent": addArtCard,
         "setting": Settingent,
         "CCard": creatent,
+        "Mastertool": Mastertool
     },
     data: function() {
         return{
@@ -228,9 +230,28 @@ const RootC = Vue.component("Rune",{
              v-if="ishome">
             </home>
 
-            <artcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="listtoggle" @artDelete="artDelete" @artUpdate="artUpdate" v-if="isart"></artcardent>
-            <addartcardent v-bind:art="artdata" v-bind:ons="onselect" @backhome="listtoggle" v-if="isartentry"></addartcardent>
-            <setting v-bind:set="usrdata" v-if="issetting" @backhome="hometoggle" @themechange="darkthemetoggle"></setting>
+            <artcardent
+             v-bind:art="artdata" 
+             v-bind:ons="onselect" 
+             @backhome="listtoggle" 
+             @artDelete="artDelete" 
+             @artUpdate="artUpdate" 
+             v-if="isart">
+            </artcardent>
+            
+            <addartcardent
+             v-bind:art="artdata" 
+             v-bind:ons="onselect" 
+             @backhome="listtoggle" 
+             v-if="isartentry">
+            </addartcardent>
+
+            <setting
+             v-bind:set="usrdata" 
+             v-if="issetting" 
+             @backhome="hometoggle" 
+             @themechange="darkthemetoggle">
+            </setting>
 
             <CCard v-bind:art="artdata"
              v-bind:ons="onselect" 
@@ -258,6 +279,9 @@ const RootC = Vue.component("Rune",{
                     </div>
                 </transition>
             </div>
+
+            <Mastertool v-bind:imgsrc="usrdata.profileimg"></Mastertool>
+
         </div>
     </div>
     `,
