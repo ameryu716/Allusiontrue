@@ -21,7 +21,8 @@ const session = require("express-session");
 
 const session_opt = {
     saveUninitialized: false,
-    secret: "grehahghh",
+    // secret: process.env.key_sessionapp,
+    secret: "bsrhtrhehhthtr",
     resave: false,
     cookie: {
         maxAge:60*60*1000
