@@ -203,4 +203,64 @@ input#img-file {
     position: absolute;
     right: 30px;
     bottom: 200px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px){
+    #optiondisplay {
+        width: 96vw;
+        margin-top: 0;
+        margin-left: 0;
+        padding: 40px 0 20px;
+        border: solid 1px gray;
+        border-radius: 10px;
+        height: 97vh;
+        box-sizing: border-box;
+    }
+    .set-caption {
+        font-size: 5vw;
+    }
+    #icon {
+        width: 31vw;
+    }
+    #pimgd .set-input {
+        display: block;
+    }
+    input#img-file {
+        margin-top: 20px;
+        /* margin-left: 10px; */
+        width: 120px;
+    }
+    input#img-file {
+        width: 47vw;
+    }
+    #ftxt {
+        width: 80vw;
+        height: 150px;
+    }
+    #setform {
+        padding-bottom: 26%;
+    }
+
+    #setsubmit {
+        width: 125px;
+        height: 45px;
+        font-size: 5vw;
+        bottom: 8%;
+    }
+
+    #logouter {
+        font-size: 4vw;
+        padding: 5px 15px;
+        right: 5%;
+        top: 2%;
+        height: 25px;
+    }
+    #themeinput {
+        right: unset;
+        bottom: 8%;
+        font-size: 5vw;
+        padding: 6px 12px;
+        left: 3%;
+    }
 }

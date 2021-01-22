@@ -216,8 +216,8 @@ const RootC = Vue.component("Rune",{
     },
     template:`
     <div id="vue-rendering" v-bind:class="vuerendclass">
-        <Alluheader v-bind:login="loginmode" v-if="!isheader"></Alluheader>
-        <div id="main-wrap">
+        <Alluheader v-bind:login="loginmode" v-if="!iscardew"></Alluheader>
+        <div id="main-wrap" v-bind:class="mainwrappadd">
             <button id="cancelbtn" v-if="isCreateAndHome" @click="createcancel">やめる</button>
             
             <home v-bind:coa="usrdata"
@@ -280,7 +280,12 @@ const RootC = Vue.component("Rune",{
                 </transition>
             </div>
 
-            <Mastertool v-bind:imgsrc="usrdata.profileimg"></Mastertool>
+            <Mastertool
+             v-bind:imgsrc="usrdata.profileimg" 
+             @letset="settoggle"
+             @backhome="listtoggle"
+             v-if="!iscardew">
+            </Mastertool>
 
         </div>
     </div>
@@ -313,7 +318,13 @@ const RootC = Vue.component("Rune",{
                 createmode: this.createmode
             }
         },
-        isheader(){
+        mainwrappadd(){
+            return {
+                onspace: this.islist||this.issetting,
+                nonspace: this.isart||this.isartentry
+            }
+        },
+        iscardew(){
             return (this.displaymode == "art")||(this.displaymode == "artentry");
         }
     },
