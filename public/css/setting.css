@@ -256,6 +256,11 @@ input#img-file {
         top: 2%;
         height: 25px;
     }
+    .darktheme #logouter {
+        background-color: transparent;
+        border: solid 2px rgb(255,115,115);
+        box-shadow: 0 0 5px rgba(255,115,115);
+    }
     #themeinput {
         right: unset;
         bottom: 8%;

@@ -78,7 +78,7 @@ const RootC = Vue.component("Rune",{
             selfdisp: "text",
             loginmode: "logout",
             tools: false,
-            darktheme: false,
+            darktheme: true,
             createmode: false,
             usrdata: {},
             artdata: [],
@@ -216,7 +216,7 @@ const RootC = Vue.component("Rune",{
     },
     template:`
     <div id="vue-rendering" v-bind:class="vuerendclass">
-        <Alluheader v-bind:login="loginmode" v-if="!iscardew"></Alluheader>
+        <!-- <Alluheader v-bind:login="loginmode" v-if="!iscardew"></Alluheader> -->
         <div id="main-wrap" v-bind:class="mainwrappadd">
             <button id="cancelbtn" v-if="isCreateAndHome" @click="createcancel">やめる</button>
             
