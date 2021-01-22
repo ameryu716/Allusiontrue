@@ -1,4 +1,4 @@
-import {imgOptimization} from "../effect/imgUpload.js";
+import {imgOptimization} from "../effect/mobileImgUpload.js";
 
 const creatent = Vue.component("CCard", {
     props:{
@@ -9,7 +9,7 @@ const creatent = Vue.component("CCard", {
     },
     template: `
     <main id="artcardew" class="createcardew">
-        <div class="lefter">
+        <div class="lefter" style="transform:rotateZ(90deg)">
             <div class="object anime-img">
                 <div id="imgprev"></div>
                 <img :src="art[ons].thumbnail" id="profileimg">
@@ -17,16 +17,15 @@ const creatent = Vue.component("CCard", {
             <div class="object when"><span class="divname">When</span><i class="far fa-calendar-alt"></i><span class="divcontents">{{art[ons].sawdate}}</span></div>
             <div class="object created"><span class="divname">Created</span><span class="divcontents">{{art[ons].creater}}</span></div>
             <div class="object else written"><span class="divname">Written</span><span class="divcontents">{{usrname}}</span></div>
-            <div class="object onaired"><span class="divname">Onaired</span><span class="divcontents">{{art[ons].onaired}}</span></div>
+            <div class="object onaired"><span class="divname">Onaired</span><i class="far fa-calendar-alt"></i><span class="divcontents">{{art[ons].onaired}}</span></div>
         </div>
-        <div class="righter">
+        <div class="righter" style="transform:rotateZ(90deg)">
             <div class="object title"><span class="divname">Title</span><span class="divcontents">{{art[ons].title}}</span></div>
             <div class="object arttype"><span class="divname">Type</span><span class="divcontents">{{art[ons].conttype}}</span></div>
             <div class="object artscale"><span class="divname">Scale</span><span class="divcontents">{{art[ons].scale}}<span class="scaletype1">分</span></span></div>
             <div class="object contents"><span class="divcontents">{{art[ons].freetext}}</span></div>
         </div>
         <div id="card-download" v-on:click="cardwrite"><i class="fas fa-file-download"></i></div>
-        <div id="download-cancel" v-on:click="$emit('createcancel')">B</div>
     </main>
     `,
     mounted: function(){
@@ -44,6 +43,10 @@ const creatent = Vue.component("CCard", {
             dc.download = "canvas.png";
             html2canvas(main[0])
             .then((canvas)=>{
+                // kaiten
+                const ccc = canvas.getContext("2d");
+                ccc.rotate( 90 * Math.PI / 180 );
+                //kaiten
                 canvas.crossOrigin = "Anonymous";
                 dc.href = canvas.toDataURL("canvas/png");
                 dc.click();

@@ -124,6 +124,7 @@ const RootC = Vue.component("Rune",{
         },
         listtoggle(){
             this.displaymode = "list";
+            this.createmode = false;
         },
         darkthemetoggle(color){
             if(color !== undefined){
@@ -206,7 +207,6 @@ const RootC = Vue.component("Rune",{
         createcancel(){
             if(this.createmode){
                 this.createmode = false;
-                this.displaymode = "home";
                 homeelement.onclick = undefined;
             }
         },
@@ -274,17 +274,20 @@ const RootC = Vue.component("Rune",{
                 <button id="operator" @click="toolstoggle"><i class="fas fa-plus"></i></button>
                 <transition name="fade">
                     <div id="opetools" v-if="tools">
-                        <button class="mtool-card" @click="cardCreateRun">カード</button>
-                        <button class="mtool-create" @click="artentrytoggle">作成</button>
+                        <button class="mtool-card" @click="cardCreateRun">カード作成</button>
+                        <button class="mtool-create" @click="artentrytoggle">作品登録</button>
                     </div>
                 </transition>
+                <div v-if="createmode" class="sharenav">
+                    <p class="share-p">共有したいアイテムを選んでください。</p>
+                </div>
             </div>
 
             <Mastertool
              v-bind:imgsrc="usrdata.profileimg" 
              @letset="settoggle"
              @backhome="listtoggle"
-             v-if="!iscardew">
+             v-if="necetool">
             </Mastertool>
 
         </div>
@@ -320,12 +323,15 @@ const RootC = Vue.component("Rune",{
         },
         mainwrappadd(){
             return {
-                onspace: this.islist||this.issetting,
+                onspace: this.islist||this.issetting||this.isCCard,
                 nonspace: this.isart||this.isartentry
             }
         },
         iscardew(){
-            return (this.displaymode == "art")||(this.displaymode == "artentry");
+            return this.isart||this.isartentry||this.isCCard;
+        },
+        necetool(){
+            return !(this.isart||this.isartentry);
         }
     },
     mounted: function(){
@@ -365,7 +371,5 @@ const Runerend = new Vue({
         "Rune": RootC
     }
 })
-
-const homeelement = document.getElementById("homew");
 
 export {RootC,Runerend};

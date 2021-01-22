@@ -40,54 +40,88 @@ main#artcardew.createcardew {
 
 
 @media screen and (max-width: 480px){
-    main#addartcardew {
-        height: 97vh;
-        width: 96.8vw;
+    /* #wrap .createmode #main-wrap {
+        display: block;
+        padding: 10px 5px 12px;
+    } */
+    .createmode #cardlist {
+        border: solid 2px lawngreen;
+    }
+    .createmode .animecard {
+        border: solid 3px #00ff49;
+        animation: colorborder 3s infinite ease-in-out;
+    }
+    @keyframes colorborder {
+        0%,100%{
+            border-color: #00ff49;
+        }
+        60%{
+            border-color: #00ff49;
+        }
+        70%{
+            border-color: rgba(213, 255, 213, 0.897);
+        }
+        80%{
+            border-color: #00ff49;
+        }
+    }
+    main#artcardew.createcardew {
+        padding: 30px 15px 10px 15px;
+        border: solid 1px rgba(0,0,0,0.3);
+        border-radius: 20px;
         margin: 0;
-        padding: 5px 5px 2vh;
-        flex-wrap: wrap;
+        box-sizing: border-box;
+        height: 90vh;
+        position: relative;
     }
-    #artentry .object:not(:nth-child(2)){
-        height: 45px;
-        line-height: inherit;
+    #wrap #artcardew.createcardew .object.anime-img {
+        min-height: 180px;
+        min-width: 70vw;
     }
-    input.divcontents{
-        font-size: 5vw;
-    }
-    textarea.divcontents {
-        font-size: 4vw;
-    }
-    form#artentry {
-        flex-wrap: wrap;
-    }
-    
-    #artentry .object.when {
-        margin-left: 20px;
-    }
-    .object.when input[type="date"]::-webkit-calendar-picker-indicator {
-        width: 100%;
-    }
-    .object.when input.divcontents,.object.onaired input.divcontents {
-        width: 35vw;
-        font-size: 5vw;
-        margin: 0;
-    }
-    #artentry .object.onaired i {
+    .createcardew .lefter {
         position: absolute;
-        font-size: 25px;
+        top: 10px;
+        right: 10px;
+        height: 50vh;
+        width: 90vw;
+    }
+    .createcardew .righter {
+        position: absolute;
+        bottom: -25px;
+        right: 30px;
+        height: 90vw;
+        width: 44vh;
+    }
+    .createcardew .object:not(:first-child), .object.title {
+        padding: 2px 2px 2px 8px;
+        height: 45px;
+    }
+    .createcardew .object.when .divcontents, .object.onaired .divcontents {
+        margin: 0 10px;
+    }
+    #artcardew .object.when i, .object.onaired i {
         margin-top: 13px;
     }
-    .created input.divcontents {
-        width: 50vw;
+    .createcardew .object.created {
+        min-width: 30vw;
     }
-    .onaired input[type="date"]::-webkit-calendar-picker-indicator {
-        background: transparent;
-        width: 100%;
+    .createcardew .object.else.written {
+        height: 50px;
+        width: 110px;
+        margin-left: 30px;
+        margin-right: 0;
     }
-    .onaired input[type="date"]::-webkit-datetime-edit {
-        padding-left: 35px;
+    #wrap .createcardew .object.title {
+        margin-bottom: 10px;
     }
-    #artentry .object.contents {
-        height: 150px;
+    .createcardew .object.arttype, .object.artscale {
+        min-width: 12vh;
+        margin: 10px 8px;
     }
+    .createcardew .object.contents {
+        width: 250px;
+        height: 180px;
+    }
+    
+    
 }

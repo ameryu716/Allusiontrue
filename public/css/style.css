@@ -234,26 +234,74 @@ a {
     #wrap #opetools {
         display: flex;
         position: absolute;
-        bottom: 27%;
-        right: 6%;
+        bottom: 30%;
+        right: 11%;
         width: max-content;
         height: 50px;
         background-color: #fff;
-        /* transition: 0.5s; */
-        transform-origin: 80% top;
+        transform-origin: 87% -25%;
+    }
+    #wrap .darktheme #opetools {
+        background: transparent;
     }
     #wrap #opetools button {
-        margin: 0 5px;
+        margin: 0 10px;
         border-radius: 10px;
         border: none;
-        background-color: #00a500b3;
+        background-color: transparent;
         word-break: keep-all;
-        font-size: 5vw;
-        width: 90px;
-        height: 45px;
-        box-shadow: 0 0 10px rgba(100,100,100,0.2);
-        color: #fff;
+        font-size: 6vw;
+        width: 38vw;
+        height: 40px;
+        box-shadow: 0 0 5px #20ff4bcc;
+        color: rgb(14 99 19 / 74%);
         font-weight: bold;
+        font-family: serif;
+    }
+    .sharenav {
+        margin: 0;
+        position: absolute;
+        top: -30%;
+        width: 92vw;
+        left: -60%;
+        text-align: center;
+        font-weight: bold;
+        color: #ff7d3f;
+        font-size: 5vw;
+        border-radius: 5px;
+        border: rgb(255 177 149 / 69%) solid 1px;
+        background-size: 300% 300%;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .share-p {
+        margin: 3px;
+        padding: 5px 0;
+        background-color: #fff;
+    }
+    .sharenav::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+        border-radius: calc(2 * var(--borderWidth));
+        z-index: -1;
+        animation: neondot 3s ease alternate infinite;
+        background-size: 300% 300%;
+    }
+    @keyframes neondot {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
     #wrap .mtool-card {
         

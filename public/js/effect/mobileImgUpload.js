@@ -12,6 +12,7 @@ const imageicon = document.getElementsByClassName("imageicon");
 const imageplusicon = document.getElementsByClassName("imageplus-icon");
 const cbtn = document.getElementById("c-btn");
 const ubtn = document.getElementById("u-btn");
+const createen = document.getElementsByClassName("createcardew");
 
 if(profileimg.naturalHeight === 0){
     console.log("srcが空");
@@ -114,9 +115,14 @@ if(profileimg.naturalHeight === 0){
     
 } else if(profileimg.naturalHeight >= 1){
     console.log("srcが空じゃない");
-    imguploads.style.display = "none";
-    profileimg.style.width = "90vw";
-    profileimg.style.height = "190px";
+    if(createen[0] == undefined){
+        imguploads.style.display = "none";
+        profileimg.style.width = "90vw";
+        profileimg.style.height = "190px";
+    }else if(createen[0] !== undefined){
+        profileimg.style.width = "70vw";
+        profileimg.style.height = "180px";
+    }
     profileimg.style.objectFit = "cover";
 }
 

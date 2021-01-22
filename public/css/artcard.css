@@ -345,4 +345,55 @@ input.divcontents:focus,textarea.divcontents:focus {
         bottom: 3%;
         left: 5%;
     }
+    /* addmode or editmode */
+    main#addartcardew {
+        height: 97vh;
+        width: 96.8vw;
+        margin: 0;
+        padding: 5px 5px 2vh;
+        flex-wrap: wrap;
+    }
+    #artentry .object:not(:nth-child(2)){
+        height: 45px;
+        line-height: inherit;
+    }
+    input.divcontents{
+        font-size: 5vw;
+    }
+    textarea.divcontents {
+        font-size: 4vw;
+    }
+    form#artentry {
+        flex-wrap: wrap;
+    }
+    
+    #artentry .object.when {
+        margin-left: 20px;
+    }
+    .object.when input[type="date"]::-webkit-calendar-picker-indicator {
+        width: 100%;
+    }
+    .object.when input.divcontents,.object.onaired input.divcontents {
+        width: 35vw;
+        font-size: 5vw;
+        margin: 0;
+    }
+    #artentry .object.onaired i {
+        position: absolute;
+        font-size: 25px;
+        margin-top: 13px;
+    }
+    .created input.divcontents {
+        width: 50vw;
+    }
+    .onaired input[type="date"]::-webkit-calendar-picker-indicator {
+        background: transparent;
+        width: 100%;
+    }
+    .onaired input[type="date"]::-webkit-datetime-edit {
+        padding-left: 35px;
+    }
+    #artentry .object.contents {
+        height: 150px;
+    }
 }

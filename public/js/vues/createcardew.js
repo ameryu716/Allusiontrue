@@ -8,7 +8,7 @@ const creatent = Vue.component("CCard", {
         darktheme: Boolean
     },
     template: `
-    <main id="artcardew" class="createcardew">
+    <main id="artcardew" class="createcardew artcardew">
         <div class="lefter">
             <div class="object anime-img">
                 <div id="imgprev"></div>

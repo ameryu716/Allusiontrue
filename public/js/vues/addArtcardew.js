@@ -7,7 +7,7 @@ const addArtCard = Vue.component("addartcardent", {
         ons: Number
     },
     template: `
-    <main id="artcardew">
+    <main id="artcardew" class="artcardew">
         <form action="/artentry" method="POST" id="artentry">
             <div class="di-back" v-on:click="$emit('backhome')"><i class="fas fa-arrow-left backicon"></i></div>
             <div class="lefter">
