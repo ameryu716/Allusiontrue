@@ -53,9 +53,11 @@ const AsideBoard = Vue.component("asideboard", {
     },
     created: function(){
         document.body.style.height = "92.5vh";
+        document.getElementById("wrap").style.height = "92.5vh";
     },
     destroyed: function(){
         document.body.style.height = "100%";
+        document.getElementById("wrap").style.height = "100%";
     }
 })
 

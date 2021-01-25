@@ -250,7 +250,8 @@ input#img-file {
         width: 125px;
         height: 45px;
         font-size: 5vw;
-        bottom: 12%;
+        bottom: unset;
+        top: 80%;
     }
 
     #logouter {
@@ -267,7 +268,8 @@ input#img-file {
     }
     #themeinput {
         right: unset;
-        bottom: 13%;
+        bottom: unset;
+        top: 80%;
         font-size: 5vw;
         padding: 6px 12px;
         left: 3%;
