@@ -155,8 +155,11 @@ main#homew {
     #wrap {
         width: 100vw;
     }
-    #main-wrap.onspace {
+    /* #main-wrap.onspace {
         padding: 1.5vh 2vw;
+    } */
+    #main-wrap.onspace {
+        padding: 1vh 2vw;
     }
     #main-wrap.nonspace {
         padding: 0;

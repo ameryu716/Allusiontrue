@@ -190,6 +190,9 @@ a {
     #wrap #main-wrap {
         display: block;
     }
+    #wrap .darktheme {
+        overflow: hidden;
+    }
     #wrap aside {
         border: solid 2px lawngreen;
         width: 96vw;
