@@ -342,12 +342,12 @@ input.divcontents:focus,textarea.divcontents:focus {
         border-radius: 20px;
         border: none;
         font-size: 4vw;
-        top: 92vh;
+        top: 88vh;
         left: 5%;
     }
     .artcardew #c-btn{
         bottom: unset;
-        top: 90vh;
+        top: 85vh;
     }
     /* addmode or editmode */
     main#addartcardew {
