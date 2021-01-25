@@ -348,6 +348,7 @@ input.divcontents:focus,textarea.divcontents:focus {
     /* addmode or editmode */
     main#addartcardew {
         height: 97vh;
+        min-height: 97vh;
         width: 96.8vw;
         margin: 0;
         padding: 5px 5px 2vh;

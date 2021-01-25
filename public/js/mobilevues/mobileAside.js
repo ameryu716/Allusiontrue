@@ -68,6 +68,8 @@ const AsideBoard = Vue.component("asideboard", {
     destroyed: function(){
         document.body.style.height = "100%";
         document.getElementById("wrap").style.height = "100%";
+        document.body.style.minHeight = "100%";
+        
     }
 })
 
