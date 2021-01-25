@@ -154,7 +154,7 @@ main#homew {
     /* 480px以下に適用されるCSS（スマホ用） */
     #wrap {
         width: 100vw;
-        overflow: hidden;
+        overflow: auto;
     }
     /* #main-wrap.onspace {
         padding: 1.5vh 2vw;
