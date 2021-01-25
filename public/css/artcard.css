@@ -353,6 +353,7 @@ input.divcontents:focus,textarea.divcontents:focus {
         margin: 0;
         padding: 5px 5px 2vh;
         flex-wrap: wrap;
+        overflow: auto;
     }
     #artentry .object:not(:nth-child(2)){
         height: 45px;
