@@ -90,6 +90,12 @@ const addArtCard = Vue.component("addartcardent", {
     created: function(){
         document.body.style.height = "92.5vh";
         document.getElementById("wrap").style.height = "92.5vh";
+        document.getElementById("artentry").addEventListener('blur', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     },
     // destroyed: function(){
     //     document.body.style.height = "100%";
