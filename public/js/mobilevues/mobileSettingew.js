@@ -123,10 +123,10 @@ const Settingent = Vue.component("setting",{
         document.body.style.height = "92.5vh";
         document.getElementById("wrap").style.height = "92.5vh";
     },
-    destroyed: function(){
-        document.body.style.height = "100%";
-        document.getElementById("wrap").style.height = "100%";
-    }
+    // destroyed: function(){
+    //     document.body.style.height = "100%";
+    //     document.getElementById("wrap").style.height = "100%";
+    // }
 })
 
 
