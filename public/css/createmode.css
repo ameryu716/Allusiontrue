@@ -27,7 +27,7 @@ main#artcardew.createcardew {
     padding-right: 25px;
 }
 
-.object.else.written::after {
+.object.else.written .divcontents::after {
     content: "";
     display: block;
     border-bottom: solid 1px #000;
@@ -80,10 +80,10 @@ main#artcardew.createcardew {
     }
     .createcardew .lefter {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        height: 50vh;
-        width: 90vw;
+        top: 0;
+        right: 15px;
+        height: 94vw;
+        width: 50vh;
     }
     .createcardew .righter {
         position: absolute;
@@ -104,6 +104,9 @@ main#artcardew.createcardew {
     }
     .createcardew .object.created {
         min-width: 30vw;
+        margin: 10px 3px;
+        overflow-wrap: break-word;
+        max-width: 35vw;
     }
     .createcardew .object.else.written {
         height: 50px;
@@ -122,6 +125,8 @@ main#artcardew.createcardew {
         width: 250px;
         height: 180px;
     }
-    
+    .darktheme #card-download i {
+        color: red;
+    }
     
 }

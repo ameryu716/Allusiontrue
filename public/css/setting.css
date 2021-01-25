@@ -220,6 +220,10 @@ input#img-file {
     .set-caption {
         font-size: 5vw;
     }
+    input[name="usrname"] {
+        height: 40px;
+        width: 280px;
+    }
     #icon {
         width: 31vw;
     }
@@ -227,8 +231,8 @@ input#img-file {
         display: block;
     }
     input#img-file {
-        margin-top: 20px;
-        /* margin-left: 10px; */
+        margin-top: 10px;
+        margin-left: 0;
         width: 120px;
     }
     input#img-file {
@@ -236,7 +240,7 @@ input#img-file {
     }
     #ftxt {
         width: 80vw;
-        height: 150px;
+        height: 130px;
     }
     #setform {
         padding-bottom: 26%;
@@ -246,7 +250,7 @@ input#img-file {
         width: 125px;
         height: 45px;
         font-size: 5vw;
-        bottom: 8%;
+        bottom: 12%;
     }
 
     #logouter {
@@ -263,7 +267,7 @@ input#img-file {
     }
     #themeinput {
         right: unset;
-        bottom: 8%;
+        bottom: 13%;
         font-size: 5vw;
         padding: 6px 12px;
         left: 3%;

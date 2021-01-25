@@ -21,7 +21,7 @@ const Settingent = Vue.component("setting",{
                     <span>ユーザーネーム</span>
                 </div>
                 <div class="set-input">
-                    <input type="text" v-model="usrname" name="usrname">
+                    <input type="text" v-model="usrname" name="usrname" class="setcontents">
                 </div>
             </div>
             <div id="icon" class="settingobj">
@@ -29,7 +29,7 @@ const Settingent = Vue.component("setting",{
                     <span>アイコン</span>
                 </div>
                 <div class="set-input">
-                    <div id="icon-now">
+                    <div id="icon-now" class="setcontents">
                         <i class="fas" v-bind:class="iconis"></i>
                     </div>
                     <select v-on:change="iconcheck" id="iconselect" name="iconselect">
@@ -60,7 +60,7 @@ const Settingent = Vue.component("setting",{
                     <span>自由入力欄</span>
                 </div>
                 <div class="set-input">
-                    <textarea name="ftxt" id="ftxt" v-model="ftxt"></textarea>
+                    <textarea name="ftxt" id="ftxt" v-model="ftxt" class="setcontents"></textarea>
                 </div>
             </div>
             <label for="theme-change" id="themeinput">

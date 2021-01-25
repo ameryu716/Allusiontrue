@@ -14,7 +14,7 @@ const addArtCard = Vue.component("addartcardent", {
             <div class="object title">
                 <span class="divname">Title</span>
                 <input :value="art[ons].title" class="divcontents" type="text" name="title" v-if="!isnewedit">
-                <input class="divcontents" type="text" name="title" v-if="isnewedit">
+                <input class="divcontents" type="text" name="title" v-if="isnewedit" placeholder="タイトル...">
             </div>
 
                 <div class="object anime-img">
@@ -44,13 +44,13 @@ const addArtCard = Vue.component("addartcardent", {
                 <div class="object created">
                     <span class="divname">Created</span>
                     <input :value="art[ons].creater" class="divcontents" type="text" name="created" v-if="!isnewedit">
-                    <input class="divcontents" type="text" name="created" v-if="isnewedit" placeholder="作ったところ">
+                    <input class="divcontents" type="text" name="created" v-if="isnewedit" placeholder="制作者...">
                 </div>
 
                 <div class="object arttype">
                     <span class="divname">Type</span>
                     <input :value="art[ons].conttype" class="divcontents" type="text" name="arttype" v-if="!isnewedit">
-                    <input class="divcontents" type="text" name="arttype" v-if="isnewedit" list="arttype">
+                    <input class="divcontents" type="text" name="arttype" v-if="isnewedit" list="arttype" placeholder="形態...">
                     <datalist id="arttype">
                         <option value="TVアニメ"></option>
                         <option value="映画"></option>
@@ -68,7 +68,7 @@ const addArtCard = Vue.component("addartcardent", {
                 <div class="object contents">
                     <span class="divname">Text</span>
                     <textarea :value="art[ons].freetext" class="divcontents" name="ftxt" v-if="!isnewedit"></textarea>
-                    <textarea class="divcontents" name="ftxt" v-if="isnewedit"></textarea>
+                    <textarea class="divcontents" name="ftxt" v-if="isnewedit" placeholder="かっこいいしかわいいしマジ最高..."></textarea>
                 </div>
 
             <input type="hidden" name="editid" id="editid" :value=art[ons].id v-if="!isnewedit">

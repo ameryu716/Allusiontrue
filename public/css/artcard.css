@@ -385,6 +385,7 @@ input.divcontents:focus,textarea.divcontents:focus {
     }
     .created input.divcontents {
         width: 50vw;
+        background-color: transparent !important;
     }
     .onaired input[type="date"]::-webkit-calendar-picker-indicator {
         background: transparent;

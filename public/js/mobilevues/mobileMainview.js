@@ -265,6 +265,7 @@ const RootC = Vue.component("Rune",{
             <asideboard
              v-bind:artarray="artdata" 
              v-bind:ons="onselect"
+             v-bind:usrset="usrdata"
              v-if="islist"
              @selectart="listSelectArt($event)" 
              @filtselect="sorting">

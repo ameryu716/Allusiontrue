@@ -124,9 +124,16 @@ a {
     background-color: #fff;
     color: #000;
 }
-.darktheme input,.darktheme textarea, .darktheme #artentry div:not(.di-back), .darktheme .artcardew div:not(.di-back){
+/* .darktheme input.divcontents,.darktheme textarea, .darktheme #artentry div:not(.di-back), .darktheme .artcardew div:not(.di-back){
     background-color: rgba(0,0,0,0.3);
     color: #fff;
+} */
+.darktheme .artcardew div:not(.di-back),.darktheme .setcontents {
+    background-color: rgba(0,0,0,0.3);
+    color: #ddd;
+}
+.darktheme input.divcontents,.darktheme textarea.divcontents {
+    color: #ddd;
 }
 .darktheme main div.move ul ol:hover,.darktheme main .status div:nth-child(2):hover {
     color: rgba(36, 219, 36, 0.7);
@@ -191,12 +198,60 @@ a {
         box-sizing: border-box;
     }
     #wrap .asideheader {
-        width: 50%;
-        margin-left: 50%;
+        width: 100%;
+        margin-left: 0;
         background-color: transparent;
+        overflow: hidden;
     }
+    #wrap #h-nav {
+        font-size: 4vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        background-color: rgb(38 38 38 / 80%);
+        padding: 3px;
+        border-radius: 0 0 10px 0;
+        box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        /* border: solid 1px #fff; */
+    }
+    #wrap #h-nav i {
+        color: steelblue;
+    }
+    #menulist {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.7);
+        height: 100vh;
+        width: 55vw;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #menu-img {
+        border-radius: 100%;
+        overflow: hidden;
+        height: 40px;
+        width: 40px;
+        border: solid 1px springgreen;
+    }
+    #menu-img img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+    #menu-name {
+        margin: 10px 3px 0 8px;
+        color: #00e371;
+    }
+
+
+
+
+
     #wrap .filter-icon {
         font-size: 22px;
+        margin: 8px 3px 8px 50%;
     }
     #wrap .filter-option {
         margin-right: 10px;
@@ -230,6 +285,7 @@ a {
         right: 0;
         width: 60%;
         height: 135px;
+        z-index: 2;
     }
     #wrap #operator {
         position: absolute;
@@ -273,6 +329,9 @@ a {
         color: rgb(14 99 19 / 74%);
         font-weight: bold;
         font-family: serif;
+    }
+    #wrap .darktheme #opetools button {
+        color: #00ffb6cc;
     }
     .sharenav {
         margin: 0;
@@ -362,6 +421,7 @@ a {
         bottom: 0;
         width: 100vw;
         background-color: rgba(0,0,0,0.2);
+        z-index: 3;
     }
     .navtools-ul {
         display: flex;

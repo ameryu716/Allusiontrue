@@ -10,7 +10,8 @@ const Mastertool = Vue.component("Mastertool", {
             </li>
             <li id="card-garally"><i class="fas fa-clipboard"></i></li>
             <li id="setting" v-on:click="$emit('letset')">
-                <img :src="imgsrc">
+                <img :src="imgsrc" style="display:none;">
+                <i class="fas fa-cog"></i>
             </li>
         </ul>
     </div>
