@@ -216,20 +216,10 @@ a {
         padding: 3px;
         border-radius: 0 0 10px 0;
         box-shadow: 0 0 10px rgba(255,255,255,0.2);
-        /* border: solid 1px #fff; */
     }
     #wrap #h-nav i {
         color: steelblue;
-    }
-    #menulist {
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(0,0,0,0.7);
-        height: 100vh;
-        width: 55vw;
-        padding: 10px;
-        box-sizing: border-box;
+        font-size: 10vw;
     }
     #menu-img {
         border-radius: 100%;
@@ -248,8 +238,66 @@ a {
         color: #00e371;
     }
 
-
-
+    #statuslist {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.7);
+        height: 92.5vh;
+        width: fit-content;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    #wrap aside #statuslist ul {
+        margin: 0 0 0 20px;
+        padding-right: 0;
+    }
+    #statuslist li {
+        padding: 10px 0;
+        height: 40px;
+        display: flex;
+    }
+    #statuslist li:not(:first-child)::before {
+        content: "";
+        height: 100%;
+        width: 5px;
+        background-color: forestgreen;
+        display: block;
+        margin-right: 10px;
+    }
+    #statuslist li:not(:first-child) div{
+        padding: 8px 0;
+    }
+    #status-img {
+        height: 40px;
+        width: 100%;
+        display: flex;
+    }
+    #status-img img {
+        border-radius: 100%;
+        object-fit: cover;
+        height: 40px;
+        width: 40px;
+    }
+    #status-name {
+        font-size: 4.5vw;
+        padding: 9px 8px;
+        display: block;
+    }
+    #menu-anc {
+        position: absolute;
+        bottom: 3%;
+        right: 15%;
+        font-size: 6vw;
+        font-weight: bold;
+        color: rgba(255,0,0,0.85);
+        background-color: #fff;
+        padding: 3px 10px;
+        border-radius: 5px;
+    }
+    #wrap #menu-anc i {
+        color: rgba(255,0,0,0.85);
+    }
 
 
     #wrap .filter-icon {

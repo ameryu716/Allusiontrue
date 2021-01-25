@@ -9,31 +9,31 @@ const AsideBoard = Vue.component("asideboard", {
     },
     data: function(){
         return{
-            onecard: this.artarray
+            onecard: this.artarray,
+            status: false
         }
     }, 
     template: `
     <aside id="cardlist">
         <div class="asideheader">
-            <div id="menulist" style="display:none;">
-                <nav>
-                    <ul>
-                        <li>
-                            <div id="menu-img"><img :src="usrset.profileimg"></div>
-                        </li>
-                        <li>
-                            <span id="menu-name">{{usrset.username}}</span>
-                        </li>
-                        <li>
-                            <a id="menu-anc" href="contact">意見</a>
-                        </li>
-                    </ul>
-                </nav>
+            <div id="statuslist" v-if="status">
+                <ul>
+                    <li id="status-profile">
+                        <div id="status-img"><img :src="usrset.profileimg"><span id="status-name">{{usrset.username}}</span></div>
+                    </li>
+                    <li>
+                        <div id="status-icon"><i class="fas awefon fa-fw" :class="usrset.icon"></i><span>Magier</span></div>
+                    </li>
+                    <li>
+                        <div id="status-time"><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{this.minites}}</span>h</div>
+                    </li>
+                </ul>
+                <a id="menu-anc" href="contact"><i class="fas fa-external-link-alt"></i>ご意見</a>
             </div>
-            <div id="h-nav">
-                <i class="fas fa-bars" style="display:none;"></i>
-                <div id="menu-img"><img :src="usrset.profileimg"></div>
-                <span id="menu-name">{{usrset.username}}</span>
+            <div id="h-nav" v-on:click="statustoggle">
+                <i class="fas fa-chevron-left" v-if="status"></i>
+                <div id="menu-img" v-if="!status"><img :src="usrset.profileimg"></div>
+                <span id="menu-name" v-if="!status">{{usrset.username}}</span>
             </div>
             <div class="filter-icon">
                 <i class="fas fa-filter"></i>
@@ -50,6 +50,16 @@ const AsideBoard = Vue.component("asideboard", {
     `,
     component:{
          "minicard":onecardnent,
+    },
+    computed: {
+        minites(){
+            return Math.round((this.usrset.watchtime/60) * 10) / 10;
+        }
+    },
+    methods: {
+        statustoggle(){
+            this.status = !this.status;
+        }
     },
     created: function(){
         document.body.style.height = "92.5vh";
