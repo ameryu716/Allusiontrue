@@ -86,6 +86,14 @@ const addArtCard = Vue.component("addartcardent", {
         isnewedit(){
             return (this.ons === 9999);
         }
+    },
+    created: function(){
+        document.body.style.height = "92.5vh";
+        document.getElementById("wrap").style.height = "92.5vh";
+    },
+    destroyed: function(){
+        document.body.style.height = "100%";
+        document.getElementById("wrap").style.height = "100%";
     }
 });
 
