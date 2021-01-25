@@ -75,7 +75,7 @@ const RootC = Vue.component("Rune",{
             displaymode: "home",
             selfdisp: "text",
             loginmode: "logout",
-            darktheme: false,
+            darktheme: true,
             createmode: false,
             usrdata: {},
             artdata: [],

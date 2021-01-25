@@ -207,7 +207,7 @@ const RootC = Vue.component("Rune",{
         createcancel(){
             if(this.createmode){
                 this.createmode = false;
-                homeelement.onclick = undefined;
+                this.listtoggle();
             }
         },
         toolstoggle(){
@@ -218,7 +218,7 @@ const RootC = Vue.component("Rune",{
     <div id="vue-rendering" v-bind:class="vuerendclass">
         <!-- <Alluheader v-bind:login="loginmode" v-if="!iscardew"></Alluheader> -->
         <div id="main-wrap" v-bind:class="mainwrappadd">
-            <button id="cancelbtn" v-if="isCreateAndHome" @click="createcancel">やめる</button>
+            // <button id="cancelbtn" v-if="isCreateAndHome" @click="createcancel">やめる</button>
             
             <home v-bind:coa="usrdata"
              v-bind:dself="selfdisp" 

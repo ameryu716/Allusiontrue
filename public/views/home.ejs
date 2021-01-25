@@ -22,7 +22,23 @@
         <div id="wrap" style="background-color: rgba(0,0,0,0.7);">
             <Rune></Rune>
         </div>
-        <script src="../js/mobilevues/mobileMainview.js" type="module"></script>
+        <script>
+            if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('iPad') > 0 || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+                //スマートフォン時に実行したいjs
+                const s = document.createElement("script");
+                s.type = "module";
+                s.src = "../js/mobilevues/mobileMainview.js";//読み込むファイル
+                document.body.appendChild(s);
+                alert(s.src);//動作確認用 確認できたら消して下さい。
+            }else{
+                const s = document.createElement("script");
+                s.type = "module";
+                s.src = "../js/vues/mainview.js";//読み込むファイル
+                document.body.appendChild(s);
+                alert(s.src);//動作確認用 確認できたら消して下さい。
+            }
+        </script>
+        <!-- <script src="../js/mobilevues/mobileMainview.js" type="module"></script> -->
         <!-- <script src="../js/vues/mainview.js" type="module"></script> -->
         <script src="../js/effect/textscroll.js" type="module"></script>
         <!-- <script src="../js/effect/headerEf.js" type="module"></script> -->

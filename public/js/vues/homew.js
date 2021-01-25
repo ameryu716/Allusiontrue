@@ -38,7 +38,7 @@ const Homedent = Vue.component("home",{
     `,
     computed: {
         minites(){
-            return this.coa.watchtime/60;
+            return Math.round((this.coa.watchtime/60) * 10) / 10;
         }
     }
 });

@@ -44,51 +44,32 @@ const creatent = Vue.component("CCard", {
             html2canvas(main[0])
             .then((canvas)=>{
                 // kaiten
+                function canvasRotate270(img){
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.height;
+                    canvas.height = img.width;
+                    //反転canvas生成
+                    const ctx = canvas.getContext('2d');
                 
-                // const c3 = document.getElementsByTagName("canvas");
+                    ctx.save();
+                    ctx.translate(0,canvas.height);
+                    ctx.rotate( 270 * Math.PI / 180 );
+                    ctx.drawImage(img, 0, 0,canvas.height,canvas.width,0,0,canvas.height,canvas.width);
+                    ctx.restore();
+                    return canvas;
+                }
 
-                const cc3 = canvas.getContext("2d");
-                cc3.save();
-                cc3.translate(parseInt(360), parseInt(600)); 
-                cc3.rotate( 270 * Math.PI / 180 );
-                cc3.drawImage(canvas,-10,-10,800,2500,-170,-350,470,1470);
-                cc3.restore();
-                document.body.appendChild(canvas);
-
-                
-                cc3.drawImage(canvas,-10,-10,800,2500,-170,-350,470,1470);
-                
-                const c2 = document.createElement("canvas");
-                c2.width = 2400;
-                c2.height = 1600;
-                const cc2 = c2.getContext("2d");
-                cc2.drawImage(canvas,-10,-10,800,2500,0,0,1600,2400);
-                document.body.appendChild(c2);
-
-
-                // const cccimg = cc3.getImageData(0, 0, 500,500);
-                // const newcanvas = document.createElement("canvas");
-                // newcanvas.width = 1200;
-                // newcanvas.height = 600;
-                // const newccc = newcanvas.getContext("2d").putImageData(cccimg, 0, 0);
-                // document.body.appendChild(newcanvas);
-
-
-                // const c2 = document.createElement("canvas");
-                // const cc3 = c2.getContext("2d");
-                // cc3.drawImage(canvas,300,300);
-                console.log("aaaaa");
-
+                const newcanvas = canvasRotate270(canvas);
                 //kaiten
-                // canvas.crossOrigin = "Anonymous";
-                // dc.href = canvas.toDataURL("canvas/png");
-                // dc.click();
-                // main[0].classList.remove("captmode");
-                // console.log("ねえ、ここまで来てるよ");
-                // atthis.$emit('createcancel');
-                // if(nowtheme){
-                //     atthis.$emit('themechange','black');
-                // }
+                newcanvas.crossOrigin = "Anonymous";
+                dc.href = newcanvas.toDataURL("canvas/png");
+                dc.click();
+                main[0].classList.remove("captmode");
+                console.log("ねえ、ここまで来てるよ");
+                atthis.$emit('createcancel');
+                if(nowtheme){
+                    atthis.$emit('themechange','black');
+                }
             })
         }
     }
