@@ -214,7 +214,7 @@ input#img-file {
         padding: 40px 0 20px;
         border: solid 1px gray;
         border-radius: 10px;
-        height: 97vh;
+        height: 90.5vh;
         box-sizing: border-box;
     }
     .set-caption {
@@ -251,7 +251,7 @@ input#img-file {
         height: 45px;
         font-size: 5vw;
         bottom: unset;
-        top: 80%;
+        top: 82%;
     }
 
     #logouter {
@@ -269,7 +269,7 @@ input#img-file {
     #themeinput {
         right: unset;
         bottom: unset;
-        top: 80%;
+        top: 82%;
         font-size: 5vw;
         padding: 6px 12px;
         left: 3%;
