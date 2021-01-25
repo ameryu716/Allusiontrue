@@ -172,8 +172,7 @@ a {
 
 @media screen and (max-width: 480px){
     body {
-        overflow: hidden;
-        height: 92.5vh;
+        overflow: auto;
     }
     #wrap header {
         width:45%;

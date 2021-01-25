@@ -50,6 +50,12 @@ const AsideBoard = Vue.component("asideboard", {
     `,
     component:{
          "minicard":onecardnent,
+    },
+    created: function(){
+        document.body.style.height = "92.5vh";
+    },
+    destroyed: function(){
+        document.body.style.height = "100%";
     }
 })
 
