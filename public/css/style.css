@@ -172,7 +172,8 @@ a {
 
 @media screen and (max-width: 480px){
     body {
-        overflow: auto;
+        overflow: hidden;
+        height: 92.5vh;
     }
     #wrap header {
         width:45%;
@@ -196,7 +197,7 @@ a {
     #wrap aside {
         border: solid 2px lawngreen;
         width: 96vw;
-        height: 90vh;
+        height: 90.5vh;
         margin: 0;
         box-sizing: border-box;
     }
