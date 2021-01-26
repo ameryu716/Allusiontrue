@@ -147,8 +147,8 @@ main#artcardew.createcardew {
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: -10px;
+        right: 10px;
         height: 90vw;
         width: 44vh;
     }
@@ -161,5 +161,8 @@ main#artcardew.createcardew {
     }
     .createcardew .object.when .divcontents, .object.onaired .divcontents {
         padding: 9px 0;
+    }
+    #wrap .createcardew .object.anime-img {
+        height: 190px;
     }
 }
