@@ -138,6 +138,9 @@ main#artcardew.createcardew {
         align-content: unset;
         padding: 0;
     }
+    #wrap .createcardew .object {
+        border: 2px solid rgba(0,0,0,0.11);
+    }
     #wrap .createcardew .object .divcontents {
         font-size: 4.5vw;
         line-break: strict;
@@ -195,6 +198,9 @@ main#artcardew.createcardew {
     #wrap .object.else.written .divcontents,#wrap .object.created .divcontents {
         white-space: nowrap;
         overflow: hidden;
+    }
+    body #wrap .createcardew .object.object.else.written {
+        width: 120px;
     }
 }
 
