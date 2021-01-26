@@ -404,6 +404,9 @@ input.divcontents:focus,textarea.divcontents:focus {
         padding-left: 35px;
     }
     #artentry .object.contents {
-        height: 150px;
+        height: 17vh;
+    }
+    #artentry .contents textarea.divcontents {
+        height: 14vh;
     }
 }

@@ -59,6 +59,17 @@ async function artDelete(id){
     })
 }
 
+const backfunc = function(func){
+    history.pushState(null, null, null),
+    window.addEventListener("load",()=>{
+        window.addEventListener("popstate",()=>{
+            func();
+        })
+    })
+} 
+
+
+
 const RootC = Vue.component("Rune",{
     components: {
         "home": Homedent,
@@ -362,7 +373,8 @@ const RootC = Vue.component("Rune",{
             .then(r => {
                 this.usrdata.profileimg = r;
             });
-        })
+        }),
+        backfunc(this.listtoggle());
     }
 })
 
