@@ -46,6 +46,14 @@ router.get("/",(req,res)=>{
     });
 });
 
+router.get("/logout",(req,res)=>{
+    req.session.usr_data = undefined;
+    req.session.mail = undefined;
+    req.session.login = undefined;
+    req.session.art_data = undefined;
+    res.redirect('/login');
+});
+
 router.get("/password/reset/:token",(req,res)=>{
     // console.log(req.params.token);
     res.render("passreset",{

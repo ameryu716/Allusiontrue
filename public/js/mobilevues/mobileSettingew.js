@@ -70,7 +70,7 @@ const Settingent = Vue.component("setting",{
             <input type="submit" value="変更する" id="setsubmit">
         </form>
         
-        <div id="logouter" onclick="location.href='./login'">ログアウト</div>
+        <div id="logouter" onclick="location.href='./login/logout'">ログアウト</div>
     </main> 
     `,
     methods: {
