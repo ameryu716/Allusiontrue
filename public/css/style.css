@@ -346,13 +346,13 @@ a {
         width: 50px;
         border: none;
         border-radius: 100%;
-        background-color: #1f964e;
+        background-color: #fff;
         box-shadow: rgb(141 255 93 / 71%) 0px 0px 8px, rgb(61 255 153 / 45%) 0px 1px 3px 1px;
     }
-    #wrap #operator i{
-        font-size: 24px;
-        padding: 12px 0;
-        color: #fff;
+    #wrap #operator i {
+        font-size: 9vw;
+        padding: 9px 0;
+        color: #008c37;
     }
     #wrap #opetools {
         display: flex;
