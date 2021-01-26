@@ -136,8 +136,10 @@ main#artcardew.createcardew {
         overflow: hidden;
         align-content: unset;
     }
-    #wrap .object {
+    #wrap .createcardew .object{
         font-size: 6vw;
+        text-overflow: ellipsis;
+        line-break: strict;
     }
     body #wrap .createcardew .object:not(.contents) {
         width: 140px;
@@ -159,6 +161,8 @@ main#artcardew.createcardew {
     #wrap .createcardew .object.contents {
         width: 290px;
         height: 180px;
+        line-break: normal;
+        line-break: anywhere;
     }
     #artcardew.createcardew .object.when i, .object.onaired i {
         margin-top: 14px;
@@ -173,5 +177,7 @@ main#artcardew.createcardew {
         white-space: nowrap;
         overflow: hidden;
     }
-
+    .html2canvas-container {
+         width: 363px !important; height: 730.8px !important;
+    }
 }
