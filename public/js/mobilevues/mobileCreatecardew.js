@@ -40,7 +40,8 @@ const creatent = Vue.component("CCard", {
             const main = document.getElementsByTagName("main");
             main[0].classList.add("captmode");
             const dc = document.createElement("a");
-            dc.download = "canvas.png";
+            const randomStr5 = String(Math.floor(Math.random()*99)+1).substr(0,5);//ランダム5
+            dc.download = "allusion"+randomStr5+".png";
             html2canvas(main[0])
             .then((canvas)=>{
                 // kaiten
@@ -64,7 +65,7 @@ const creatent = Vue.component("CCard", {
                 newcanvas.crossOrigin = "Anonymous";
 
                 // dc.href = newcanvas.toDataURL("canvas/png");
-                const randomStr5 = String(Math.floor(Math.random()*99)+1).substr(0,5);//ランダム5
+                
                 dc.href = newcanvas.toDataURL("allusion"+randomStr5+"/png");
                 dc.click();
                 main[0].classList.remove("captmode");
