@@ -13,7 +13,7 @@ const APP_KEY = process.env.key_appkey;
 const APP_URL = 'https://allusion3.herokuapp.com';
 // メール送信設定
 
-var smtpConfig = {
+const smtpConfig = {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true, // SSL
@@ -22,6 +22,7 @@ var smtpConfig = {
         pass: process.env.key_mailpass
     }
 };
+
 let transporter = nodemailer.createTransport(smtpConfig)
 
 function hashing(pass){
@@ -30,6 +31,9 @@ function hashing(pass){
 };
 
 router.get("/",(req,res)=>{
+    if(req.session.login){
+        res.redirect('/');
+    }
     req.session.usr_data = undefined;
     req.session.mail = undefined;
     req.session.login = undefined;
