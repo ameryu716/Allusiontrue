@@ -336,10 +336,10 @@ a {
     }
     #wrap .mobiletools {
         position: absolute;
-        bottom: 3vh;
-        right: 0;
-        width: 60%;
-        height: 135px;
+        bottom: 14vh;
+        right: 7vw;
+        width: 70px;
+        height: 50px;
         z-index: 5;
     }
     #wrap #operator {
@@ -351,7 +351,7 @@ a {
         border: none;
         border-radius: 100%;
         background-color: #fff;
-        box-shadow: rgb(141 255 93 / 71%) 0px 0px 8px, rgb(61 255 153 / 45%) 0px 1px 3px 1px;
+        box-shadow: rgb(141 255 93 / 71%) 0px 0px 5px, rgb(61 255 153 / 45%) 0px 1px 3px 1px;
     }
     #wrap #operator i {
         font-size: 4.5vh;
