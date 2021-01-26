@@ -332,7 +332,7 @@ a {
     }
     #wrap .mobiletools {
         position: absolute;
-        bottom: 0;
+        bottom: 3vh;
         right: 0;
         width: 60%;
         height: 135px;
@@ -460,10 +460,11 @@ a {
     }
 
     .crudbtn {
-        bottom: 20px;
+        bottom: unset;
+        top: 80vh;
     }
     .crudbtn:active {
-        bottom: 17px;
+        top: 79vh;
     }
 
     .mastertools {

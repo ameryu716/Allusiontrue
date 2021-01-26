@@ -116,7 +116,7 @@ main {
 .form-title span {
     display: block;
     font-size: 38px;
-    font-family: cursive,"system-ui";
+    font-family: cursive,"system-ui",system-ui,;
     margin-top: 15px;
 }
 .form-title div {
