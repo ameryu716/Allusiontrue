@@ -57,11 +57,11 @@ if(profileimg.naturalHeight === 0){
                     // 画像をコピーします (このメソッドで画像をカットすることができます)
                     if(img.naturalWidth >= img.naturalHeight){
                         const tateyoko = img.naturalWidth/img.naturalHeight;
-                        if(190*tateyoko < 337.5){
-                            ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,337.5,337.5/tateyoko);
+                        if(190*tateyoko < window.outerWidth){
+                            ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,window.outerWidth,window.outerWidth/tateyoko);
                         }else{
                             // ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,285*tateyoko,285);
-                            ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,337.5,337.5/tateyoko);
+                            ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,window.outerWidth,window.outerWidth/tateyoko);
                         }
                     }else{
                         const tateyoko = img.naturalHeight/img.naturalWidth;
