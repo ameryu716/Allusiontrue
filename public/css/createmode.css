@@ -169,8 +169,9 @@ main#artcardew.createcardew {
     #wrap .createcardew .object.anime-img {
         height: 190px;
     }
-    #wrap .object.else.written .divcontents {
+    #wrap .object.else.written .divcontents,#wrap .object.created .divcontents {
         white-space: nowrap;
         overflow: hidden;
     }
+
 }
