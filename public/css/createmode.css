@@ -138,7 +138,7 @@ main#artcardew.createcardew {
         align-content: unset;
         padding: 0;
     }
-    #wrap .createcardew .object {
+    #wrap .createcardew .object:not(.written) {
         border: 2px solid rgba(0,0,0,0.11);
     }
     #wrap .createcardew .object .divcontents {
