@@ -132,6 +132,9 @@ main#artcardew.createcardew {
 }
 
 @media screen and (min-height: 750px){ 
+    #wrap main#artcardew.createcardew {
+        overflow: hidden;
+    }
     #wrap .object {
         font-size: 6vw;
     }
@@ -147,8 +150,8 @@ main#artcardew.createcardew {
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: -10px;
-        right: 10px;
+        bottom: 0;
+        right: 0;
         height: 90vw;
         width: 44vh;
     }
