@@ -156,17 +156,17 @@ main#artcardew.createcardew {
     }
     #wrap .createcardew .lefter {
         position: absolute;
-        top: -10px;
+        top: -5px;
         right: 30px;
         height: 90vw;
         width: 49vh;
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: -40px;
-        right: 40px;
+        bottom: -30px;
+        right: 70px;
         height: 90vw;
-        width: 47vh;
+        width: 42vh;
         align-content: flex-start;
     }
     #wrap .createcardew .object.contents {
@@ -177,7 +177,7 @@ main#artcardew.createcardew {
     }
     body #wrap .createcardew .object.created {
         max-width: 50vw;
-        width: 130px;
+        width: 140px;
     }
     #artcardew.createcardew .object.when {
         margin-left: 10px;
