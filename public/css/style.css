@@ -171,6 +171,9 @@ a {
 }
 
 @media screen and (max-width: 480px){
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
     body {
         overflow: auto;
     }
