@@ -40,7 +40,7 @@ const creatent = Vue.component("CCard", {
             const main = document.getElementsByTagName("main");
             main[0].classList.add("captmode");
             const dc = document.createElement("a");
-            const randomStr5 = String(Math.floor(Math.random()*99)+1).substr(0,5);//ランダム5
+            const randomStr5 = String(Math.floor(Math.random()*9999)+1).substr(0,5);//ランダム5
             dc.download = "allusion"+randomStr5+".png";
             html2canvas(main[0])
             .then((canvas)=>{
