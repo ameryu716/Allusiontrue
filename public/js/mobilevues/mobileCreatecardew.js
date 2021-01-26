@@ -33,6 +33,7 @@ const creatent = Vue.component("CCard", {
     },
     methods: {
         cardwrite(){
+            alert("updated");
             const atthis = this;
             const nowtheme = atthis.darktheme;
             console.log(nowtheme);
