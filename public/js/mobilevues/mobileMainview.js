@@ -64,8 +64,10 @@ const backfunc = function(func){
     history.pushState(null, null, null);
     window.addEventListener("load",()=>{
         window.addEventListener("popstate",()=>{
+            history.pushState(null, null, null);
             func();
-            alert("back!");
+            alert("back?");
+            return;
         })
     })
     alert("end");
