@@ -149,7 +149,7 @@ main#artcardew.createcardew {
     }
 
     body #wrap .createcardew .object:not(.contents) {
-        width: 130px;
+        width: 110px;
     }
     body #wrap .createcardew .object.arttype,body #wrap .createcardew .object.artscale {
         width: 110px;
@@ -163,29 +163,34 @@ main#artcardew.createcardew {
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: -25px;
-        right: 30px;
+        bottom: -40px;
+        right: 40px;
         height: 90vw;
         width: 47vh;
+        align-content: flex-start;
     }
     #wrap .createcardew .object.contents {
-        width: 290px;
+        width: 260px;
         height: 180px;
         line-break: normal;
         line-break: anywhere;
     }
     body #wrap .createcardew .object.created {
         max-width: 50vw;
-        width: 140px;
+        width: 130px;
+    }
+    #artcardew.createcardew .object.when {
+        margin-left: 10px;
     }
     #artcardew.createcardew .object.when i, .object.onaired i {
         margin-top: 14px;
     }
     .createcardew .object.when .divcontents, .object.onaired .divcontents {
-        padding: 9px 0;
+        padding: 10px 0;
     }
     #wrap .createcardew .object.anime-img {
         height: 180px;
+        margin: 5px;
     }
     #wrap .object.else.written .divcontents,#wrap .object.created .divcontents {
         white-space: nowrap;
