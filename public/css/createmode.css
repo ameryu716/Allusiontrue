@@ -163,7 +163,7 @@ main#artcardew.createcardew {
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: 0;
+        bottom: -100px;
         right: 15px;
         height: 90vw;
         width: 40vh;
