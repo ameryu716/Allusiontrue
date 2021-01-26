@@ -285,10 +285,9 @@ const RootC = Vue.component("Rune",{
             </asideboard>
 
             <div class="mobiletools" v-if="islist">
-                <button id="operator" @click="toolstoggle"><i class="fas fa-plus"></i></button>
+                <button id="operator" @click="artentrytoggle"><i class="fas fa-plus"></i></button>
                 <transition name="fade">
                     <div id="opetools" v-if="tools">
-                        <button class="mtool-card" @click="cardCreateRun">カード作成</button>
                         <button class="mtool-create" @click="artentrytoggle">作品登録</button>
                     </div>
                 </transition>
@@ -301,6 +300,7 @@ const RootC = Vue.component("Rune",{
              v-bind:imgsrc="usrdata.profileimg" 
              @letset="settoggle"
              @backhome="listtoggle"
+             @cardCreateRun="cardCreateRun"
              v-if="necetool">
             </Mastertool>
 

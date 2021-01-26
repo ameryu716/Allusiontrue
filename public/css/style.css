@@ -336,7 +336,7 @@ a {
         right: 0;
         width: 60%;
         height: 135px;
-        z-index: 2;
+        z-index: 5;
     }
     #wrap #operator {
         position: absolute;
@@ -350,8 +350,8 @@ a {
         box-shadow: rgb(141 255 93 / 71%) 0px 0px 8px, rgb(61 255 153 / 45%) 0px 1px 3px 1px;
     }
     #wrap #operator i {
-        font-size: 9vw;
-        padding: 9px 0;
+        font-size: 4.5vh;
+        padding: 1.1vh 0px;
         color: #008c37;
     }
     #wrap #opetools {
@@ -385,11 +385,11 @@ a {
         color: #00ffb6cc;
     }
     .sharenav {
-        margin: 0;
-        position: absolute;
-        top: -30%;
-        width: 92vw;
-        left: -60%;
+        margin: 0 2vw;
+        position: fixed;
+        top: 0;
+        width: 95.5vw;
+        left: 0;
         text-align: center;
         font-weight: bold;
         color: #ff7d3f;
