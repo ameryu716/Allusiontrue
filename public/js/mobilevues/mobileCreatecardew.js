@@ -36,7 +36,7 @@ const creatent = Vue.component("CCard", {
             const atthis = this;
             const nowtheme = atthis.darktheme;
             console.log(nowtheme);
-            // atthis.$emit('themechange','white');
+            atthis.$emit('themechange','white');
             const main = document.getElementsByTagName("main");
             main[0].classList.add("captmode");
             const dc = document.createElement("a");
