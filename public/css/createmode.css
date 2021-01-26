@@ -139,7 +139,7 @@ main#artcardew.createcardew {
         padding: 0;
     }
     #wrap .createcardew .object .divcontents {
-        font-size: 5.5vw;
+        font-size: 4.5vw;
         line-break: strict;
         white-space: nowrap;
     }
@@ -152,18 +152,18 @@ main#artcardew.createcardew {
         width: 130px;
     }
     body #wrap .createcardew .object.arttype,body #wrap .createcardew .object.artscale {
-        width: 130px;
+        width: 110px;
     }
     #wrap .createcardew .lefter {
         position: absolute;
-        top: 40px;
-        right: -13px;
+        top: -10px;
+        right: 30px;
         height: 90vw;
-        width: 47vh;
+        width: 49vh;
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: 0;
+        bottom: -25px;
         right: 30px;
         height: 90vw;
         width: 47vh;
@@ -176,7 +176,7 @@ main#artcardew.createcardew {
     }
     body #wrap .createcardew .object.created {
         max-width: 50vw;
-        width: 160px;
+        width: 140px;
     }
     #artcardew.createcardew .object.when i, .object.onaired i {
         margin-top: 14px;
