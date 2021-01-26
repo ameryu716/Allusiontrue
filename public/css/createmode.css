@@ -145,19 +145,16 @@ main#artcardew.createcardew {
         width: 140px;
     }
     #wrap .createcardew .lefter {
-        position: relative;
-        /* top: 30px;
-        right: -8px; */
-        top: 0;
-        right: 0;
+        position: absolute;
+        top: 30px;
+        right: -8px;
         height: 90vw;
         width: 45vh;
     }
     #wrap .createcardew .righter {
-        position: relative;
+        position: absolute;
         bottom: 0;
-        /* right: 0; */
-        right: 15px;
+        right: 0;
         height: 90vw;
         width: 44vh;
     }
