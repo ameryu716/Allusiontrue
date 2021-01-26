@@ -11,7 +11,6 @@ const creatent = Vue.component("CCard", {
     <main id="artcardew" class="createcardew">
         <div class="lefter" style="transform:rotateZ(90deg)">
             <div class="object anime-img">
-                <div id="imgprev"></div>
                 <img :src="art[ons].thumbnail" id="profileimg">
             </div>
             <div class="object when"><span class="divname">When</span><i class="far fa-calendar-alt"></i><span class="divcontents">{{art[ons].sawdate}}</span></div>

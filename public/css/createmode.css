@@ -135,14 +135,24 @@ main#artcardew.createcardew {
     #wrap main#artcardew.createcardew {
         overflow: hidden;
         align-content: unset;
+        padding: 0;
     }
-    #wrap .createcardew .object{
+    #wrap .createcardew .object .divcontents {
         font-size: 6vw;
-        text-overflow: ellipsis;
         line-break: strict;
+        white-space: nowrap;
     }
+    #wrap .createcardew .object.contents .divcontents{
+        font-size: 6vw;
+        line-break: normal;
+        white-space: normal;
+    }
+
     body #wrap .createcardew .object:not(.contents) {
         width: 140px;
+    }
+    body #wrap .createcardew .object.arttype,body #wrap .createcardew .object.artscale {
+        width: 130px;
     }
     #wrap .createcardew .lefter {
         position: absolute;
@@ -154,9 +164,9 @@ main#artcardew.createcardew {
     #wrap .createcardew .righter {
         position: absolute;
         bottom: 0;
-        right: 0;
+        right: 15px;
         height: 90vw;
-        width: 44vh;
+        width: 40vh;
     }
     #wrap .createcardew .object.contents {
         width: 290px;
@@ -171,7 +181,7 @@ main#artcardew.createcardew {
         padding: 9px 0;
     }
     #wrap .createcardew .object.anime-img {
-        height: 190px;
+        height: 180px;
     }
     #wrap .object.else.written .divcontents,#wrap .object.created .divcontents {
         white-space: nowrap;
