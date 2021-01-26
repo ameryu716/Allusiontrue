@@ -134,6 +134,7 @@ main#artcardew.createcardew {
 @media screen and (min-height: 750px){ 
     #wrap main#artcardew.createcardew {
         overflow: hidden;
+        align-content: unset;
     }
     #wrap .object {
         font-size: 6vw;
