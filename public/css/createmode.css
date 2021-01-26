@@ -152,7 +152,7 @@ main#artcardew.createcardew {
     }
 
     body #wrap .createcardew .object:not(.contents) {
-        width: 110px;
+        width: 130px;
     }
     body #wrap .createcardew .object.arttype,body #wrap .createcardew .object.artscale {
         width: 110px;
