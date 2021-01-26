@@ -305,6 +305,7 @@ input.divcontents:focus,textarea.divcontents:focus {
         min-width: 90vw;
         padding: 0;
         margin: 10px;
+        height: 190px;
     }
     .imageicon {
         font-size: 12vw;
