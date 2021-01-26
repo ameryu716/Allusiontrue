@@ -62,13 +62,11 @@ async function artDelete(id){
 const backfunc = function(func){
     alert("start");
     history.pushState(null, null, null);
-    window.addEventListener("load",()=>{
-        window.addEventListener("popstate",()=>{
-            func();
-            history.pushState(null, null, null);
-            alert("back?");
-            return;
-        })
+    window.addEventListener("popstate",()=>{
+        func();
+        history.pushState(null, null, null);
+        alert("back?");
+        return;
     })
     alert("end");
 } 
