@@ -62,7 +62,10 @@ const creatent = Vue.component("CCard", {
                 const newcanvas = canvasRotate270(canvas);
                 //kaiten
                 newcanvas.crossOrigin = "Anonymous";
-                dc.href = newcanvas.toDataURL("canvas/png");
+
+                // dc.href = newcanvas.toDataURL("canvas/png");
+                const randomStr5 = String(Math.floor(Math.random()*99)+1).substr(0,5);//ランダム5
+                dc.href = newcanvas.toDataURL("allusion"+randomStr5+"/png");
                 dc.click();
                 main[0].classList.remove("captmode");
                 console.log("ねえ、ここまで来てるよ");
