@@ -99,10 +99,6 @@ const addArtCard = Vue.component("addartcardent", {
             });
         })
     },
-    // destroyed: function(){
-    //     document.body.style.height = "100%";
-    //     document.getElementById("wrap").style.height = "100%";
-    // }
 });
 
 export {addArtCard};
