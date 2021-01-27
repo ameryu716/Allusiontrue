@@ -385,3 +385,16 @@ main {
         width: 100%;
     }
 }
+
+
+@media screen and (min-height: 650px){
+    .enterboxdiv {
+        margin: 0;
+        position: absolute;
+        top: -20%;
+        right: -10px;
+    }
+    .formdiv {
+        margin-top: 22.5vh;
+    }
+}
