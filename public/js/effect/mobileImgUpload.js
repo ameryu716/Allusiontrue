@@ -76,12 +76,12 @@ if(profileimg.naturalHeight === 0){
                         const trimstartY = (img.naturalHeight-prevheight)/2;
                         const trimendY = trimstartY + prevheight;
 
-                        // alert("prevheight:"+prevheight);
-                        // alert("trimstartY"+trimstartY);
-                        // alert("trimendY:"+trimendY);
-                        // alert("window.outerWidth*0.9:"+window.outerWidth*0.9);
+                        alert("prevheight:"+prevheight);
+                        alert("trimstartY"+trimstartY);
+                        alert("trimendY:"+trimendY);
+                        alert("window.outerWidth*0.9:"+window.outerWidth*0.9);
 
-                        ctx.drawImage(img, 0, trimstartY,img.naturalWidth,trimendY,0,0,window.outerWidth*0.9,prevheight);
+                        ctx.drawImage(img, 0, trimstartY,img.naturalWidth,trimendY-(prevheight/2),0,0,window.outerWidth*0.9,prevheight);
                         document.body.appendChild(canvas);
                     }
                     //ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,450,285);
