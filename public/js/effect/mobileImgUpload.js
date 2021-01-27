@@ -60,6 +60,7 @@ if(profileimg.naturalHeight === 0){
                     // ctx.clearRect(0, 0, 450,285);
                     // 画像をコピーします (このメソッドで画像をカットすることができます)
                     if(img.naturalWidth >= img.naturalHeight){
+                        alert("横長ですね")
                         const tateyoko = img.naturalWidth/img.naturalHeight;
                         if(190*tateyoko < window.outerWidth){
                             ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,window.outerWidth,window.outerWidth/tateyoko);
@@ -68,6 +69,7 @@ if(profileimg.naturalHeight === 0){
                             ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,window.outerWidth,window.outerWidth/tateyoko);
                         }
                     }else{
+                        alert("縦長ですね");
                         const prevheight = 0.505*window.outerWidth;
                         const tateyoko = img.naturalHeight/img.naturalWidth;
                         const trimstartY = (img.naturalHeight-prevheight)/2;
