@@ -65,7 +65,9 @@ if(profileimg.naturalHeight === 0){
                         }
                     }else{
                         const tateyoko = img.naturalHeight/img.naturalWidth;
-                        ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,190*tateyoko,190);
+                        const trimstartY = (img.naturalHeight-190)/2;
+                        const trimendY = trimstartY + 190;
+                        ctx.drawImage(img, 0, trimstartY,img.naturalWidth,trimendY,0,0,window.outerWidth*0.9,190);
                     }
                     //ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,450,285);
                     imgSave(canvas,imguploads.files[0].name)

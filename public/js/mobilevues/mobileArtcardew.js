@@ -6,7 +6,7 @@ const ArtCard = Vue.component("artcardent", {
         ons: Number
     },
     template: `
-    <main id="artcardew" class="artcardew">
+    <main id="artcardew" class="artcardew prev-artcardew">
         <div class="object title"><span class="divname">Title</span><span class="divcontents">{{art[ons].title}}</span></div>
         <div class="object anime-img">
             <div id="imgprev"></div>

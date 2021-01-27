@@ -58,8 +58,6 @@ async function artDelete(id){
 }
 
 const backfunc = function(func){
-    alert(window.outerWidth);
-    alert(window.outerHeight);
     history.pushState(null, null, null);
     window.addEventListener("popstate",()=>{
         func();

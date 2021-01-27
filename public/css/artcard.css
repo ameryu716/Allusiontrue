@@ -412,3 +412,12 @@ input.divcontents:focus,textarea.divcontents:focus {
         height: 14vh;
     }
 }
+
+@media screen and (min-height: 650px){
+    .prev-artcardew .object.created {
+        min-width: 55vw;
+    }
+    
+
+
+}
