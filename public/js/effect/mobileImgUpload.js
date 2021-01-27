@@ -49,6 +49,10 @@ if(profileimg.naturalHeight === 0){
                 prevzone.appendChild(img); // #previewの中に追加
 
                 setTimeout(() => {
+                    alert(img.naturalHeight);
+                    alert(img.naturalWidth);
+                    alert(img.height);
+                    alert(img.width);
                     const canvas = document.createElement("canvas");
                     canvas.width = img.width;
                     canvas.height = img.height;
