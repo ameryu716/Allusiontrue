@@ -17,7 +17,7 @@ async function usrdataload(){
             resolve(data.json());
         })
         .catch(e => {
-            console.error("フェッチエラー(userdata)："+e);
+            // console.error("フェッチエラー(userdata)："+e);
             reject(new Error(e));
         });
     })
@@ -32,7 +32,7 @@ async function artdataload() {
             resolve(artdata.json());
         })
         .catch(e => {
-            console.error("フェッチエラー(artdata)："+e);
+            // console.error("フェッチエラー(artdata)："+e);
             reject(new Error(e));
         });
     })
@@ -43,8 +43,6 @@ async function artDelete(id){
     const id_str = String(id);
     formdata.append("artid",id_str);
     formdata.set("test","erty");
-    console.log(id_str);
-    console.log(typeof id_str);
     return new Promise((resolve,reject) => {
         fetch("/artdelete",{
             method: "POST",
@@ -60,13 +58,10 @@ async function artDelete(id){
 }
 
 const backfunc = function(func){
-    alert(window.outerWidth);
-    alert(window.outerHeight);
     history.pushState(null, null, null);
     window.addEventListener("popstate",()=>{
         func();
         history.pushState(null, null, null);
-        alert("back?");
         return;
     })
 } 
@@ -117,12 +112,12 @@ const RootC = Vue.component("Rune",{
                     throw new Error();
             }
         },
-        usrdataset(){
-            usrdataload().then(fullfill => this.usrdata = fullfill);
-        },
-        artdataset(){
-            artdataload().then(fullfill => this.artdata = fullfill);
-        },
+        // usrdataset(){
+        //     usrdataload().then(fullfill => this.usrdata = fullfill);
+        // },
+        // artdataset(){
+        //     artdataload().then(fullfill => this.artdata = fullfill);
+        // },
         hometoggle(){
             this.displaymode = "home";
         },
@@ -177,14 +172,14 @@ const RootC = Vue.component("Rune",{
         artDelete(){
             artDelete(this.artdata[this.onselect].id)
             .then(() => {
-                this.hometoggle();
+                this.listtoggle();
             })
             .then(()=> artdataload())
             .then(r => {
                 if(r == null){
                     return;
                 }
-                console.log("art:"+r);
+                // console.log("art:"+r);
                 this.artdata = r;
                 for(let i=0; i<r.length; i++){
                     imgLoad(this.artdata[i].thumbnail)
@@ -196,7 +191,7 @@ const RootC = Vue.component("Rune",{
         },
         sorting(){
             const sortoption = document.getElementsByClassName('filter-option')[0].value;
-            console.log(sortoption);
+            // console.log(sortoption);
             if(sortoption == "視聴日時順"){
                 this.artdata.sort(function(a,b){
                     if(a.sawdate < b.sawdate){
@@ -310,19 +305,19 @@ const RootC = Vue.component("Rune",{
     `,
     computed: {
         ishome(){
-            return (this.displaymode == "home");
+            return this.displaymode == "home";
         },
         isart(){
-            return (this.displaymode == "art");
+            return this.displaymode == "art";
         },
         isartentry(){
-            return (this.displaymode == "artentry");
+            return this.displaymode == "artentry";
         },
         issetting(){
-            return (this.displaymode == "setting");
+            return this.displaymode == "setting";
         },
         isCCard(){
-            return (this.displaymode == "create")
+            return this.displaymode == "create";
         },
         islist(){
             return this.displaymode == "list";

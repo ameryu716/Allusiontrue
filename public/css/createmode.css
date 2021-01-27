@@ -166,14 +166,14 @@ main#artcardew.createcardew {
     }
     #wrap .createcardew .righter {
         position: absolute;
-        bottom: -30px;
+        bottom: -40px;
         right: 70px;
         height: 90vw;
         width: 42vh;
         align-content: flex-start;
     }
     #wrap .createcardew .object.contents {
-        width: 260px;
+        width: 250px;
         height: 180px;
         line-break: normal;
         line-break: anywhere;

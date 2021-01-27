@@ -32,7 +32,6 @@ const creatent = Vue.component("CCard", {
     },
     methods: {
         cardwrite(){
-            alert("updated");
             const atthis = this;
             const nowtheme = atthis.darktheme;
             console.log(nowtheme);
@@ -40,7 +39,7 @@ const creatent = Vue.component("CCard", {
             const main = document.getElementsByTagName("main");
             main[0].classList.add("captmode");
             const dc = document.createElement("a");
-            const randomStr5 = String(Math.floor(Math.random()*9999)+1).substr(0,5);//ランダム5
+            const randomStr5 = String(Math.floor(Math.random()*99999)+1).substr(0,5);//ランダム5
             dc.download = "allusion"+randomStr5+".png";
             html2canvas(main[0])
             .then((canvas)=>{
@@ -62,8 +61,8 @@ const creatent = Vue.component("CCard", {
 
                 const newcanvas = canvasRotate270(canvas);
                 //kaiten
-                newcanvas.crossOrigin = "Anonymous";
 
+                newcanvas.crossOrigin = "Anonymous";
                 // dc.href = newcanvas.toDataURL("canvas/png");
                 
                 dc.href = newcanvas.toDataURL("allusion"+randomStr5+"/png");
