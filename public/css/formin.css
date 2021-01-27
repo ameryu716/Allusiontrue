@@ -391,10 +391,10 @@ main {
     .enterboxdiv {
         margin: 0;
         position: absolute;
-        top: -20%;
-        right: -10px;
+        top: -15%;
+        right: 0;
     }
     .formdiv {
-        margin-top: 22.5vh;
+        margin-top: 18vh;
     }
 }
