@@ -315,6 +315,8 @@ a {
     }
     #wrap aside ul {
         margin: 10px 0;
+        display: flex;
+        flex-wrap: wrap;
     }
     #wrap aside .title-board {
         width: 97%;
@@ -351,7 +353,7 @@ a {
         border: none;
         border-radius: 100%;
         background-color: #fff;
-        box-shadow: rgb(141 255 93 / 71%) 0px 0px 5px, rgb(61 255 153 / 45%) 0px 1px 3px 1px;
+        box-shadow: rgb(141 255 93 / 39%) 0px 0px 3px, rgb(61 255 153 / 19%) 0px 1px 3px 1px;
     }
     #wrap #operator i {
         font-size: 4.5vh;

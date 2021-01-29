@@ -1,4 +1,5 @@
 import {onecardnent} from "./mobileCardlistew.js";
+import {onegarallynent} from "./mobileGarally.js";
 import {aheadEffect} from "../effect/asideheaderEf.js";
 
 const AsideBoard = Vue.component("asideboard", {
@@ -10,7 +11,8 @@ const AsideBoard = Vue.component("asideboard", {
     data: function(){
         return{
             onecard: this.artarray,
-            status: false
+            status: false,
+            list: true
         }
     }, 
     template: `
@@ -42,14 +44,20 @@ const AsideBoard = Vue.component("asideboard", {
                 <option >視聴日時順</option>
                 <option selected>50音順</option>
             </select>
+            <div id="displayer" v-on:click="displaytoggle">
+                <i class="fas fa-list-ul" id="display-list" v-if="list"></i>
+                <i class="fas fa-th-large" id="display-garally" v-if="!list"></i>
+            </div>
         </div>
         <ul>
-            <minicard v-for="(item,index) in artarray" v-bind:onecard="item" v-bind:index="index" v-bind:key="item.id" @selectart="$emit('selectart',$event)"></minicard>
+            <minicard v-for="(item,index) in artarray" v-bind:onecard="item" v-bind:index="index" v-bind:key="item.id" @selectart="$emit('selectart',$event)" v-if="!list"></minicard>
+            <Garally v-for="(item,index) in artarray" v-bind:onecard="item" v-bind:index="index" v-bind:key="item.id" @selectart="$emit('selectart',$event)" v-if="list"></Garally>
         </ul>
     </aside>
     `,
     component:{
          "minicard":onecardnent,
+         "Garally":onegarallynent
     },
     computed: {
         minites(){
@@ -59,6 +67,9 @@ const AsideBoard = Vue.component("asideboard", {
     methods: {
         statustoggle(){
             this.status = !this.status;
+        },
+        displaytoggle(){
+            this.list = !this.list;
         }
     },
     created: function(){
