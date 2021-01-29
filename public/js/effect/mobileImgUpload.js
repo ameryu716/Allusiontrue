@@ -71,17 +71,20 @@ if(profileimg.naturalHeight === 0){
                     }else{
                         alert("縦長ですね");
                         const prevheight = 0.48*window.outerWidth;
+                        
                         // const tateyoko = img.naturalHeight/img.naturalWidth;
-
-                        const trimstartY = (img.naturalHeight-prevheight)/2;
+                        const trimheight = img.naturalWidth/1.9516;
+                        const scaler = trimheight/prevheight;
+                        const trimstartY = (img.naturalHeight-trimheight)/2;
                         const trimendY = prevheight;
+                        
 
                         alert("prevheight:"+prevheight);
                         alert("trimstartY"+trimstartY);
                         alert("trimendY:"+trimendY);
                         alert("window.outerWidth*0.9:"+window.outerWidth*0.9);
 
-                        ctx.drawImage(img, 0, trimstartY,img.naturalWidth,trimendY,0,0,window.outerWidth*0.9,prevheight);
+                        ctx.drawImage(img, 0, trimstartY,img.naturalWidth,trimheight,0,0,window.outerWidth*0.9,prevheight);
                         document.body.appendChild(canvas);
                     }
                     //ctx.drawImage(img, 0, 0,img.naturalWidth,img.naturalHeight,0,0,450,285);
