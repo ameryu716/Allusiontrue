@@ -255,6 +255,7 @@ a {
     #wrap aside #statuslist ul {
         margin: 0 0 0 20px;
         padding-right: 0;
+        flex-direction: column;
     }
     #statuslist li {
         padding: 10px 0;

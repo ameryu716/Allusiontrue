@@ -19,7 +19,7 @@ const AsideBoard = Vue.component("asideboard", {
     <aside id="cardlist">
         <div class="asideheader">
             <div id="statuslist" v-if="status">
-                <ul>
+                <ul id="statusul">
                     <li id="status-profile">
                         <div id="status-img"><img :src="usrset.profileimg"><span id="status-name">{{usrset.username}}</span></div>
                     </li>
