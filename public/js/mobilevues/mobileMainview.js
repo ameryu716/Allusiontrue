@@ -282,13 +282,8 @@ const RootC = Vue.component("Rune",{
 
             <div class="mobiletools" v-if="islist">
                 <button id="operator" @click="artentrytoggle"><i class="fas fa-plus"></i></button>
-                <transition name="fade">
-                    <div id="opetools" v-if="tools">
-                        <button class="mtool-create" @click="artentrytoggle">作品登録</button>
-                    </div>
-                </transition>
                 <div v-if="createmode" class="sharenav">
-                    <p class="share-p">共有したいアイテムを選んでください。</p>
+                    <i class="far fa-comment-dots"></i><p class="share-p">どれを共有しますか？</p>
                 </div>
             </div>
 

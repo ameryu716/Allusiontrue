@@ -68,7 +68,6 @@ const creatent = Vue.component("CCard", {
                 dc.href = newcanvas.toDataURL("allusion"+randomStr5+"/png");
                 dc.click();
                 main[0].classList.remove("captmode");
-                console.log("ねえ、ここまで来てるよ");
                 atthis.$emit('createcancel');
                 if(nowtheme){
                     atthis.$emit('themechange','black');
