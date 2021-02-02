@@ -89,6 +89,7 @@ const RootC = Vue.component("Rune",{
             tools: false,
             darktheme: true,
             createmode: false,
+            sharemode: true,
             usrdata: {},
             artdata: [],
         }
@@ -210,7 +211,13 @@ const RootC = Vue.component("Rune",{
                 })
             }
         },
-        cardCreateRun(){
+        cardCreateRun(args){
+            if(args == "share"){
+                this.sharemode = true;
+            }
+            if(args == "save"){
+                this.sharemode = false;
+            }
             this.createmode = true;
         },
         createcancel(){
@@ -266,6 +273,7 @@ const RootC = Vue.component("Rune",{
              v-bind:ons="onselect" 
              v-bind:usrname="usrdata.username"
              v-bind:darktheme="darktheme"
+             v-bind:sharemode="sharemode"
              @themechange="darkthemetoggle($event)" 
              @createcancel="createcancel" 
              v-if="isCCard">
@@ -289,6 +297,7 @@ const RootC = Vue.component("Rune",{
 
             <Mastertool
              v-bind:imgsrc="usrdata.profileimg" 
+             v-bind:createmode="createmode"
              @letset="settoggle"
              @backhome="listtoggle"
              @cardCreateRun="cardCreateRun"

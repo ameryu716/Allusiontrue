@@ -5,7 +5,8 @@ const creatent = Vue.component("CCard", {
         art: Array,
         ons: Number,
         usrname: String,
-        darktheme: Boolean
+        darktheme: Boolean,
+        sharemode: Boolean
     },
     template: `
     <main id="artcardew" class="createcardew">
@@ -24,7 +25,7 @@ const creatent = Vue.component("CCard", {
             <div class="object artscale"><span class="divname">Scale</span><span class="divcontents">{{art[ons].scale}}<span class="scaletype1">分</span></span></div>
             <div class="object contents"><span class="divcontents">{{art[ons].freetext}}</span></div>
         </div>
-        <div id="card-download" v-on:click="cardwrite"><i class="fas fa-file-download"></i></div>
+        <div id="card-download" v-on:click="cardwrite">OK!</div>
     </main>
     `,
     mounted: function(){
@@ -38,9 +39,8 @@ const creatent = Vue.component("CCard", {
             atthis.$emit('themechange','white');
             const main = document.getElementsByTagName("main");
             main[0].classList.add("captmode");
-            const dc = document.createElement("a");
             const randomStr5 = String(Math.floor(Math.random()*99999)+1).substr(0,5);//ランダム5
-            dc.download = "allusion"+randomStr5+".png";
+            
             html2canvas(main[0])
             .then((canvas)=>{
                 // kaiten
@@ -60,13 +60,35 @@ const creatent = Vue.component("CCard", {
                 }
 
                 const newcanvas = canvasRotate270(canvas);
-                //kaiten
-
                 newcanvas.crossOrigin = "Anonymous";
                 // dc.href = newcanvas.toDataURL("canvas/png");
+                if(!this.sharemode){
+                    //保存
+                    const dc = document.createElement("a");
+                    dc.download = "allusion"+randomStr5+".png";
+                    dc.href = newcanvas.toDataURL("allusion"+randomStr5+"/png");
+                    dc.click();
+                }else{
+                    //共有
+                    newcanvas.toBlob((blob) => {
+                        const shareImg = new File([blob], randomStr5+'.png', {type: 'image/png'})
+                        navigator.share({
+                            title: 'アニメ紹介カード',
+                            text: '私のおすすめアニメです。 #アニメ紹介カード',
+                            url: 'http://allusion3.herokuapp.com',
+                            files: [shareImg]
+                        })
+                        .then(() => {
+                            // シェアしたら実行される
+                        })
+                        .catch((error) => {
+                            // シェアせず終了した場合もここに入ってくる。
+                            alert("無理です....");
+                        });
+                    })
+                    .catch(e => alert(e));
+                }
                 
-                dc.href = newcanvas.toDataURL("allusion"+randomStr5+"/png");
-                dc.click();
                 main[0].classList.remove("captmode");
                 atthis.$emit('createcancel');
                 if(nowtheme){
