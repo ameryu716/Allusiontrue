@@ -86,7 +86,7 @@ const creatent = Vue.component("CCard", {
                             alert("無理です....");
                         });
                     })
-                    .catch(e => alert(e));
+                    .catch(e => alert("無理です...."));
                 }
                 
                 main[0].classList.remove("captmode");
