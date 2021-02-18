@@ -89,6 +89,7 @@ const RootC = Vue.component("Rune",{
             tools: false,
             darktheme: true,
             createmode: false,
+            sharemode: true,
             usrdata: {},
             artdata: [],
         }
@@ -210,7 +211,13 @@ const RootC = Vue.component("Rune",{
                 })
             }
         },
-        cardCreateRun(){
+        cardCreateRun(args){
+            if(args == "share"){
+                this.sharemode = true;
+            }
+            if(args == "save"){
+                this.sharemode = false;
+            }
             this.createmode = true;
         },
         createcancel(){
@@ -266,6 +273,7 @@ const RootC = Vue.component("Rune",{
              v-bind:ons="onselect" 
              v-bind:usrname="usrdata.username"
              v-bind:darktheme="darktheme"
+             v-bind:sharemode="sharemode"
              @themechange="darkthemetoggle($event)" 
              @createcancel="createcancel" 
              v-if="isCCard">
@@ -282,18 +290,14 @@ const RootC = Vue.component("Rune",{
 
             <div class="mobiletools" v-if="islist">
                 <button id="operator" @click="artentrytoggle"><i class="fas fa-plus"></i></button>
-                <transition name="fade">
-                    <div id="opetools" v-if="tools">
-                        <button class="mtool-create" @click="artentrytoggle">作品登録</button>
-                    </div>
-                </transition>
                 <div v-if="createmode" class="sharenav">
-                    <p class="share-p">共有したいアイテムを選んでください。</p>
+                    <i class="far fa-comment-dots"></i><p class="share-p">どれを共有しますか？</p>
                 </div>
             </div>
 
             <Mastertool
              v-bind:imgsrc="usrdata.profileimg" 
+             v-bind:createmode="createmode"
              @letset="settoggle"
              @backhome="listtoggle"
              @cardCreateRun="cardCreateRun"

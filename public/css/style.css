@@ -392,38 +392,32 @@ a {
         color: #00ffb6cc;
     }
     .sharenav {
-        margin: 0 2vw;
         position: fixed;
-        top: 0;
-        width: 95.5vw;
+        top: 5px;
+        width: 90vw;
         left: 0;
         text-align: center;
         font-weight: bold;
         color: #ff7d3f;
         font-size: 5vw;
-        border-radius: 5px;
         border: rgb(255 177 149 / 69%) solid 1px;
-        background-size: 300% 300%;
         border-radius: 5px;
-        overflow: hidden;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-around;
+    }
+    .darktheme .sharenav i {
+        color: orangered;
+        font-size: 8vw;
+        padding: 4px 0 0 0;
+        width: 10%;
     }
     .share-p {
         margin: 3px;
-        padding: 5px 0;
-        background-color: #fff;
-    }
-    .sharenav::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
+        padding: 0 0 0 10px;
+        border-bottom: solid 2px orangered;
         width: 100%;
-        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-        border-radius: calc(2 * var(--borderWidth));
-        z-index: -1;
-        animation: neondot 3s ease alternate infinite;
-        background-size: 300% 300%;
+        text-align: left;
     }
     @keyframes neondot {
         0% {
@@ -492,6 +486,7 @@ a {
         padding: 5px 60px;
         border-right: solid 2px rgba(0,255,0,0.7);
         color: seagreen;
+        position: relative;
     }
 
     li#setting {
@@ -503,5 +498,23 @@ a {
     li#setting img {
         border-radius: 100%;
         width: 30px;
+    }
+    .share-hide {
+        position: absolute;
+        top: -50px;
+        left: -25px;
+        display: flex;
+        width: 250px;
+        justify-content: space-around;
+    }
+    .share-hide div {
+        background-color: #fff;
+        padding: 3px;
+        border-radius: 5px;
+        border: solid green 2px;
+        text-align: center;
+    }
+    .darktheme .share-hide span,.darktheme .share-hide i {
+        color: seagreen;
     }
 }
