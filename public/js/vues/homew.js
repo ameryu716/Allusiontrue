@@ -7,6 +7,7 @@ const Homedent = Vue.component("home",{
     props:{
         coa: Object,
         dself: String,
+        artdata: Array
     },
     template:`
     <main id="homew">
@@ -23,7 +24,7 @@ const Homedent = Vue.component("home",{
             </div>
             <div><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{this.minites}}</span>h</div>
         </div>
-        <Selfer v-bind:disp="dself" v-bind:selfobj="coa"></Selfer>
+        <Selfer v-bind:disp="dself" v-bind:selfobj="coa" v-bind:artdata="artdata"></Selfer>
         <div class="move">
             <ul>
                 <ol v-on:click="$emit('artedit')"><i class="fas fa-pen awefon fa-fw"></i>記録する</ol>

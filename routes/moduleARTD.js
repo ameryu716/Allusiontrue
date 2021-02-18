@@ -32,7 +32,7 @@ async function artDataSet(userid,req){
                 //console.log("THISIS RESULTROWS[i].id:"+ result[i].id)
                 const newsawdate = new Date(result[i].sawdate);
                 const shortsawdate = newsawdate.toLocaleDateString();
-                const newonaired = new Date(result[i].sawdate);
+                const newonaired = new Date(result[i].onaired);
                 const shortonaired = newonaired.toLocaleDateString();
                 const tart = artDataShape(result[i].id,result[i].title,result[i].thumbnail,shortsawdate,result[i].created,shortonaired,result[i].type,result[i].scale,result[i].ftxt);
                 artDataArray.push(tart);

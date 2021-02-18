@@ -38,7 +38,7 @@ const addArtCard = Vue.component("addartcardent", {
                 <div class="object else pageout"></div>
 
                 <div class="object onaired">
-                    <span class="divname">Onaired</span>
+                    <span class="divname">Onaired</span><i class="far fa-calendar-alt"></i>
                     <input :value="art[ons].onaired" class="divcontents" type="date" name="onaired" v-if="!isnewedit">
                     <input class="divcontents" type="date" name="onaired" v-if="isnewedit">
                 </div>

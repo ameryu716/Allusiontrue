@@ -213,6 +213,7 @@ const RootC = Vue.component("Rune",{
             
             <home v-bind:coa="usrdata"
              v-bind:dself="selfdisp" 
+             v-bind:artdata="artdata"
              @graphtoggle="selfDispRotate" 
              @goart="arttoggle" 
              @artedit="artentrytoggle" 
