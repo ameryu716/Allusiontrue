@@ -88,9 +88,6 @@ const RootC = Vue.component("Rune",{
         selfDispRotate(){
             switch(this.selfdisp){
                 case "text":
-                    this.selfdisp = "calend";
-                    break;
-                case "calend":
                     this.selfdisp = "graph";
                     break;
                 case "graph":

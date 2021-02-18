@@ -7,15 +7,6 @@ const Stxt = Vue.component("Selftext",{
     `
 })
 
-const Scalend = Vue.component("Calend",{
-    props: {
-        cinfo: Object
-    },
-    template:`
-    <div id="self-calender"></div>
-    `
-})
-
 const Sgraph = Vue.component("Graph",{
     props: {
         ginfo: Array
@@ -27,7 +18,7 @@ const Sgraph = Vue.component("Graph",{
     `,
     created: function(){
         setTimeout(() => {
-            
+
             const myData = document.getElementById('bargraph');
             new Chart(myData, {
                 type: 'line',
@@ -62,22 +53,17 @@ const selfer = Vue.component("Selfer",{
     },
     components: {
         "Selftext": Stxt,
-        "Calend": Scalend,
         "Graph": Sgraph
     },
     template:`
     <div class="self">
         <Selftext v-if="isText" v-bind:Text="selfobj.profiletext"></Selftext>
-        <Calend v-if="isCalend"></Calend>
         <Graph v-if="isGraph" v-bind:ginfo="artdata"></Graph>
     </div>
     `,
     computed: {
         isText(){
             return this.disp == "text";
-        },
-        isCalend(){
-            return this.disp == "calend";
         },
         isGraph(){
             return this.disp == "graph";
