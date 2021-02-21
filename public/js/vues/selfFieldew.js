@@ -16,26 +16,40 @@ const Sgraph = Vue.component("Graph",{
         <canvas id="bargraph"></canvas>
     </div>
     `,
+    methods: {
+        compareFunc(a, b) {
+            return a - b;
+        }
+    },
     created: function(){
         setTimeout(() => {
+            const calendArr = this.ginfo.map(ginfo1 => {
+                return Number(ginfo1.sawdate.split("/")[0]);
+            });
+            console.log(calendArr);
+
+            
+
+            const newrYearArr = [];
+            const newrYearArrLabeling = [];
+            for(let i=0;i<8;i++){
+                const yearParts = new Date().getFullYear()-7;
+                newrYearArr.push(yearParts+i);
+                newrYearArrLabeling.push(String(yearParts+i));
+            }
+            console.log("year:"+newrYearArr);
+            console.log("label:"+newrYearArrLabeling);
 
             const myData = document.getElementById('bargraph');
             new Chart(myData, {
                 type: 'line',
                 data: {
-                    labels: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018'],
+                    labels: newrYearArrLabeling,
                     datasets: [{
-                        label: '日本の出生児数の推移',
+                        label: '作品視聴時間（時間・h）',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: [1073663, 1046825, 1044983, 1022371, 1025105, 1004068, 965289, 944146],
-                        lineTension: 0,
-                        fill: false
-                    }, {
-                        label: '日本の死亡者数の推移',
-                        backgroundColor: 'rgb(10, 150, 190)',
-                        borderColor: 'rgb(10, 150, 190)',
-                        data: [1256387, 1248186, 1276719, 1274085, 1300537, 1299933, 1342578, 1368632],
                         lineTension: 0,
                         fill: false
                     }]

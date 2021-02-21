@@ -296,8 +296,6 @@ const RootC = Vue.component("Rune",{
             </div>
 
             <Mastertool
-             v-bind:imgsrc="usrdata.profileimg" 
-             v-bind:createmode="createmode"
              @letset="settoggle"
              @backhome="listtoggle"
              @cardCreateRun="cardCreateRun"
