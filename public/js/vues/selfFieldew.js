@@ -16,30 +16,32 @@ const Sgraph = Vue.component("Graph",{
         <canvas id="bargraph"></canvas>
     </div>
     `,
-    methods: {
-        compareFunc(a, b) {
-            return a - b;
-        }
-    },
     created: function(){
         setTimeout(() => {
-            const calendArr = this.ginfo.map(ginfo1 => {
-                return Number(ginfo1.sawdate.split("/")[0]);
-            });
-            console.log(calendArr);
-
-            
-
-            const newrYearArr = [];
             const newrYearArrLabeling = [];
+            const ChartData = [0,0,0,0,0,0,0,0];
+            let atthis = this;
+            let firstdata2014 = 2014;
+            function calendYearMatch(ginfo1,year){
+                return ginfo1.sawdate.split("/")[0] == year;
+            }
+            
             for(let i=0;i<8;i++){
                 const yearParts = new Date().getFullYear()-7;
-                newrYearArr.push(yearParts+i);
                 newrYearArrLabeling.push(String(yearParts+i));
+                //グラフ用年数ラベル作成
             }
-            console.log("year:"+newrYearArr);
-            console.log("label:"+newrYearArrLabeling);
-
+            for(let i=0;i<8;i++){
+                for(let u=0;u<atthis.ginfo.length;u++){
+                    if(calendYearMatch(atthis.ginfo[u],String(firstdata2014))){
+                        ChartData[i] += Math.round(atthis.ginfo[u].scale/60*10)/10;
+                        console.log("check");
+                    }
+                }
+                firstdata2014+=1;
+                //各年数視聴時間計算
+            }
+            
             const myData = document.getElementById('bargraph');
             new Chart(myData, {
                 type: 'line',
@@ -49,7 +51,7 @@ const Sgraph = Vue.component("Graph",{
                         label: '作品視聴時間（時間・h）',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
-                        data: [1073663, 1046825, 1044983, 1022371, 1025105, 1004068, 965289, 944146],
+                        data: ChartData,
                         lineTension: 0,
                         fill: false
                     }]

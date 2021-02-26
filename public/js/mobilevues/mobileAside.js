@@ -1,6 +1,6 @@
 import {onecardnent} from "./mobileCardlistew.js";
 import {onegarallynent} from "./mobileGarally.js";
-import {aheadEffect} from "../effect/asideheaderEf.js";
+import {Statuslist} from "./mobileStatuslister.js";
 
 const AsideBoard = Vue.component("asideboard", {
     props:{
@@ -18,20 +18,7 @@ const AsideBoard = Vue.component("asideboard", {
     template: `
     <aside id="cardlist">
         <div class="asideheader">
-            <div id="statuslist" v-if="status">
-                <ul id="statusul">
-                    <li id="status-profile">
-                        <div id="status-img"><img :src="usrset.profileimg"><span id="status-name">{{usrset.username}}</span></div>
-                    </li>
-                    <li>
-                        <div id="status-icon"><i class="fas awefon fa-fw" :class="usrset.icon"></i><span>Magier</span></div>
-                    </li>
-                    <li>
-                        <div id="status-time"><i class="fas fa-chart-pie awefon fa-fw"></i><span>{{this.minites}}</span>h</div>
-                    </li>
-                </ul>
-                <a id="menu-anc" href="contact"><i class="fas fa-external-link-alt"></i>ご意見</a>
-            </div>
+            <Statuslister v-if="status" v-bind:usrset="usrset" v-bind:artarray="artarray"></Statuslister>
             <div id="h-nav" v-on:click="statustoggle">
                 <i class="fas fa-chevron-left" v-if="status"></i>
                 <div id="menu-img" v-if="!status"><img :src="usrset.profileimg"></div>
@@ -57,12 +44,8 @@ const AsideBoard = Vue.component("asideboard", {
     `,
     component:{
          "minicard":onecardnent,
-         "Garally":onegarallynent
-    },
-    computed: {
-        minites(){
-            return Math.round((this.usrset.watchtime/60) * 10) / 10;
-        }
+         "Garally":onegarallynent,
+         "Statuslister":Statuslist
     },
     methods: {
         statustoggle(){
