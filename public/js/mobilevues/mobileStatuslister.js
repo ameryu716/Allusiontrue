@@ -29,7 +29,7 @@ const Statuslist = Vue.component("Statuslister", {
     },
     methods: {
         calendYearMatch(ginfo1,year){
-            return ginfo1.sawdate.split("/")[0] == year;
+            return ginfo1.sawdate.split("/")[2] == year;
         }
     },
     created: function(){
