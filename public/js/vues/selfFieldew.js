@@ -23,7 +23,7 @@ const Sgraph = Vue.component("Graph",{
             let atthis = this;
             let firstdata2014 = 2014;
             function calendYearMatch(ginfo1,year){
-                return ginfo1.sawdate.split("/")[0] == year;
+                return ginfo1.sawdate.split("/")[2] == year;
             }
             
             for(let i=0;i<8;i++){
